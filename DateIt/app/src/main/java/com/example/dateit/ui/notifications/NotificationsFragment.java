@@ -1,11 +1,9 @@
-package com.example.dateit.ui.myPage;
+package com.example.dateit.ui.notifications;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,19 +23,13 @@ public class NotificationsFragment extends Fragment {
         notificationsViewModel =
                 ViewModelProviders.of(this).get(NotificationsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
-
-        String[] companiesToVisit = {"SKF", "ericsson"};
-        ListView listToVisit = (ListView)root.findViewById(R.id.listToVisit);
-        ArrayAdapter<String> companyAdapter = new ArrayAdapter<~>(getActivity(),android.R.id.simple_list_item_1,companiesToVisit);
-        listToVisit.setAdapter(companyAdapter);
-
-        /*final TextView textView = root.findViewById(R.id.text_notifications);
+        final TextView textView = root.findViewById(R.id.text_notifications);
         notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
-        });*/
+        });
         return root;
     }
 }

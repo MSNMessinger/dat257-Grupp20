@@ -1,4 +1,4 @@
-package com.example.dateit.ui.myPage;
+package com.example.dateit.ui.notifications;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
