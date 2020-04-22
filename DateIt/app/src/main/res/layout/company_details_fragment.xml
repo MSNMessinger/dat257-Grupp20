@@ -10,21 +10,59 @@
         android:id="@+id/companyName"
         android:layout_width="162dp"
         android:layout_height="53dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="68dp"
         android:text="@string/CompanyName"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FF9800"
+        android:textColorHighlight="#FF9800"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <GridView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/AvailableOffers"
         android:layout_width="412dp"
         android:layout_height="88dp"
         android:layout_marginTop="37dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/companyName" />
+        app:layout_constraintTop_toBottomOf="@+id/companyName">
+
+        <TextView
+            android:id="@+id/JobOfferID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Internship"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Trainee"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.855"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.507" />
+
+        <TextView
+            android:id="@+id/SummerJobID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginEnd="57dp"
+            android:text="@string/SummerJob"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/JobOfferID"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/AboutInfo"
@@ -110,6 +148,51 @@
         android:layout_height="1dp"
         android:background="#444"
         app:layout_constraintTop_toTopOf="@+id/AvailableOffers"></TableRow>
+
+    <TextView
+        android:id="@+id/IT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="350dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/IT"
+        android:textColor="#00BCD4"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/CS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/CS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="19dp"
+        android:text="@string/CS"
+        android:textColor="#FF9800"
+        app:layout_constraintBottom_toTopOf="@+id/Elektro"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/IT" />
+
+    <TextView
+        android:id="@+id/Elektro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="330dp"
+        android:layout_marginBottom="18dp"
+        android:background="#000000"
+        android:text="@string/Elektro"
+        android:textColor="#FFEB3B"
+        app:layout_constraintBottom_toTopOf="@+id/AvailableOffers"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CS" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
