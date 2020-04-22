@@ -1,4 +1,4 @@
-package com.example.dateit.ui.notifications;
+package com.example.dateit.ui.myPage;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
