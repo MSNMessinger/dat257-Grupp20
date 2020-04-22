@@ -3,4 +3,12 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="CompanyName">CompanyName</string>
+    <string name="GoToCompany">CompanyBtn</string>
+    <string name="Department">Department</string>
+    <string name="AvailableJobs">JobOffer</string>
+    <string name="About">About</string>
+    <string name="AboutInfo">Lorem ipsum dkew kgerk rekg ekrg kergk ekrg ke gker krgke gkerkg kerkgekr kgekrg</string>
+    <string name="Notes">Notes</string>
+    <string name="AddNotes">Add Notes</string>
 </resources>
