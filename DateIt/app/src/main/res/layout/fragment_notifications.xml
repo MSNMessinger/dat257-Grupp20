@@ -22,6 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Companies To Visit"
+                android:textColor="@color/colorTitle"
                 android:textSize="32sp" />
 
             <ListView
@@ -34,6 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Favourite Companies"
+                android:textColor="@color/colorTitle"
+
                 android:textSize="32sp" />
 
             <ListView
@@ -48,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="My notes"
+                android:textColor="@color/colorTitle"
                 android:textSize="32sp" />
 
             <ListView
