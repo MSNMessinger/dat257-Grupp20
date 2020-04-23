@@ -19,4 +19,8 @@
     <string name="lunchList_location1_homePage">HA4</string>
     <string name="lunchList_location2_homePage">HA4</string>
     <string name="lunchList_location3_homePage">HC4</string>
+    <string name="contactsTitle_homePage">Contacts</string>
+    <string name="contactsMail_homePage">If you have any questions or concerns, please send an e-mail to info@date-it.se</string>
+    <string name="contactsFb_homePage">Like us on Facebook to stay tuned!</string>
+    <string name="contactsAddress_homePage">Sven Hultins gata 8, 412 58 Göteborg</string>
 </resources>
