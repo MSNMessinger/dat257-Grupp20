@@ -42,6 +42,11 @@ public class NotificationsFragment extends Fragment {
         ListView companyListOfFav = (ListView)root.findViewById(R.id.listOfFavorites);
         ArrayAdapter<String> favoriteCompanyAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfFavorites);
         companyListOfFav.setAdapter(favoriteCompanyAdapter);
+
+        String[] namesOfNotes = {"SKF", "Spotify", "Ericsson"};
+        ListView companyListOfNotes = (ListView)root.findViewById(R.id.listOfNotes);
+        ArrayAdapter<String> notesCompanyAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfNotes);
+        companyListOfNotes.setAdapter(notesCompanyAdapter);
         return root;
     }
 }
