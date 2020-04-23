@@ -28,7 +28,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/companyDetails"
-        android:name="com.example.dateit.ui.home.companyDetails"
+        android:name="com.example.dateit.ui.home.CompanyDetails"
         android:label="company_details_fragment"
         tools:layout="@layout/company_details_fragment" />
 </navigation>

@@ -4,195 +4,245 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.companyDetails">
+    tools:context=".ui.home.CompanyDetails">
 
-    <TextView
-        android:id="@+id/companyName"
-        android:layout_width="162dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="68dp"
-        android:text="@string/CompanyName"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="#FF9800"
-        android:textColorHighlight="#FF9800"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/AvailableOffers"
-        android:layout_width="412dp"
-        android:layout_height="88dp"
-        android:layout_marginTop="37dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/companyName">
+        tools:layout_editor_absoluteY="67dp">
 
-        <TextView
-            android:id="@+id/JobOfferID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Internship"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Trainee"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.855"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.507" />
-
-        <TextView
-            android:id="@+id/SummerJobID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginEnd="57dp"
-            android:text="@string/SummerJob"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/JobOfferID"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/AboutInfo"
-        android:layout_width="399dp"
-        android:layout_height="185dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="233dp"
-        android:text="@string/AboutInfo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/About" />
-
-    <TextView
-        android:id="@+id/About"
-        android:layout_width="96dp"
-        android:layout_height="49dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="300dp"
-        android:layout_marginBottom="3dp"
-        android:text="@string/About"
-        android:textColor="#00BCD4"
-        android:textColorHighlight="#03A9F4"
-        android:textColorHint="#FFFFFF"
-        android:textColorLink="#00BCD4"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/AboutInfo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AvailableOffers"
-        app:layout_constraintVertical_bias="0.49" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/CompanyNotes"
-        android:layout_width="410dp"
-        android:layout_height="168dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AboutInfo">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/AddNotes"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="126dp"
-            android:hint="@string/AddNotes" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/Notes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="315dp"
-        android:layout_marginBottom="1dp"
-        android:text="@string/Notes"
-        android:textColor="#9C27B0"
-        android:textColorHighlight="#9C27B0"
-        android:textColorHint="#9C27B0"
-        android:textColorLink="#9C27B0"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/CompanyNotes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AboutInfo" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="601dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="7dp">
 
-    <TableRow
-        android:id="@+id/UpperLine"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#444"
-        app:layout_constraintTop_toBottomOf="@+id/AvailableOffers"></TableRow>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/AvailableOffers"
+                    android:layout_width="412dp"
+                    android:layout_height="88dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
-    <TableRow
-        android:id="@+id/LowerLine"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#444"
-        app:layout_constraintTop_toTopOf="@+id/AvailableOffers"></TableRow>
+                    <TextView
+                        android:id="@+id/JobOfferID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Internship"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/IT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="350dp"
-        android:layout_marginBottom="15dp"
-        android:text="@string/IT"
-        android:textColor="#00BCD4"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/CS"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Trainee"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.855"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.507" />
 
-    <TextView
-        android:id="@+id/CS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="19dp"
-        android:text="@string/CS"
-        android:textColor="#FF9800"
-        app:layout_constraintBottom_toTopOf="@+id/Elektro"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/IT" />
+                    <TextView
+                        android:id="@+id/SummerJobID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="36dp"
+                        android:layout_marginEnd="57dp"
+                        android:text="@string/SummerJob"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/JobOfferID"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/Elektro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="330dp"
-        android:layout_marginBottom="18dp"
-        android:background="#000000"
-        android:text="@string/Elektro"
-        android:textColor="#FFEB3B"
-        app:layout_constraintBottom_toTopOf="@+id/AvailableOffers"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CS" />
+                    <TableRow
+                        android:id="@+id/LowerLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#444"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent"></TableRow>
+
+                    <TableRow
+                        android:id="@+id/UpperLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="1dp"
+                        android:background="#444"
+                        app:layout_constraintBottom_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></TableRow>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/companyName"
+                    android:layout_width="203dp"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="44dp"
+                    android:text="@string/CompanyName"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="#FF9800"
+                    android:textColorHighlight="#FF9800"
+                    android:textStyle="bold"
+                    android:typeface="serif"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/constraintLayout3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout3"
+                    android:layout_width="83dp"
+                    android:layout_height="108dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="63dp"
+                    android:background="#0000E2FF"
+                    app:layout_constraintBottom_toTopOf="@+id/AvailableOffers"
+                    app:layout_constraintEnd_toStartOf="@+id/companyName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/Elektro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="#000000"
+                        android:text="@string/Elektro"
+                        android:textColor="#FFEB3B"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.529"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/CS"
+                        app:layout_constraintVertical_bias="1.0" />
+
+                    <TextView
+                        android:id="@+id/CS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="23dp"
+                        android:text="@string/CS"
+                        android:textColor="#FF9800"
+                        app:layout_constraintBottom_toTopOf="@+id/Elektro"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/IT" />
+
+                    <TextView
+                        android:id="@+id/IT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/IT"
+                        android:textColor="#00BCD4"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toTopOf="@+id/CS"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout4"
+                    android:layout_width="409dp"
+                    android:layout_height="294dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/AvailableOffers">
+
+                    <TextView
+                        android:id="@+id/About"
+                        android:layout_width="96dp"
+                        android:layout_height="49dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/About"
+                        android:textColor="#00BCD4"
+                        android:textColorHighlight="#03A9F4"
+                        android:textColorHint="#FFFFFF"
+                        android:textColorLink="#00BCD4"
+                        android:textSize="30sp"
+                        android:typeface="sans"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="361dp"
+                        android:layout_height="147dp"
+                        android:layout_marginStart="24dp"
+                        android:text="@string/AboutInfo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.578" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/notes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginEnd="350dp"
+                    android:text="@string/Notes"
+                    android:textColor="#9C27B0"
+                    android:textColorHighlight="#FFFFFF"
+                    android:textSize="30sp"
+                    android:typeface="serif"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.509"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="413dp"
+                android:layout_height="262dp"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="@string/AddNotes"
+                            android:overScrollMode="always"
+                            android:scrollbarStyle="insideInset"
+                            android:scrollbars="vertical" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

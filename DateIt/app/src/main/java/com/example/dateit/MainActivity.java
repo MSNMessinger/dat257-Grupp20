@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.dateit.ui.home.companyDetails;
+import com.example.dateit.ui.home.CompanyDetails;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,18 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         TextView companyName = (TextView) findViewById(R.id.companyName);
-     //   companyName.setText("wwww");'
-
-        Button goToCompanyBtn = (Button) findViewById(R.id.goToCompanyBtn);
-
-
-     /*   goToCompanyBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View companyView) {
-                Navigation.findNavController(companyView).navigate(R.id.companyDetails);
-            }
-        });
-      */
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -46,12 +34,5 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
-    public void ChangeFragment(View view){
-        companyDetails fragment;
-
-        if(view == findViewById(R.id.goToCompanyBtn)) {
-            fragment = new companyDetails();
-        }
-    }
 
 }

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 import com.example.dateit.R;
 
-public class companyDetails extends Fragment {
+public class CompanyDetails extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
