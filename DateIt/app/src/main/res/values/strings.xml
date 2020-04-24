@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">DateIt</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Companies</string>
-    <string name="title_notifications">Notifications</string>
     <string name="title_homePage">Welcome to DatE-IT 2020!</string>
     <string name="intro_homePage">DatE-IT is a labour fair aimed towards students studying in the fields of computer engineering, electrical engineering and information technology. At Chalmers there are around 2000 students divided in to these 3 areas. The fair is therefor a great opportunity for students and companies in these fields to meet and network.</string>
     <string name="date_homePage">DatE-IT 2020 will take place on November 19th.</string>
@@ -36,6 +34,6 @@
     <string name="Internship">Internship</string>
     <string name="SummerJob">Summer Job</string>
     <string name="Trainee">Trainee</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard">Companies</string>
     <string name="title_notifications">My Pages</string>
 </resources>
