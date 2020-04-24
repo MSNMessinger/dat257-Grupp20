@@ -36,4 +36,6 @@
     <string name="Internship">Internship</string>
     <string name="SummerJob">Summer Job</string>
     <string name="Trainee">Trainee</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">My Pages</string>
 </resources>
