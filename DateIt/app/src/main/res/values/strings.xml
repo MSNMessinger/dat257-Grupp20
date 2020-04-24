@@ -23,4 +23,17 @@
     <string name="contactsMail_homePage">If you have any questions or concerns, please send an e-mail to info@date-it.se</string>
     <string name="contactsFb_homePage">Like us on Facebook to stay tuned!</string>
     <string name="contactsAddress_homePage">Sven Hultins gata 8, 412 58 Göteborg</string>
+    <string name="CompanyName">CompanyName</string>
+    <string name="GoToCompany">CompanyBtn</string>
+    <string name="IT">IT</string>
+    <string name="CS">CS</string>
+    <string name="Elektro">Elektro</string>
+    <string name="AvailableJobs">JobOffer</string>
+    <string name="About">About</string>
+    <string name="AboutInfo">Lorem ipsum dkew kgerk rekg ekrg kergk ekrg ke gker krgke gkerkg kerkgekr kgekrg</string>
+    <string name="Notes">Notes</string>
+    <string name="AddNotes">Add Notes</string>
+    <string name="Internship">Internship</string>
+    <string name="SummerJob">Summer Job</string>
+    <string name="Trainee">Trainee</string>
 </resources>
