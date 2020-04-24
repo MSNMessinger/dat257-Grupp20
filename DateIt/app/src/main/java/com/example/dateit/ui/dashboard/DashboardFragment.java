@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,13 +25,12 @@ public class DashboardFragment extends Fragment {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        String[] namesOfCompanies = {"Volvo", "SKF", "Academic Work", "Volvo", "SKF", "Academic Work", "Volvo", "SKF", "Academic Work", "Volvo", "SKF", "Academic Work", "Volvo", "SKF", "Academic Work"};
+        ListView companyList = (ListView)root.findViewById(R.id.CompanyList);
+        ArrayAdapter<String> companyAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfCompanies);
+        companyList.setAdapter(companyAdapter);
+
         return root;
     }
 }
