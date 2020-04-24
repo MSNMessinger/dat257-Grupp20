@@ -20,15 +20,24 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
-                android:layout_width="match_parent"
-                android:layout_height="601dp"
+                android:layout_width="421dp"
+                android:layout_height="935dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="7dp">
 
+                <TableRow
+                    android:id="@+id/UpperLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#444"
+                    tools:layout_editor_absoluteY="118dp">
+
+                </TableRow>
+
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/AvailableOffers"
-                    android:layout_width="412dp"
-                    android:layout_height="88dp"
+                    android:id="@+id/AvailableOffersConstraint"
+                    android:layout_width="418dp"
+                    android:layout_height="66dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
@@ -44,7 +53,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView3"
+                        android:id="@+id/TraineeID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/Trainee"
@@ -67,33 +76,14 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TableRow
-                        android:id="@+id/LowerLine"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#444"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="parent"></TableRow>
-
-                    <TableRow
-                        android:id="@+id/UpperLine"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="1dp"
-                        android:background="#444"
-                        app:layout_constraintBottom_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"></TableRow>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/companyName"
                     android:layout_width="203dp"
                     android:layout_height="52dp"
-                    android:layout_marginTop="44dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="50dp"
                     android:text="@string/CompanyName"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="#FF9800"
@@ -108,16 +98,17 @@
                     android:id="@+id/constraintLayout3"
                     android:layout_width="83dp"
                     android:layout_height="108dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginEnd="63dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#0000E2FF"
-                    app:layout_constraintBottom_toTopOf="@+id/AvailableOffers"
+                    app:layout_constraintBottom_toTopOf="@+id/AvailableOffersConstraint"
                     app:layout_constraintEnd_toStartOf="@+id/companyName"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/Elektro"
+                        android:id="@+id/Elektrokeyword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="16dp"
@@ -128,45 +119,46 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.529"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/CS"
+                        app:layout_constraintTop_toBottomOf="@+id/CSkeyword"
                         app:layout_constraintVertical_bias="1.0" />
 
                     <TextView
-                        android:id="@+id/CS"
+                        android:id="@+id/CSkeyword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="12dp"
                         android:layout_marginBottom="23dp"
                         android:text="@string/CS"
                         android:textColor="#FF9800"
-                        app:layout_constraintBottom_toTopOf="@+id/Elektro"
+                        app:layout_constraintBottom_toTopOf="@+id/Elektrokeyword"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/IT" />
+                        app:layout_constraintTop_toBottomOf="@+id/ITkeyword" />
 
                     <TextView
-                        android:id="@+id/IT"
+                        android:id="@+id/ITkeyword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/IT"
                         android:textColor="#00BCD4"
                         android:textSize="14sp"
-                        app:layout_constraintBottom_toTopOf="@+id/CS"
+                        app:layout_constraintBottom_toTopOf="@+id/CSkeyword"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout4"
+                    android:id="@+id/AboutConstraint"
                     android:layout_width="409dp"
                     android:layout_height="294dp"
+                    android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/AvailableOffers">
+                    app:layout_constraintTop_toBottomOf="@+id/AvailableOffersConstraint">
 
                     <TextView
-                        android:id="@+id/About"
+                        android:id="@+id/AboutRubrik"
                         android:layout_width="96dp"
                         android:layout_height="49dp"
                         android:layout_marginStart="16dp"
@@ -182,7 +174,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/AboutText"
                         android:layout_width="361dp"
                         android:layout_height="147dp"
                         android:layout_marginStart="24dp"
@@ -194,11 +186,11 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
-                    android:id="@+id/notes"
+                    android:id="@+id/notesRubrik"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="36dp"
-                    android:layout_marginTop="45dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="350dp"
                     android:text="@string/Notes"
                     android:textColor="#9C27B0"
@@ -208,38 +200,63 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.509"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+                    app:layout_constraintTop_toBottomOf="@+id/AboutConstraint" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.core.widget.NestedScrollView
-                android:layout_width="413dp"
-                android:layout_height="262dp"
-                android:fillViewport="true">
-
-                <LinearLayout
+                <TableRow
+                    android:id="@+id/LowerLine"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_height="1dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="#444"
+                    app:layout_constraintBottom_toTopOf="@+id/AboutConstraint"
+                    app:layout_constraintTop_toBottomOf="@+id/AvailableOffersConstraint"
+                    tools:layout_editor_absoluteX="8dp"></TableRow>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayout"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayout"
+                    android:layout_width="363dp"
+                    android:layout_height="256dp"
+                    android:layout_marginTop="25dp"
+                    android:background="#2D000000"
+                    android:visibility="visible"
+                    app:boxBackgroundColor="#000000"
+                    app:boxBackgroundMode="filled"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.432"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/notesRubrik">
+
+                    <androidx.core.widget.NestedScrollView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent">
+                        android:fillViewport="true">
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:hint="@string/AddNotes"
-                            android:overScrollMode="always"
-                            android:scrollbarStyle="insideInset"
-                            android:scrollbars="vertical" />
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-                    </com.google.android.material.textfield.TextInputLayout>
-                </LinearLayout>
-            </androidx.core.widget.NestedScrollView>
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/AddNotesText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/AddNotes"
+                                android:overScrollMode="always"
+                                android:scrollbarStyle="insideInset"
+                                android:scrollbars="vertical"
+                                android:shadowColor="#000000"
+                                android:shadowDx="1"
+                                android:shadowDy="1"
+                                android:shadowRadius="1" />
+                        </LinearLayout>
+                    </androidx.core.widget.NestedScrollView>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </ScrollView>
