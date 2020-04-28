@@ -8,24 +8,24 @@
 
     <ImageView
         android:id="@+id/image_view"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/mail_icon1"/>
 
     <TextView
         android:id="@+id/tv_discription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Discription"
-        android:layout_toRightOf="@+id/image_view"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
-        />
+        android:layout_marginBottom="20dp"
+        android:layout_toRightOf="@+id/image_view"
+        android:text="Description"
+        android:textSize="24sp" />
 
     <ImageView
         android:id="@+id/image_view2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:src="@drawable/mail_icon1"
         android:layout_toRightOf="@+id/tv_discription"/>
 
