@@ -11,6 +11,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.dateit.R;
 
@@ -31,5 +34,30 @@ public class HomeFragment extends Fragment {
             }
         });
         return root;
+
+    }
+
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        view.findViewById(R.id.faqButton).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) { /*
+                NavDirections action =
+                        HomeFragmentDirections
+                                .actionNavigationHomeToFaqFragment2();
+                Navigation.findNavController(view).navigate(action);
+
+             */
+            NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_navigation_home_to_fragment_second);
+
+            }
+        });
+
+       // NavHostFragment.findNavController(View);
+
+        //view.findViewById(R.id.faqButton).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.fragment_faq, null));
     }
 }

@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-
         TextView companyName = (TextView) findViewById(R.id.companyName);
 
         super.onCreate(savedInstanceState);
