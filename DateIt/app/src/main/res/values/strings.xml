@@ -36,4 +36,13 @@
     <string name="Trainee">Trainee</string>
     <string name="title_dashboard">Companies</string>
     <string name="title_notifications">My Pages</string>
+    <string name="ForStudents">For Students</string>
+    <string name="Prepare">Prepare</string>
+    <string name="PrepareText">Start by going through the catalog and select the companies you are interested in. Do it carefully, visit the companies websites to understand more what they are working on. Decide which companies you should visit during DatE-IT and focus on them, it\'s much better than aimlessly walking around among all of the companies. \n \n
+Are you at the stage of finding a job or thesis project and want the company to take an interest in you? Think about how you want to present yourself. You can practice at home on a short pitch or write down some notes that will help you present yourself in the best way possible. By being well-informed and prepared, you can match your skills and abilities against the company\'s. It is not only your education, specialization and elective courses that are important. Trust and overseas experience is often seen as an advantage. Your personality will determine whether you get the job or not. Think about yourself, who are you? What do you want? What do you know?</string>
+
+    <string name="resume">Resumé</string>
+    <string name="MakeContact">Make Contact</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
