@@ -58,6 +58,6 @@ public class HomeFragment extends Fragment {
 
        // NavHostFragment.findNavController(View);
 
-        //view.findViewById(R.id.faqButton).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.faqFragment, null));
+        //view.findViewById(R.id.faqButton).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.fragment_faq, null));
     }
 }

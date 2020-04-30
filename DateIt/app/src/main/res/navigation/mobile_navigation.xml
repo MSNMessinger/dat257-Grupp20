@@ -36,7 +36,7 @@
         tools:layout="@layout/company_details_fragment" />
     <fragment
         android:id="@+id/fragment_second"
-        android:name="com.example.dateit.fragment_second"
+        android:name="com.example.dateit.faqFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_faq" />
 </navigation>
