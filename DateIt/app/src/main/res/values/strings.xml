@@ -45,4 +45,12 @@ Are you at the stage of finding a job or thesis project and want the company to 
     <string name="MakeContact">Make Contact</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- IMG descriptions -->
+    <string name="logoDesc">Logo</string>
+    <string name="frontImgDesc">Picture of the fair</string>
+    <string name="mailIconDesc">Picture of the fair</string>
+    <string name="fbIconDesc">Picture of the fair</string>
+    <string name="locationIconImgDesc">Picture of the fair</string>
 </resources>
