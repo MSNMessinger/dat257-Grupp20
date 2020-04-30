@@ -36,4 +36,12 @@
     <string name="Trainee">Trainee</string>
     <string name="title_dashboard">Companies</string>
     <string name="title_notifications">My Pages</string>
+
+
+    <!-- IMG descriptions -->
+    <string name="logoDesc">Logo</string>
+    <string name="frontImgDesc">Picture of the fair</string>
+    <string name="mailIconDesc">Picture of the fair</string>
+    <string name="fbIconDesc">Picture of the fair</string>
+    <string name="locationIconImgDesc">Picture of the fair</string>
 </resources>
