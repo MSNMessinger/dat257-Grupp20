@@ -100,11 +100,10 @@
                 android:layout_marginBottom="10dp">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/faqButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:width="150dp"
-                    android:text="@string/studentBtn_homePage"
+                    android:text="@string/ForStudents"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

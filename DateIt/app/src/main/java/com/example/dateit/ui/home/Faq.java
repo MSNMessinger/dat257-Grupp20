@@ -16,7 +16,7 @@ import com.example.dateit.R;
 import com.example.dateit.Resume;
 
 
-public class Faq extends Fragment {
+public class Faq extends Fragment {/*
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,7 +28,7 @@ public class Faq extends Fragment {
 
     public Faq() {
         // Required empty public constructor
-    }
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +36,7 @@ public class Faq extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_faq, container, false);
     }
+/*
     public void changeFaqFragment(View view) {
         Fragment fragment;
 
@@ -60,5 +61,5 @@ public class Faq extends Fragment {
             ft.replace(R.id.fragmentPlace, fragment);
             ft.commit();
         }
-    }
+    }*/
 }

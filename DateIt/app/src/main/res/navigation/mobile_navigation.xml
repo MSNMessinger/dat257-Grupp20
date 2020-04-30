@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_home_to_companyDetails"
             app:destination="@id/companyDetails" />
+        <action
+            android:id="@+id/action_navigation_home_to_fragment_second"
+            app:destination="@id/fragment_second" />
     </fragment>
 
     <fragment
@@ -31,4 +34,9 @@
         android:name="com.example.dateit.ui.home.CompanyDetails"
         android:label="company_details_fragment"
         tools:layout="@layout/company_details_fragment" />
+    <fragment
+        android:id="@+id/fragment_second"
+        android:name="com.example.dateit.fragment_second"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" />
 </navigation>
