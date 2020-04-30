@@ -64,14 +64,17 @@
                 android:id="@+id/titleContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
                 android:padding="20dp"
                 android:text="@string/Prepare"
                 android:textAlignment="center"
                 android:textColor="@color/TextColor"
                 android:textSize="22sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/contentContainer"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/contentContainer" />
+                app:layout_constraintStart_toStartOf="@+id/contentContainer"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/contentContainer"
@@ -83,9 +86,10 @@
                 android:textColor="@color/TextColor"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleContainer"
-                app:layout_constraintVertical_bias="0.0"
-                tools:layout_editor_absoluteX="0dp" />
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
