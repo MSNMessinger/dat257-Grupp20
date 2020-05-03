@@ -1,57 +1,67 @@
 package com.example.dateit;
 
-import java.util.List;
-
 public class Company {
 
-    private String companyName;
-    private List<String> programs;
-    private List<String> offers;
+    private Integer id;
+    private String name;
+    private String programs;
+    private String jobtypes;
     private String description;
-    private List<String> locations;
-    private int foundingYear;
-    private int employeesWorld;
-    private int employeeSwe;
+    private String locations;
+    private Integer foundingYear;
+    private Integer employeesWorld;
+    private Integer employeesSwe;
     private String website;
     private String email;
 
-    public Company(String companyName, List<String> programs, List<String> offers, String description,
-                   List<String> locations, int foundingYear, int employeesWorld, int employeeSwe,
-                   String website, String email) {
-        this.companyName = companyName;
+    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email) {
+        this.id = id;
+        this.name = name;
         this.programs = programs;
-        this.offers = offers;
+        this.jobtypes = offers;
         this.description = description;
         this.locations = locations;
         this.foundingYear = foundingYear;
         this.employeesWorld = employeesWorld;
-        this.employeeSwe = employeeSwe;
+        this.employeesSwe = employeeSwe;
         this.website = website;
         this.email = email;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    private boolean isIT(){
+        if (programs.contains("IT")){
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
+
+    public String getName() {
+        return name;
     }
 
-    public List<String> getPrograms() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPrograms() {
         return programs;
     }
 
-    public void setPrograms(List<String> programs) {
+    public void setPrograms(String programs) {
         this.programs = programs;
     }
 
-    public List<String> getOffers() {
-        return offers;
+    public String getJobtypes() {
+        return jobtypes;
     }
 
-    public void setOffers(List<String> offers) {
-        this.offers = offers;
+    public void setJobtypes(String jobtypes) {
+        this.jobtypes = jobtypes;
     }
 
     public String getDescription() {
@@ -62,11 +72,11 @@ public class Company {
         this.description = description;
     }
 
-    public List<String> getLocations() {
+    public String getLocations() {
         return locations;
     }
 
-    public void setLocations(List<String> locations) {
+    public void setLocations(String locations) {
         this.locations = locations;
     }
 
@@ -87,11 +97,11 @@ public class Company {
     }
 
     public int getEmployeeSwe() {
-        return employeeSwe;
+        return employeesSwe;
     }
 
     public void setEmployeeSwe(int employeeSwe) {
-        this.employeeSwe = employeeSwe;
+        this.employeesSwe = employeeSwe;
     }
 
     public String getWebsite() {
@@ -108,5 +118,21 @@ public class Company {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "companyName='" + name + '\'' +
+                ", programs='" + programs + '\'' +
+                ", offers='" + jobtypes + '\'' +
+                ", description='" + description + '\'' +
+                ", locations='" + locations + '\'' +
+                ", foundingYear=" + foundingYear +
+                ", employeesWorld=" + employeesWorld +
+                ", employeeSwe=" + employeesSwe +
+                ", website='" + website + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
