@@ -36,4 +36,26 @@
     <string name="Trainee">Trainee</string>
     <string name="title_dashboard">Companies</string>
     <string name="title_notifications">My Pages</string>
+    <string name="ForStudents">For Students</string>
+    <string name="Prepare">Prepare</string>
+    <string name="PrepareText">Start by going through the catalog and select the companies you are interested in. Do it carefully, visit the companies websites to understand more what they are working on. Decide which companies you should visit during DatE-IT and focus on them, it\'s much better than aimlessly walking around among all of the companies. \n \n
+Are you at the stage of finding a job or thesis project and want the company to take an interest in you? Think about how you want to present yourself. You can practice at home on a short pitch or write down some notes that will help you present yourself in the best way possible. By being well-informed and prepared, you can match your skills and abilities against the company\'s. It is not only your education, specialization and elective courses that are important. Trust and overseas experience is often seen as an advantage. Your personality will determine whether you get the job or not. Think about yourself, who are you? What do you want? What do you know?</string>
+
+    <string name="Resume">Resumé</string>
+    <string name="ResumeText">During the fair it is possible to attend interviews with a number of companies. To take advantage of this opportunity, you must submit your résumé. More information on how to do this will come later.</string>
+
+    <string name="MakeContact">Make contact</string>
+    <string name="MakeContactText">The exhibitors at DatE-IT will most probably not give you a thesis project or a job immediately. If you make contact with the company representer, ask for a business card and inform that person that you would like to contact him or her again. Make sure to be remembered! You can give the company your own business card or your résumé. Keep track of which company that have received your résumé. Write down and document what has been said and how possible future contact will take place.
+
+If you choose to leave your résumé, remember that it is your way of marketing yourself. Make sure that the résumé clearly states who you are, what you know and also what your goals are. Be as thorough as possible when you write your résumé. It should be easy for the employer to understand your competense. If you contact different companies, you can give them different résumés which are tailor-made to each company.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- IMG descriptions -->
+    <string name="logoDesc">Logo</string>
+    <string name="frontImgDesc">Picture of the fair</string>
+    <string name="mailIconDesc">Picture of the fair</string>
+    <string name="fbIconDesc">Picture of the fair</string>
+    <string name="locationIconImgDesc">Picture of the fair</string>
 </resources>
