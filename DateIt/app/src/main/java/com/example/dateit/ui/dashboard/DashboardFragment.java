@@ -6,19 +6,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.dateit.Company;
+import com.example.dateit.JSONToCompanyReader;
 import com.example.dateit.R;
+
+import org.json.JSONException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
+    private List<Company> list = new ArrayList<>();
+    private List<String> names = new ArrayList<>();
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        try {
+            init();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -26,11 +41,18 @@ public class DashboardFragment extends Fragment {
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        String[] namesOfCompanies = {"Volvo", "SKF", "Academic Work", "Volvo", "SKF", "Academic Work", "Volvo", "SKF", "Academic Work", "Volvo", "SKF", "Academic Work", "Volvo", "SKF", "Academic Work"};
         ListView companyList = (ListView)root.findViewById(R.id.CompanyList);
-        ArrayAdapter<String> companyAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfCompanies);
+        ArrayAdapter<String> companyAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,names);
         companyList.setAdapter(companyAdapter);
 
         return root;
+    }
+
+    private void init() throws JSONException {
+        JSONToCompanyReader reader = new JSONToCompanyReader(getActivity());
+        list = reader.createCompanies();
+        for (Company comp : list){
+            names.add(comp.getName());
+        }
     }
 }
