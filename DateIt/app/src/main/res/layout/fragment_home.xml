@@ -10,9 +10,16 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:background="@color/colorHeader"
         android:contentDescription="@string/logoDesc"
         android:padding="10dp"
-        android:src="@drawable/dateit"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="20dp"
+        android:src="@drawable/dateit_white"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,7 +48,7 @@
                 android:layout_marginEnd="8dp"
                 android:text="@string/title_homePage"
                 android:textAlignment="center"
-                android:textColor="@color/TextColor"
+                android:textColor="@color/TextColorDark"
                 android:textSize="26sp" />
 
             <TextView
@@ -55,7 +62,7 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="20dp"
                 android:text="@string/intro_homePage"
-                android:textColor="@color/TextColor"
+                android:textColor="@color/TextColorDark"
                 android:textSize="16sp" />
 
             <TextView
@@ -67,7 +74,7 @@
                 android:paddingEnd="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/date_homePage"
-                android:textColor="@color/TextColor"
+                android:textColor="@color/TextColorDark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -90,7 +97,7 @@
                 android:paddingBottom="20dp"
                 android:text="@string/openingHours_homePage"
                 android:textAlignment="center"
-                android:textColor="@color/TextColor"
+                android:textColor="@color/TextColorDark"
                 android:textSize="24sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -103,7 +110,14 @@
                     android:id="@+id/faqButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/button_background"
+                    android:paddingStart="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingRight="10dp"
                     android:text="@string/ForStudents"
+                    android:textColor="@color/TextColorLight"
+                    android:textColorLink="@color/TextColorLight"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -122,7 +136,7 @@
                 android:paddingEnd="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/lunch_homePage"
-                android:textColor="@color/TextColor"
+                android:textColor="@color/TextColorDark"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -145,21 +159,21 @@
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="@string/lunchList_day1_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
 
                     <TextView
                         android:id="@+id/lunchLecture1_time"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:text="@string/lunchList_time1_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
 
                     <TextView
                         android:id="@+id/lunchLecture1_place"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/lunchList_location1_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -173,21 +187,21 @@
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="@string/lunchList_day2_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
 
                     <TextView
                         android:id="@+id/lunchLecture2_time"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:text="@string/lunchList_time2_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
 
                     <TextView
                         android:id="@+id/lunchLecture2_place"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/lunchList_location2_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -201,21 +215,21 @@
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
                         android:text="@string/lunchList_day3_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
 
                     <TextView
                         android:id="@+id/lunchLecture3_time"
                         android:layout_width="120dp"
                         android:layout_height="wrap_content"
                         android:text="@string/lunchList_time3_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
 
                     <TextView
                         android:id="@+id/lunchLecture3_place"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/lunchList_location3_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -231,7 +245,7 @@
                 android:paddingEnd="10dp"
                 android:paddingRight="10dp"
                 android:text="@string/contactsTitle_homePage"
-                android:textColor="@color/TextColor"
+                android:textColor="@color/TextColorDark"
                 android:textSize="18sp" />
 
             <LinearLayout
@@ -266,7 +280,7 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:text="@string/contactsMail_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
 
                 </LinearLayout>
 
@@ -290,7 +304,7 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:text="@string/contactsFb_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
 
                 </LinearLayout>
 
@@ -315,7 +329,7 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:text="@string/contactsAddress_homePage"
-                        android:textColor="@color/TextColor" />
+                        android:textColor="@color/TextColorDark" />
 
                 </LinearLayout>
             </LinearLayout>
