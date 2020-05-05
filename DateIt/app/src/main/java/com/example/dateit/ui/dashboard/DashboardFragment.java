@@ -54,5 +54,20 @@ public class DashboardFragment extends Fragment {
         for (Company comp : list){
             names.add(comp.getName());
         }
+        search("oscar");
     }
+
+    private List<Company> search(String word){
+        List<Company> result = new ArrayList<>();
+        for(Company comp : list){
+            if(comp.getName().toLowerCase().contains(word.toLowerCase())){
+                result.add(comp);
+                System.out.println(comp.getName());
+            }
+        }
+
+        return result;
+    }
+
+
 }
