@@ -57,6 +57,11 @@ public class DashboardFragment extends Fragment {
         search("oscar");
     }
 
+    /**
+     * A method, where given a word you are looking for, matches all words in a list and is returned
+     * @param word the word you are looking for
+     * @return a list of matching words from the list that was searched through
+     */
     private List<Company> search(String word){
         List<Company> result = new ArrayList<>();
         for(Company comp : list){
