@@ -1,5 +1,11 @@
 package com.example.dateit;
 
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.core.widget.NestedScrollView;
+
 public class Company {
 
     private Integer id;
@@ -131,6 +137,12 @@ public class Company {
     public String getNote() {
         return note;
     }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+
 
     @Override
     public String toString() {

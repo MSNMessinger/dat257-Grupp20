@@ -3,14 +3,18 @@ package com.example.dateit;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.example.dateit.ui.home.CompanyDetails;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -40,6 +45,22 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-    }
 
+
+        ToggleButton favoriteBtn;
+
+        //TODO - add favorite btn
+        // favoriteBtn = (ToggleButton) findViewById(R.id.favoriteBtn);
+       // favoriteBtn.setChecked(false);
+
+        //TODO - Metod som kollar om favorit-knappen är intryckt och sötter isf en bild.
+        //    favoriteBtn.setOnCheckedChangeListener(Button buttonView, boolean isChecked){
+        // if (isChecked)
+        //     favoriteBtn.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.img_star_yellow)); //TODO - Lägg till bild
+        //else
+        //favoriteBtn.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.img_star_grey));
+
+    }
+ // });
 }
+
