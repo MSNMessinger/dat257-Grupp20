@@ -41,10 +41,6 @@ public class DashboardFragment extends Fragment {
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        ListView companyList = (ListView)root.findViewById(R.id.CompanyList);
-        ArrayAdapter<String> companyAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,names);
-        companyList.setAdapter(companyAdapter);
-
         return root;
     }
 
