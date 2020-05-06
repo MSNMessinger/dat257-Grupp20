@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.DashboardFragment">
 
-
+    <LinearLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:orientation = "vertical">
+        <ListView
+            android:id = "@+id/list"
+            android:layout_width = "wrap_content"
+            android:layout_height = "match_parent"
+            android:divider = "#000"
+            android:dividerHeight = "1dp"
+            android:footerDividersEnabled = "false"
+            android:headerDividersEnabled = "false"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

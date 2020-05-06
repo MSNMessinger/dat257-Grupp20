@@ -2,18 +2,21 @@ package com.example.dateit;
 
 import android.content.Context;
 import android.database.DataSetObserver;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
-class CustomAdapter implements ListAdapter {
-    ArrayList<SubjectData> arrayList;
+public class CustomAdapter implements ListAdapter {
+    ArrayList<Company> arrayList;
     Context context;
-    public CustomAdapter(Context context, ArrayList<SubjectData> arrayList) {
+    public CustomAdapter(Context context, ArrayList<Company> arrayList) {
         this.arrayList=arrayList;
         this.context=context;
     }
@@ -49,19 +52,24 @@ class CustomAdapter implements ListAdapter {
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        SubjectData subjectData=arrayList.get(position);
+        Company company=arrayList.get(position);
         if(convertView==null) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView=layoutInflater.inflate(R.layout.list_row, null);
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    Toast.makeText(context, "CLICK", Toast.LENGTH_SHORT).show();
                 }
             });
             TextView tittle=convertView.findViewById(R.id.title);
             ImageView imag=convertView.findViewById(R.id.list_image);
-            tittle.setText(subjectData.SubjectName);
-            imag.setImageResource(R.drawable.dateit);
+            tittle.setText(company.getName());
+
+            int id = context.getResources().getIdentifier(company.getLogo(), "drawable", context.getPackageName());
+            Drawable drawable = context.getResources().getDrawable(id);
+            imag.setImageResource(id);
         }
         return convertView;
     }

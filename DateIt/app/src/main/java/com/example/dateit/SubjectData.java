@@ -1,6 +1,6 @@
 package com.example.dateit;
 
-class SubjectData {
+public class SubjectData {
     String SubjectName;
     String Link;
     String Image;

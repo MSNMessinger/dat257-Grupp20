@@ -1,5 +1,7 @@
 package com.example.dateit;
 
+import android.graphics.drawable.Drawable;
+
 public class Company {
 
     private Integer id;
@@ -13,8 +15,15 @@ public class Company {
     private Integer employeesSwe;
     private String website;
     private String email;
+    private String logo;
 
-    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email) {
+    public Company(Integer id, String name, String logo) {
+        this.id = id;
+        this.name = name;
+        this.logo = logo;
+    }
+
+    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String logo) {
         this.id = id;
         this.name = name;
         this.programs = programs;
@@ -26,6 +35,7 @@ public class Company {
         this.employeesSwe = employeeSwe;
         this.website = website;
         this.email = email;
+        this.logo = logo;
     }
 
     private boolean isIT(){
@@ -35,6 +45,10 @@ public class Company {
             return false;
         }
     }
+
+    public String getLogo() { return logo; }
+
+    public void setLogo(String id) { this.logo = logo; }
 
     public Integer getId() { return id; }
 

@@ -12,8 +12,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.dateit.Company;
+import com.example.dateit.CustomAdapter;
 import com.example.dateit.JSONToCompanyReader;
 import com.example.dateit.R;
+import com.example.dateit.SubjectData;
 
 import org.json.JSONException;
 import java.util.ArrayList;
@@ -41,7 +43,20 @@ public class DashboardFragment extends Fragment {
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
+
+       populateList(root);
+
         return root;
+    }
+
+    private void populateList(View root) {
+        final ListView list = (ListView)root.findViewById(R.id.list);
+        ArrayList<Company> arrayList = new ArrayList<Company>();
+        arrayList.add(new Company(1, "Volvo", "volvo"));
+        arrayList.add(new Company(2, "Saab", "saab"));
+
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        list.setAdapter(customAdapter);
     }
 
     private void init() throws JSONException {
