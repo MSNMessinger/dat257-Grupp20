@@ -13,8 +13,10 @@ public class Company {
     private Integer employeesSwe;
     private String website;
     private String email;
+    private String note;
+    private boolean favorite;
 
-    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email) {
+    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String note) {
         this.id = id;
         this.name = name;
         this.programs = programs;
@@ -26,6 +28,8 @@ public class Company {
         this.employeesSwe = employeeSwe;
         this.website = website;
         this.email = email;
+        this.note = note;
+
     }
 
     private boolean isIT(){
@@ -34,6 +38,10 @@ public class Company {
         } else {
             return false;
         }
+    }
+
+    private boolean isFavorite(){
+        return favorite;
     }
 
     public Integer getId() { return id; }
@@ -120,6 +128,10 @@ public class Company {
         this.email = email;
     }
 
+    public String getNote() {
+        return note;
+    }
+
     @Override
     public String toString() {
         return "Company{" +
@@ -133,6 +145,7 @@ public class Company {
                 ", employeeSwe=" + employeesSwe +
                 ", website='" + website + '\'' +
                 ", email='" + email + '\'' +
+                ", note '" + note + '\'' +
                 '}';
     }
 }
