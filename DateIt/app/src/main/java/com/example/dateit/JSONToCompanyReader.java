@@ -48,6 +48,44 @@ public class JSONToCompanyReader {
         return list;
     }
 
+    /**
+     * Create a list of companies marked as favorite.
+     * @return
+     * @throws JSONException
+     */
+    public List<Company> getFavorites() throws JSONException {
+        List<Company> list = new ArrayList<>();
+        JSONObject jsonFile = new JSONObject(jsonString);
+        JSONObject tmp;
+        for (int i = 0; i < countItems(jsonFile); i++) {
+            if(getCompany(i).isFavorite())
+            tmp = jsonFile.getJSONObject("" + i + "");
+            Company tmpComp = new Gson().fromJson(tmp.toString(), Company.class);
+            list.add(tmpComp);
+        }
+        return list;
+    }
+
+    /**
+     * make a list of companies which have a note.
+     * @return
+     * @throws JSONException
+     */
+    public List<Company> hasNote() throws JSONException {
+        List<Company> list = new ArrayList<>();
+        JSONObject jsonFile = new JSONObject(jsonString);
+        JSONObject tmp;
+        for (int i = 0; i < countItems(jsonFile); i++) {
+            if(getCompany(i).hasNote())
+                tmp = jsonFile.getJSONObject("" + i + "");
+            Company tmpComp = new Gson().fromJson(tmp.toString(), Company.class);
+            list.add(tmpComp);
+        }
+        return list;
+    }
+
+
+
     public Company getCompany(int id) throws JSONException {
         JSONObject jsonFile = new JSONObject(jsonString);
         JSONObject tmp = jsonFile.getJSONObject("" + id + "");
@@ -62,4 +100,6 @@ public class JSONToCompanyReader {
         }
         return count;
     }
+
+
 }

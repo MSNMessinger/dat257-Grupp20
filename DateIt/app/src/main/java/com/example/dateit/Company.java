@@ -22,7 +22,7 @@ public class Company {
     private String note;
     private boolean favorite;
 
-    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String note) {
+    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String note, boolean favorite) {
         this.id = id;
         this.name = name;
         this.programs = programs;
@@ -35,7 +35,12 @@ public class Company {
         this.website = website;
         this.email = email;
         this.note = note;
+        this.favorite = false;
 
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 
     private boolean isIT(){
@@ -46,7 +51,14 @@ public class Company {
         }
     }
 
-    private boolean isFavorite(){
+    public boolean hasNote(){
+        if (this.getNote() != null)
+            return true;
+        else
+            return false;
+    }
+
+    public boolean isFavorite(){
         return favorite;
     }
 

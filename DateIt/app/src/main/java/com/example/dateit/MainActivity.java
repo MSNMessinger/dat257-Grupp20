@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         ToggleButton favoriteBtn;
 
         //TODO - add favorite btn
+
         // favoriteBtn = (ToggleButton) findViewById(R.id.favoriteBtn);
        // favoriteBtn.setChecked(false);
 
