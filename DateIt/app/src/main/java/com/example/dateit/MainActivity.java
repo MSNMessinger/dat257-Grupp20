@@ -23,11 +23,23 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import org.json.JSONException;
+
+import java.io.IOException;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        JSONToCompanyReader tmp = new JSONToCompanyReader(this);
+        try {
+            List<Company> companies = tmp.createCompanies();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -47,21 +59,11 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
 
-        ToggleButton favoriteBtn;
+    }
 
-        //TODO - add favorite btn
-
-        // favoriteBtn = (ToggleButton) findViewById(R.id.favoriteBtn);
-       // favoriteBtn.setChecked(false);
-
-        //TODO - Metod som kollar om favorit-knappen är intryckt och sötter isf en bild.
-        //    favoriteBtn.setOnCheckedChangeListener(Button buttonView, boolean isChecked){
-        // if (isChecked)
-        //     favoriteBtn.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.img_star_yellow)); //TODO - Lägg till bild
-        //else
-        //favoriteBtn.setBackgroundDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.img_star_grey));
+    public void run(CompanyToJSONWriter test) throws IOException, JSONException {
+        test.getCompanies();
 
     }
- // });
 }
 

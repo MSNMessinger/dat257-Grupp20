@@ -24,6 +24,10 @@ public class JSONToCompanyReader {
         this.jsonString = inputStreamToString();
     }
 
+    public JSONToCompanyReader() {
+
+    }
+
     private String inputStreamToString() {
         InputStream inputStream = activity.getResources().openRawResource(R.raw.company);
         try {
@@ -56,12 +60,13 @@ public class JSONToCompanyReader {
     public List<Company> getFavorites() throws JSONException {
         List<Company> list = new ArrayList<>();
         JSONObject jsonFile = new JSONObject(jsonString);
-        JSONObject tmp;
+        JSONObject tmp = new JSONObject();
         for (int i = 0; i < countItems(jsonFile); i++) {
-            if(getCompany(i).isFavorite())
-            tmp = jsonFile.getJSONObject("" + i + "");
-            Company tmpComp = new Gson().fromJson(tmp.toString(), Company.class);
-            list.add(tmpComp);
+                tmp = jsonFile.getJSONObject("" + i + "");
+                Company tmpComp = new Gson().fromJson(tmp.toString(), Company.class);
+                if(tmpComp.isFavorite()) {
+                    list.add(tmpComp);
+                }
         }
         return list;
     }
@@ -74,12 +79,13 @@ public class JSONToCompanyReader {
     public List<Company> hasNote() throws JSONException {
         List<Company> list = new ArrayList<>();
         JSONObject jsonFile = new JSONObject(jsonString);
-        JSONObject tmp;
+        JSONObject tmp = new JSONObject();
         for (int i = 0; i < countItems(jsonFile); i++) {
-            if(getCompany(i).hasNote())
+            if(getCompany(i).hasNote()){
                 tmp = jsonFile.getJSONObject("" + i + "");
-            Company tmpComp = new Gson().fromJson(tmp.toString(), Company.class);
-            list.add(tmpComp);
+                Company tmpComp = new Gson().fromJson(tmp.toString(), Company.class);
+                list.add(tmpComp);
+            }
         }
         return list;
     }

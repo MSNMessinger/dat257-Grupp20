@@ -10,7 +10,8 @@
             "employeesWorld": 10,
             "employeesSwe": 5,
             "website": "www.google.com",
-            "email": "test@gmail.com"
+            "email": "test@gmail.com",
+            "note": ""
       },
       "1": {
             "id": 1,

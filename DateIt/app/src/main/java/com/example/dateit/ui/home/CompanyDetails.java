@@ -34,11 +34,8 @@ public class CompanyDetails extends Fragment {
      */
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         companyNote = view.findViewById(R.id.addNoteToCompany);
-
-
-//TODO - Fråga om hjälp, hur komma åt rätt företag
-
         String str = "";
 
         if(companyNote.getText() != null)
