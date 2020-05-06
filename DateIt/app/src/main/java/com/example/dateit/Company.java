@@ -28,11 +28,50 @@ public class Company {
         this.email = email;
     }
 
-    private boolean isIT(){
+    public int isIT(){
         if (programs.contains("IT")){
-            return true;
+            return 1;
         } else {
-            return false;
+            return 0;
+        }
+    }
+
+    public int isD(){
+        if (programs.contains("D")){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int isE(){
+        if (programs.contains("E")){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int hasSummerJob(){
+        if (jobtypes.contains("Summer")){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int hasMasterThesis(){
+        if (jobtypes.contains("Master Thesis")){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    public int hasInternship(){
+        if (jobtypes.contains("Internship")){
+            return 1;
+        } else {
+            return 0;
         }
     }
 
