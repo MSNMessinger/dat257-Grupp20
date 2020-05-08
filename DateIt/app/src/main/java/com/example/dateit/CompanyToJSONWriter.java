@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class CompanyToJSONWriter {
@@ -18,6 +19,8 @@ public class CompanyToJSONWriter {
     public void getCompanies() throws JSONException, IOException {
         List<Company> list = new JSONToCompanyReader().createCompanies();
         JSONObject jsonObject = new JSONObject();
+
+        String json;
 
         for(Company company : list){
             JSONObject add = new JSONObject();

@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.dateit.ui.home.CompanyDetails;
@@ -23,9 +24,13 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        get_json();
 
         TextView companyName = (TextView) findViewById(R.id.companyName);
 
@@ -64,6 +70,49 @@ public class MainActivity extends AppCompatActivity {
     public void run(CompanyToJSONWriter test) throws IOException, JSONException {
         test.getCompanies();
 
+    }
+
+    public void get_json(){
+
+        ArrayList<String> numberList = new ArrayList<>();
+        String json;
+        try {
+
+            InputStream is = getAssets().open("companies.json");
+            int size = is.available();
+
+            byte[] buffer = new byte[size];
+
+            is.read(buffer);
+            is.close();
+
+
+
+            json = new String(buffer, "UTF-8");
+            JSONArray jsonArr = new JSONArray(json);
+
+            Toast.makeText(getApplicationContext(), "jeh", Toast.LENGTH_LONG).show();
+
+           /* for (int i = 0; i < jsonArr.length(); i++) {
+                JSONObject obj = jsonArr.getJSONObject(i);
+
+                if (obj.getString("id").equals("0")) {
+                    numberList.add(obj.getString("name"));
+                }
+            }
+
+            */
+
+            JSONObject obj = jsonArr.getJSONObject(0);
+            String name = obj.getString("name");
+
+            Toast.makeText(getApplicationContext(), "jeh", Toast.LENGTH_LONG).show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }
 
