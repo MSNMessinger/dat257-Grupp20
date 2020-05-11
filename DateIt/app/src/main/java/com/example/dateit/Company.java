@@ -64,6 +64,30 @@ public class Company {
             return false;
     }
 
+    public int isIT(){
+        if (programs.contains("IT")){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int isD(){
+        if (programs.contains("D")){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int isE(){
+        if (programs.contains("E")){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     public boolean isFavorite(){
         return favorite;
     }
@@ -185,7 +209,6 @@ public class Company {
     public void setNote(String note) {
         this.note = note;
     }
-
 
 
     @Override

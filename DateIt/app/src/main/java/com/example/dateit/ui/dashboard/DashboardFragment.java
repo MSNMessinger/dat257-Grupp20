@@ -1,12 +1,12 @@
 package com.example.dateit.ui.dashboard;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -44,6 +44,11 @@ public class DashboardFragment extends Fragment {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        try {
+            init();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
        populateList(root);
 
@@ -70,6 +75,10 @@ public class DashboardFragment extends Fragment {
         for (Company comp : list) {
             names.add(comp.getName());
         }
+    }
+
+    public List<Company> getList() {
+        return list;
     }
 
     /**

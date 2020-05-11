@@ -29,11 +29,16 @@
     <string name="AvailableJobs">JobOffer</string>
     <string name="About">About</string>
     <string name="AboutInfo">Lorem ipsum dkew kgerk rekg ekrg kergk ekrg ke gker krgke gkerkg kerkgekr kgekrg</string>
+    <string name="Information">Information</string>
+    <string name="Website">Website</string>
+    <string name="Contact">Contact</string>
+    <string name="Employees">Employees</string>
+    <string name="Offices">Offices</string>
     <string name="Notes">Notes</string>
     <string name="AddNotes">Add Notes</string>
     <string name="Internship">Internship</string>
     <string name="SummerJob">Summer Job</string>
-    <string name="Trainee">Trainee</string>
+    <string name="MasterThesis">MasterThesis</string>
     <string name="title_dashboard">Companies</string>
     <string name="title_notifications">My Pages</string>
     <string name="ForStudents">For Students</string>
