@@ -2,8 +2,8 @@
       "0": {
             "id": 0,
             "name": "Oscar&Cecilia",
-            "programs": "IT, E, D",
-            "jobtypes": "Summer, Master Thesis",
+            "programs": "IT,E,D",
+            "jobtypes": "Summer,Master Thesis",
             "description": "We are a great company!",
             "locations": "Gothenburg, Stockholm",
             "foundingYear": 2020,
@@ -16,8 +16,8 @@
       "1": {
             "id": 1,
             "name": "Oscar&Cajsa",
-            "programs": "IT, E, D",
-            "jobtypes": "Summer, Master Thesis",
+            "programs": "IT,E",
+            "jobtypes": "Summer,Master Thesis",
             "description": "We are a great company!",
             "locations": "Gothenburg, Stockholm",
             "foundingYear": 2020,
@@ -29,8 +29,8 @@
       "2": {
             "id": 2,
             "name": "Apple",
-            "programs": "IT, E, D",
-            "jobtypes": "Summer, Master Thesis",
+            "programs": "IT,E",
+            "jobtypes": "Summer,Master Thesis",
             "description": "We are a great company!",
             "locations": "Gothenburg, Stockholm",
             "foundingYear": 2020,
@@ -42,8 +42,8 @@
       "3": {
             "id": 3,
             "name": "ÅF",
-            "programs": "IT, E, D",
-            "jobtypes": "Summer, Master Thesis",
+            "programs": "IT,E,D",
+            "jobtypes": "Summer,Master Thesis",
             "description": "We are a great company!",
             "locations": "Gothenburg, Stockholm",
             "foundingYear": 2020,

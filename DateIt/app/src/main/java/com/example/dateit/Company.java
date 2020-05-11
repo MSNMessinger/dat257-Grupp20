@@ -1,5 +1,9 @@
 package com.example.dateit;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import android.graphics.drawable.Drawable;
 
 import android.os.Bundle;
@@ -31,7 +35,7 @@ public class Company {
         this.logo = logo;
     }
 
-    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String logo, String note, boolean favorite) {
+    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email) {
         this.id = id;
         this.name = name;
         this.programs = programs;
@@ -51,14 +55,6 @@ public class Company {
 
     public void setFavorite(boolean favorite) {
         this.favorite = favorite;
-    }
-
-    private boolean isIT(){
-        if (programs.contains("IT")){
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public boolean hasNote(){
@@ -160,6 +156,28 @@ public class Company {
         this.email = email;
     }
 
+    /**
+     *
+     * @return Returns a list of String where each String is a program associated with this company
+     */
+    public List<String> getProgrammesAsList(){
+        String[] elements = programs.split(",");
+        List<String> fixedLenghtList = Arrays.asList(elements);
+        ArrayList<String> listOfString = new ArrayList<>(fixedLenghtList);
+        return listOfString;
+    }
+
+    /**
+     *
+     * @return Returns a list of String where each String is a jobtype this company offers
+     */
+    public List<String> getJobTypesAsList(){
+        String[] elements = jobtypes.split(",");
+        List<String> fixedLenghtList = Arrays.asList(elements);
+        ArrayList<String> listOfString = new ArrayList<>(fixedLenghtList);
+        return listOfString;
+    }
+
     public String getNote() {
         return note;
     }
@@ -173,14 +191,15 @@ public class Company {
     @Override
     public String toString() {
         return "Company{" +
-                "companyName='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", programs='" + programs + '\'' +
-                ", offers='" + jobtypes + '\'' +
+                ", jobtypes='" + jobtypes + '\'' +
                 ", description='" + description + '\'' +
                 ", locations='" + locations + '\'' +
                 ", foundingYear=" + foundingYear +
                 ", employeesWorld=" + employeesWorld +
-                ", employeeSwe=" + employeesSwe +
+                ", employeesSwe=" + employeesSwe +
                 ", website='" + website + '\'' +
                 ", email='" + email + '\'' +
                 ", note '" + note + '\'' +
