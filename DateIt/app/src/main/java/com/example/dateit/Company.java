@@ -180,6 +180,29 @@ public class Company {
         this.email = email;
     }
 
+    public int hasSummerJob(){
+        if (jobtypes.contains("Summer")){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public int hasMasterThesis(){
+        if (jobtypes.contains("Master Thesis")){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    public int hasInternship(){
+        if (jobtypes.contains("Internship")){
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     /**
      *
      * @return Returns a list of String where each String is a program associated with this company

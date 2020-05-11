@@ -35,7 +35,7 @@ public class CompanyDetails extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        companyNote = view.findViewById(R.id.addNoteToCompany);
+        companyNote = view.findViewById(R.id.AddNotesText);
         String str = "";
 
         if(companyNote.getText() != null)
