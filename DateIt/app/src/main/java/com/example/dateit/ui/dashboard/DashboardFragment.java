@@ -64,5 +64,25 @@ public class DashboardFragment extends Fragment {
         for (Company comp : list){
             names.add(comp.getName());
         }
+        search("oscar");
     }
+
+    /**
+     * A method, where given a word you are looking for, matches all words in a list and is returned
+     * @param word the word you are looking for
+     * @return a list of matching words from the list that was searched through
+     */
+    private List<Company> search(String word){
+        List<Company> result = new ArrayList<>();
+        for(Company comp : list){
+            if(comp.getName().toLowerCase().contains(word.toLowerCase())){
+                result.add(comp);
+                System.out.println(comp.getName());
+            }
+        }
+
+        return result;
+    }
+
+
 }
