@@ -1,5 +1,9 @@
 package com.example.dateit;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Company {
 
     private Integer id;
@@ -27,15 +31,6 @@ public class Company {
         this.website = website;
         this.email = email;
     }
-
-    private boolean isIT(){
-        if (programs.contains("IT")){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public Integer getId() { return id; }
 
     public void setId(Integer id) { this.id = id; }
@@ -120,17 +115,40 @@ public class Company {
         this.email = email;
     }
 
+    /**
+     *
+     * @return Returns a list of String where each String is a program associated with this company
+     */
+    public List<String> getProgrammesAsList(){
+        String[] elements = programs.split(",");
+        List<String> fixedLenghtList = Arrays.asList(elements);
+        ArrayList<String> listOfString = new ArrayList<>(fixedLenghtList);
+        return listOfString;
+    }
+
+    /**
+     *
+     * @return Returns a list of String where each String is a jobtype this company offers
+     */
+    public List<String> getJobTypesAsList(){
+        String[] elements = jobtypes.split(",");
+        List<String> fixedLenghtList = Arrays.asList(elements);
+        ArrayList<String> listOfString = new ArrayList<>(fixedLenghtList);
+        return listOfString;
+    }
+
     @Override
     public String toString() {
         return "Company{" +
-                "companyName='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", programs='" + programs + '\'' +
-                ", offers='" + jobtypes + '\'' +
+                ", jobtypes='" + jobtypes + '\'' +
                 ", description='" + description + '\'' +
                 ", locations='" + locations + '\'' +
                 ", foundingYear=" + foundingYear +
                 ", employeesWorld=" + employeesWorld +
-                ", employeeSwe=" + employeesSwe +
+                ", employeesSwe=" + employeesSwe +
                 ", website='" + website + '\'' +
                 ", email='" + email + '\'' +
                 '}';
