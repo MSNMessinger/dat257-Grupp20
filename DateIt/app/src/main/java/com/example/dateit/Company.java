@@ -2,6 +2,12 @@ package com.example.dateit;
 
 import android.graphics.drawable.Drawable;
 
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.core.widget.NestedScrollView;
+
 public class Company {
 
     private Integer id;
@@ -16,6 +22,8 @@ public class Company {
     private String website;
     private String email;
     private String logo;
+    private String note;
+    private boolean favorite;
 
     public Company(Integer id, String name, String logo) {
         this.id = id;
@@ -23,7 +31,7 @@ public class Company {
         this.logo = logo;
     }
 
-    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String logo) {
+    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String logo, String note, boolean favorite) {
         this.id = id;
         this.name = name;
         this.programs = programs;
@@ -35,7 +43,14 @@ public class Company {
         this.employeesSwe = employeeSwe;
         this.website = website;
         this.email = email;
+        this.note = note;
         this.logo = logo;
+        this.favorite = false;
+
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 
     private boolean isIT(){
@@ -44,6 +59,17 @@ public class Company {
         } else {
             return false;
         }
+    }
+
+    public boolean hasNote(){
+        if (this.getNote() != null)
+            return true;
+        else
+            return false;
+    }
+
+    public boolean isFavorite(){
+        return favorite;
     }
 
     public String getLogo() { return logo; }
@@ -134,6 +160,16 @@ public class Company {
         this.email = email;
     }
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+
+
     @Override
     public String toString() {
         return "Company{" +
@@ -147,6 +183,7 @@ public class Company {
                 ", employeeSwe=" + employeesSwe +
                 ", website='" + website + '\'' +
                 ", email='" + email + '\'' +
+                ", note '" + note + '\'' +
                 '}';
     }
 }

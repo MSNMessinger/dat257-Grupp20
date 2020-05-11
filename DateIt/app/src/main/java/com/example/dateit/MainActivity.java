@@ -1,37 +1,38 @@
 package com.example.dateit;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
-
-import com.example.dateit.ui.home.CompanyDetails;
+import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        JSONToCompanyReader tmp = new JSONToCompanyReader(this);
+        try {
+            List<Company> companies = tmp.createCompanies();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+        get_json();
 
         TextView companyName = (TextView) findViewById(R.id.companyName);
 
@@ -46,22 +47,53 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
-
-
-/*
-
-        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-            @Override
-            public void onDestinationChanged(@NonNull NavController controller,
-                                             @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                if(destination.getId() == R.id.navigation_dashboard) {
-                    list.setVisibility(View.VISIBLE);
-                } else {
-                    list.setVisibility(View.GONE);
-                }
-            }
-        });*/
     }
 
+    public void run(CompanyToJSONWriter test) throws IOException, JSONException {
+        test.getCompanies();
+
+    }
+
+    public void get_json(){
+
+        ArrayList<String> numberList = new ArrayList<>();
+        String json;
+        try {
+
+            InputStream is = getAssets().open("companies.json");
+            int size = is.available();
+
+            byte[] buffer = new byte[size];
+
+            is.read(buffer);
+            is.close();
+
+
+
+            json = new String(buffer, "UTF-8");
+            JSONArray jsonArr = new JSONArray(json);
+
+            Toast.makeText(getApplicationContext(), "jeh", Toast.LENGTH_LONG).show();
+
+           /* for (int i = 0; i < jsonArr.length(); i++) {
+                JSONObject obj = jsonArr.getJSONObject(i);
+
+                if (obj.getString("id").equals("0")) {
+                    numberList.add(obj.getString("name"));
+                }
+            }
+
+            */
+
+            JSONObject obj = jsonArr.getJSONObject(0);
+            String name = obj.getString("name");
+
+            Toast.makeText(getApplicationContext(), "jeh", Toast.LENGTH_LONG).show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 }

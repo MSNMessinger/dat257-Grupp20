@@ -32,7 +32,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#444"
-                    tools:layout_editor_absoluteY="118dp">
+                    app:layout_constraintBottom_toTopOf="@+id/AvailableOffersConstraint"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
                 </TableRow>
 
@@ -232,6 +233,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/notesRubrik">
 
                     <androidx.core.widget.NestedScrollView
+                        android:id="@+id/addNoteToCompany"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fillViewport="true">
