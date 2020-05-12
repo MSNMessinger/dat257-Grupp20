@@ -1,4 +1,4 @@
-package com.example.dateit.ui.home;
+package com.example.dateit;
 
 import android.os.Bundle;
 
@@ -12,9 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.dateit.Company;
-import com.example.dateit.R;
 import com.example.dateit.ui.dashboard.DashboardFragment;
+import com.example.dateit.ui.dashboard.CompanyDetailsViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
@@ -27,9 +26,15 @@ public class CompanyDetailsFragment extends Fragment {
     TextInputEditText companyNote;
 
     DashboardFragment dashboardFragment;
+
     List<Company> list = dashboardFragment.getList();
 
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        List<Company> list = dashboardFragment.getList();
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -41,6 +46,8 @@ public class CompanyDetailsFragment extends Fragment {
         /**
          * Connects the object's text to the textview for all different headings.
          */
+
+        int getId = getArguments().getInt("id");
 
 
         TextView description = (TextView) root.findViewById(R.id.AboutText);

@@ -1,8 +1,10 @@
 package com.example.dateit;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,15 +13,27 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.fragment.NavHostFragment;
+
+import com.example.dateit.ui.dashboard.DashboardFragment;
+
 import java.util.ArrayList;
 
 public class CustomAdapter implements ListAdapter {
     ArrayList<Company> arrayList;
-    Context context;
-    public CustomAdapter(Context context, ArrayList<Company> arrayList) {
+    FragmentActivity context;
+
+    public CustomAdapter(FragmentActivity context, ArrayList<Company> arrayList) {
         this.arrayList=arrayList;
         this.context=context;
+        this.mContext = context;
+
     }
+    private FragmentActivity mContext;
     @Override
     public boolean areAllItemsEnabled() {
         return false;
@@ -51,7 +65,7 @@ public class CustomAdapter implements ListAdapter {
         return false;
     }
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         Company company=arrayList.get(position);
         if(convertView==null) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
@@ -59,8 +73,22 @@ public class CustomAdapter implements ListAdapter {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("id", position);
 
-                    Toast.makeText(context, "CLICK", Toast.LENGTH_SHORT).show();
+                    CompanyDetailsFragment fragobj = new CompanyDetailsFragment();
+                   fragobj.setArguments(bundle);
+
+                   CompanyDetailsFragment companyDetailsFragment = new CompanyDetailsFragment();
+                   companyDetailsFragment.setArguments(bundle);
+
+
+                    FragmentManager fm = mContext.getSupportFragmentManager();
+                    FragmentTransaction ft = fm.beginTransaction();
+
+                    ft.replace(R.id.dashboard_container, companyDetailsFragment);
+                    ft.commit();
+
                 }
             });
             TextView tittle=convertView.findViewById(R.id.title);

@@ -38,6 +38,7 @@ public class HomeFragment extends Fragment {
     }
 
 
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 

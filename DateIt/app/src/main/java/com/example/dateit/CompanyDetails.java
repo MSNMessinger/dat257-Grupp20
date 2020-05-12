@@ -1,4 +1,4 @@
-package com.example.dateit.ui.home;
+package com.example.dateit;
 
 import android.os.Bundle;
 
