@@ -1,5 +1,6 @@
 package com.example.dateit;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,42 +17,55 @@ import com.example.dateit.ui.dashboard.DashboardFragment;
 import com.example.dateit.ui.dashboard.CompanyDetailsViewModel;
 import com.google.android.material.textfield.TextInputEditText;
 
+import org.json.JSONException;
+
 import java.util.List;
 
 public class CompanyDetailsFragment extends Fragment {
 
-    private CompanyDetailsViewModel companyDetailsViewModel;
+    CompanyDetailsViewModel companyDetailsViewModel;
     Company company;
     int id;
     TextInputEditText companyNote;
+    JSONToCompanyReader jsonToCompanyReader;
+
+    TextView name;
 
     DashboardFragment dashboardFragment;
 
-    List<Company> list = dashboardFragment.getList();
+  //  List<Company> list = dashboardFragment.getList();
 
+public void changeView(Company c){
+
+}
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        List<Company> list = dashboardFragment.getList();
+        Bundle bundle = this.getArguments();
+        if(bundle != null){
+            id = bundle.getInt("id");
+        }
     }
+
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        companyDetailsViewModel =
-                ViewModelProviders.of(this).get(CompanyDetailsViewModel.class);
+        companyDetailsViewModel = ViewModelProviders.of(this).get(CompanyDetailsViewModel.class);
         View root = inflater.inflate(R.layout.company_details_fragment, container, false);
+
+        name = (TextView) root.findViewById(R.id.companyName);
+
+
+
 
         /**
          * Connects the object's text to the textview for all different headings.
          */
-
-        int getId = getArguments().getInt("id");
-
-
         TextView description = (TextView) root.findViewById(R.id.AboutText);
-        TextView name = (TextView) root.findViewById(R.id.companyName);
+       // TextView name = (TextView) root.findViewById(R.id.companyName);
         TextView it = (TextView) root.findViewById(R.id.ITkeyword);
         TextView d = (TextView) root.findViewById(R.id.CSkeyword);
         TextView e = (TextView) root.findViewById(R.id.Elektrokeyword);
@@ -63,18 +77,20 @@ public class CompanyDetailsFragment extends Fragment {
         TextView employees = (TextView) root.findViewById(R.id.EmployeesInformation);
         TextView offices = (TextView) root.findViewById(R.id.OfficesInformation);
 
-        description.setText(setDescription(id));
-        name.setText(setName(id));
+        /*
 
         /**
          * Find text written in company then save note to the given company.
          */
+
+        /*
         TextInputEditText companyNote = (TextInputEditText) root.findViewById(R.id.AddNotesText);
         setNote(id);
 
         /**
          * Make sure that the right programs and offerings are visible for every company.
          */
+        /*
         if (isIT(id)==0){
             it.setVisibility(View.INVISIBLE); }
         if (isD(id)==0){
@@ -91,20 +107,24 @@ public class CompanyDetailsFragment extends Fragment {
         if(hasInternship(id)==0){
             internship.setVisibility(View.INVISIBLE);
         }
-
+/*
 
         website.setText(setWebsite(id));
         contact.setText(setContact(id));
         employees.setText(setEmployees(id));
         offices.setText(setOffices(id));
 
-
+*/
         return root;
+    }
+
+    private void setName() throws JSONException {
+    name.setText(jsonToCompanyReader.getCompany(id).getName());
     }
 
 
 
-
+/*
     private String setDescription( int id) {
         String description = "fel";
         for (Company company : list){
@@ -113,6 +133,9 @@ public class CompanyDetailsFragment extends Fragment {
             }
         }return description;
     }
+    */
+
+/*
 
     private void setNote(int id) {
 
@@ -216,4 +239,6 @@ public class CompanyDetailsFragment extends Fragment {
             }
         }return offices;
     }
+
+ */
     }

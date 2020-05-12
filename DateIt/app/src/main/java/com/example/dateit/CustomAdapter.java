@@ -66,16 +66,22 @@ public class CustomAdapter implements ListAdapter {
     }
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        Company company=arrayList.get(position);
+        final Company company=arrayList.get(position);
         if(convertView==null) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView=layoutInflater.inflate(R.layout.list_row, null);
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("id", position);
 
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("id", company.getId());
+                    System.out.println(bundle);
+/*
+                    Intent intent = new Intent(context, CompanyDetailsFragment.class);
+                    intent.putExtra("id", company.getId());
+                    context.startActivity(intent);
+*/
 
                     CompanyDetailsFragment tf = new CompanyDetailsFragment();
                     tf.setArguments(bundle);

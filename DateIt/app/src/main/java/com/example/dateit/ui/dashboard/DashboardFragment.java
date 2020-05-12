@@ -88,8 +88,8 @@ public class DashboardFragment extends Fragment {
 
     private void init() throws JSONException {
         JSONToCompanyReader reader = new JSONToCompanyReader(getActivity());
-        list = reader.createCompanies();
-        for (Company comp : list) {
+            list = reader.createCompanies();
+            for (Company comp : list) {
             names.add(comp.getName());
         }
     }
