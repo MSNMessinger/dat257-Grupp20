@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,9 +27,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class DashboardFragment extends Fragment {
-    public DashboardFragment(){
-        //Required empty public constructor
-    }
+
 
     private DashboardViewModel dashboardViewModel;
     private List<Company> list = new ArrayList<>();
@@ -51,7 +50,7 @@ public class DashboardFragment extends Fragment {
         }
     }
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
+    public View onCreateView(@NonNull final LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
@@ -63,9 +62,18 @@ public class DashboardFragment extends Fragment {
         }
 
        listView = (ListView) root.findViewById(R.id.list);
-        populateList(listView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(), ""+id, Toast.LENGTH_LONG).show();
+                listView.setVisibility(View.INVISIBLE);
+            }
+        });
+   //     listView.setVisibility(View.INVISIBLE);
 
-       populateList(root);
+        populateList(root);
+
+
 
         return root;
     }

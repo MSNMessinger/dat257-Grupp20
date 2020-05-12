@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 public class CustomAdapter implements ListAdapter {
     ArrayList<Company> arrayList;
     FragmentActivity context;
+
 
     public CustomAdapter(FragmentActivity context, ArrayList<Company> arrayList) {
         this.arrayList=arrayList;
@@ -66,22 +68,21 @@ public class CustomAdapter implements ListAdapter {
     }
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        final Company company=arrayList.get(position);
+        final Company company = arrayList.get(position);
         if(convertView==null) {
             LayoutInflater layoutInflater = LayoutInflater.from(context);
             convertView=layoutInflater.inflate(R.layout.list_row, null);
+            final View finalConvertView = convertView;
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
+                    finalConvertView.setVisibility(View.INVISIBLE);
+
                     Bundle bundle = new Bundle();
                     bundle.putInt("id", company.getId());
                     System.out.println(bundle);
-/*
-                    Intent intent = new Intent(context, CompanyDetailsFragment.class);
-                    intent.putExtra("id", company.getId());
-                    context.startActivity(intent);
-*/
+
 
                     CompanyDetailsFragment tf = new CompanyDetailsFragment();
                     tf.setArguments(bundle);
@@ -95,13 +96,13 @@ public class CustomAdapter implements ListAdapter {
 
                 }
             });
-            TextView tittle=convertView.findViewById(R.id.title);
-            ImageView imag=convertView.findViewById(R.id.list_image);
-            tittle.setText(company.getName());
+            TextView title=convertView.findViewById(R.id.title);
+            ImageView img=convertView.findViewById(R.id.list_image);
+            title.setText(company.getName());
 
             int id = context.getResources().getIdentifier(company.getLogo(), "drawable", context.getPackageName());
             Drawable drawable = context.getResources().getDrawable(id);
-            imag.setImageResource(id);
+            img.setImageResource(id);
         }
         return convertView;
     }

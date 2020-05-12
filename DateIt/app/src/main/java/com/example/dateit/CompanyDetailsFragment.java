@@ -11,7 +11,9 @@ import androidx.lifecycle.ViewModelProviders;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dateit.ui.dashboard.DashboardFragment;
 import com.example.dateit.ui.dashboard.CompanyDetailsViewModel;
@@ -28,6 +30,7 @@ public class CompanyDetailsFragment extends Fragment {
     int id;
     TextInputEditText companyNote;
     JSONToCompanyReader jsonToCompanyReader;
+    ListView list;
 
     TextView name;
 
@@ -35,16 +38,13 @@ public class CompanyDetailsFragment extends Fragment {
 
   //  List<Company> list = dashboardFragment.getList();
 
-public void changeView(Company c){
-
-}
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = this.getArguments();
         if(bundle != null){
             id = bundle.getInt("id");
+            Toast.makeText(getContext(), ""+id, Toast.LENGTH_LONG).show();
         }
     }
 
@@ -56,10 +56,19 @@ public void changeView(Company c){
         companyDetailsViewModel = ViewModelProviders.of(this).get(CompanyDetailsViewModel.class);
         View root = inflater.inflate(R.layout.company_details_fragment, container, false);
 
+
+        /*
+        try {
+            company = jsonToCompanyReader.getCompany(id);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         name = (TextView) root.findViewById(R.id.companyName);
+        name.setText(company.getName());
+    */
 
-
-
+     //   list = (ListView) root.findViewById(R.id.list);
+     //   list.setVisibility(View.INVISIBLE);
 
         /**
          * Connects the object's text to the textview for all different headings.
