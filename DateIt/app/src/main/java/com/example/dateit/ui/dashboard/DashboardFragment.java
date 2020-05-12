@@ -56,13 +56,16 @@ public class DashboardFragment extends Fragment {
     }
 
     private void populateList(View root) {
-        final ListView list = (ListView)root.findViewById(R.id.list);
+        final ListView alist = (ListView)root.findViewById(R.id.list);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(2, "Saab", "saab"));
+        for (Company comp : list){
+            arrayList.add(new Company(comp.getId(), comp.getName(), comp.getLogo()));
+        }
+        //arrayList.add(new Company(1, "Volvo", "volvo"));
+        //arrayList.add(new Company(2, "Saab", "saab"));
 
         CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
-        list.setAdapter(customAdapter);
+        alist.setAdapter(customAdapter);
     }
 
     /**

@@ -207,6 +207,6 @@ public class CompanyDetailsFragment extends Fragment {
             if (company.getId() == id) {
                 offices =company.getLocations();
             }
-        }return offices;
+        } return offices;
     }
-    }
+}
