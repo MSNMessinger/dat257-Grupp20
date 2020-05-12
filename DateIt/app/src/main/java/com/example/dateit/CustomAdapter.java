@@ -76,17 +76,15 @@ public class CustomAdapter implements ListAdapter {
                     Bundle bundle = new Bundle();
                     bundle.putInt("id", position);
 
-                    CompanyDetailsFragment fragobj = new CompanyDetailsFragment();
-                   fragobj.setArguments(bundle);
 
-                   CompanyDetailsFragment companyDetailsFragment = new CompanyDetailsFragment();
-                   companyDetailsFragment.setArguments(bundle);
+                    CompanyDetailsFragment tf = new CompanyDetailsFragment();
+                    tf.setArguments(bundle);
 
 
                     FragmentManager fm = mContext.getSupportFragmentManager();
                     FragmentTransaction ft = fm.beginTransaction();
 
-                    ft.replace(R.id.dashboard_container, companyDetailsFragment);
+                    ft.replace(R.id.dashboard_container, tf);
                     ft.commit();
 
                 }
