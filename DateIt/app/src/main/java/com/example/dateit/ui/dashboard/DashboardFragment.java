@@ -35,18 +35,15 @@ public class DashboardFragment extends Fragment {
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-       populateList(root);
+        populateList(root);
         return root;
     }
 
     private void populateList(View root) {
         final ListView alist = (ListView)root.findViewById(R.id.list);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        for (Company comp : list){
-            arrayList.add(new Company(comp.getId(), comp.getName(), comp.getLogo()));
-        }
-        //arrayList.add(new Company(1, "Volvo", "volvo"));
-        //arrayList.add(new Company(2, "Saab", "saab"));
+
+        arrayList.addAll(MainActivity.getList());
 
         CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
         alist.setAdapter(customAdapter);

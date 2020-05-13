@@ -58,7 +58,7 @@ public class Company {
         this.email = company.email;
         this.note = company.note;
         this.logo = logo;
-        this.favorite = 1;
+        this.favorite = company.favorite;
     }
 
     public void setFavorite(boolean favorite) {
@@ -66,7 +66,7 @@ public class Company {
     }
 
     public boolean hasNote(){
-        if (this.getNote() != null)
+        if (this.getNote() != null && !this.note.isEmpty())
             return true;
         else
             return false;
@@ -97,7 +97,7 @@ public class Company {
     }
 
     public int isFavorite(){
-        return 1;
+        return favorite;
     }
 
     public String getLogo() { return logo; }

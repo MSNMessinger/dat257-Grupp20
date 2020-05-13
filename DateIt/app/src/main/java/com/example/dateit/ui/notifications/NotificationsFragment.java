@@ -60,13 +60,26 @@ public class NotificationsFragment extends Fragment {
     private void populateListFavorites(View root) throws JSONException {
         final ListView list = (ListView)root.findViewById(R.id.listOfFavorites);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        arrayList.addAll(MainActivity.getList());
-        if(!arrayList.isEmpty()){
-            CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
-            list.setAdapter(customAdapter);
-            setListViewHeightBasedOnChildren(list);
-        }
+        List<Company> favComp = filterFavorites(MainActivity.getList());
+        arrayList.addAll(favComp);
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        list.setAdapter(customAdapter);
+        setListViewHeightBasedOnChildren(list);
 
+    }
+
+    /**
+     * Populates the list of items with notes from DB
+     * @param root
+     */
+    private void populateListNotes(View root) {
+        final ListView list = (ListView)root.findViewById(R.id.listOfNotes);
+        ArrayList<Company> arrayList = new ArrayList<Company>();
+        List<Company> favComp = filterNotesNotFavorites(MainActivity.getList());
+        arrayList.addAll(favComp);
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        list.setAdapter(customAdapter);
+        setListViewHeightBasedOnChildren(list);
     }
 
     private List<Company> filterFavorites(List<Company> companies) {
@@ -79,27 +92,14 @@ public class NotificationsFragment extends Fragment {
         return favCompanies;
     }
 
-    /**
-     * Populates the list of items with notes from DB
-     * @param root
-     */
-    private void populateListNotes(View root) {
-        final ListView list = (ListView)root.findViewById(R.id.listOfNotes);
-        ArrayList<Company> arrayList = new ArrayList<Company>();
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(2, "Saab", "saab"));
-
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
-        list.setAdapter(customAdapter);
-        setListViewHeightBasedOnChildren(list);
+    private List<Company> filterNotesNotFavorites(List<Company> companies) {
+        List<Company> noteCompanies = new ArrayList<Company>();
+        for(Company c : companies) {
+            if(c.hasNote()) {
+                noteCompanies.add(c);
+            }
+        }
+        return noteCompanies;
     }
 
     public void setListViewHeightBasedOnChildren(ListView listView) {
