@@ -17,9 +17,14 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
+import com.example.dateit.JSONToCompanyReader;
 import com.example.dateit.R;
+import com.example.dateit.ui.dashboard.DashboardFragment;
+
+import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NotificationsFragment extends Fragment {
 
@@ -38,7 +43,11 @@ public class NotificationsFragment extends Fragment {
             }
         });*/
 
-        populateListFavorites(root);
+        try {
+            populateListFavorites(root);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         populateListNotes(root);
         return root;
     }
@@ -47,20 +56,27 @@ public class NotificationsFragment extends Fragment {
      * Populates the list of favorites with items marked as favorite from DB
      * @param root
      */
-    private void populateListFavorites(View root) {
+    private void populateListFavorites(View root) throws JSONException {
         final ListView list = (ListView)root.findViewById(R.id.listOfFavorites);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(2, "Saab", "saab"));
-        arrayList.add(new Company(2, "Saab", "saab"));
-        arrayList.add(new Company(2, "Saab", "saab"));
-        arrayList.add(new Company(2, "Saab", "saab"));
-        arrayList.add(new Company(2, "Saab", "saab"));
-        arrayList.add(new Company(2, "Saab", "saab"));
+        DashboardFragment dash = new DashboardFragment();
+        arrayList.addAll(filterFavorites(dash.getList()));
+        if(!arrayList.isEmpty()){
+            CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+            list.setAdapter(customAdapter);
+            setListViewHeightBasedOnChildren(list);
+        }
 
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
-        list.setAdapter(customAdapter);
-        setListViewHeightBasedOnChildren(list);
+    }
+
+    private List<Company> filterFavorites(List<Company> companies) {
+        List<Company> favCompanies = new ArrayList<Company>();
+        for(Company c : companies) {
+            if(c.isFavorite()) {
+                favCompanies.add(c);
+            }
+        }
+        return favCompanies;
     }
 
     /**

@@ -35,7 +35,7 @@ public class Company {
         this.logo = logo;
     }
 
-    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email) {
+    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String note, String logo, Boolean favorite) {
         this.id = id;
         this.name = name;
         this.programs = programs;
@@ -49,8 +49,7 @@ public class Company {
         this.email = email;
         this.note = note;
         this.logo = logo;
-        this.favorite = false;
-
+        this.favorite = favorite;
     }
 
     public void setFavorite(boolean favorite) {

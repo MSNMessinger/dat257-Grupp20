@@ -11,7 +11,9 @@
             "employeesSwe": 5,
             "website": "www.google.com",
             "email": "test@gmail.com",
-            "note": ""
+            "note": "",
+            "logo": "",
+            "favorite": true
       },
       "1": {
             "id": 1,
@@ -24,7 +26,10 @@
             "employeesWorld": 10,
             "employeesSwe": 5,
             "website": "www.cajsa.com",
-            "email": "test@gmail.com"
+            "email": "test@gmail.com",
+            "note": "",
+            "logo": "",
+            "favorite": true
       },
       "2": {
             "id": 2,
@@ -37,7 +42,10 @@
             "employeesWorld": 10,
             "employeesSwe": 5,
             "website": "www.apple.com",
-            "email": "test@gmail.com"
+            "email": "test@gmail.com",
+            "note": "",
+            "logo": "",
+            "favorite": true
       },
       "3": {
             "id": 3,
@@ -50,6 +58,9 @@
             "employeesWorld": 10,
             "employeesSwe": 5,
             "website": "www.astra.com",
-            "email": "astra@zeneca.com"
+            "email": "astra@zeneca.com",
+            "note": "",
+            "logo": "",
+            "favorite": true
       }
 }
