@@ -17,6 +17,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
 import com.example.dateit.JSONToCompanyReader;
+import com.example.dateit.MainActivity;
 import com.example.dateit.R;
 import com.example.dateit.SubjectData;
 import com.example.dateit.ui.home.HomeFragment;
@@ -29,8 +30,7 @@ import java.util.List;
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
-    private List<Company> list = new ArrayList<>();
-    private List<String> names = new ArrayList<>();
+    List<Company> list = MainActivity.getList();
     private ImageView heartImg;
 
     @Override
@@ -47,22 +47,19 @@ public class DashboardFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.company_details_fragment, container, false);
-        try {
-            init();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-       //populateList(root);
+
+       populateList(root);
+
         return root;
     }
-    Company company = new Company(1, "Volvo", "volvocars", true);
+    Company company = new Company(1, "Volvo", "volvocars", 0);
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         heartImg = view.findViewById(R.id.heartImage);
-        if(company.isFavorite()) {
+        if(company.isFavorite() == 1) {
             heartImg.setImageResource(R.drawable.heart_logo);
         } else {
             heartImg.setImageResource(R.drawable.emptyheart);
@@ -71,41 +68,25 @@ public class DashboardFragment extends Fragment {
         heartImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(company.isFavorite()) {
+                if(company.isFavorite() == 1) {
                     heartImg.setImageResource(R.drawable.emptyheart);
-                    company.setFavorite(false);
+                    company.setFavorite(0);
                 } else {
                     heartImg.setImageResource(R.drawable.heart_logo);
-                    company.setFavorite(true);
+                    company.setFavorite(1);
                 }
             }
         });
     }
 
     private void populateList(View root) {
-        final ListView list = (ListView)root.findViewById(R.id.list);
+        final ListView alist = (ListView)root.findViewById(R.id.list);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(2, "Saab", "saab"));
+
+        arrayList.addAll(MainActivity.getList());
 
         CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
-        list.setAdapter(customAdapter);
-    }
-
-    /**
-     * Initializes the list in the company fragment page
-     * @throws JSONException
-     */
-    private void init() throws JSONException {
-        JSONToCompanyReader reader = new JSONToCompanyReader(getActivity());
-        list = reader.createCompanies();
-        for (Company comp : list) {
-            names.add(comp.getName());
-        }
-    }
-
-    public List<Company> getList() {
-        return list;
+        alist.setAdapter(customAdapter);
     }
 
     /**

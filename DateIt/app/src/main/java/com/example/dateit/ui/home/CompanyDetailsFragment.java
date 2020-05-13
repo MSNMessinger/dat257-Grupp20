@@ -10,15 +10,14 @@ import androidx.lifecycle.ViewModelProviders;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.dateit.Company;
+import com.example.dateit.MainActivity;
 import com.example.dateit.R;
 import com.example.dateit.ui.dashboard.DashboardFragment;
-import com.example.dateit.ui.dashboard.DashboardViewModel;
+import com.google.android.material.textfield.TextInputEditText;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CompanyDetailsFragment extends Fragment {
@@ -26,9 +25,10 @@ public class CompanyDetailsFragment extends Fragment {
     private CompanyDetailsViewModel companyDetailsViewModel;
     Company company;
     int id;
+    TextInputEditText companyNote;
 
     DashboardFragment dashboardFragment;
-    List<Company> list = dashboardFragment.getList();
+    List<Company> list = MainActivity.getList();
 
 
 
@@ -42,6 +42,7 @@ public class CompanyDetailsFragment extends Fragment {
         /**
          * Connects the object's text to the textview for all different headings.
          */
+
 
         TextView description = (TextView) root.findViewById(R.id.AboutText);
         TextView name = (TextView) root.findViewById(R.id.companyName);
@@ -58,6 +59,12 @@ public class CompanyDetailsFragment extends Fragment {
 
         description.setText(setDescription(id));
         name.setText(setName(id));
+
+        /**
+         * Find text written in company then save note to the given company.
+         */
+        TextInputEditText companyNote = (TextInputEditText) root.findViewById(R.id.AddNotesText);
+        setNote(id);
 
         /**
          * Make sure that the right programs and offerings are visible for every company.
@@ -95,6 +102,20 @@ public class CompanyDetailsFragment extends Fragment {
                 description =company.getDescription();
             }
         }return description;
+    }
+
+    private void setNote(int id) {
+
+        if(companyNote != null) {
+
+            String str = companyNote.getText().toString();
+
+            for (Company company : list) {
+                if (company.getId() == id) {
+                    company.setNote(str);
+                }
+            }
+        }
     }
 
     private String setName(int id) {
@@ -183,6 +204,6 @@ public class CompanyDetailsFragment extends Fragment {
             if (company.getId() == id) {
                 offices =company.getLocations();
             }
-        }return offices;
+        } return offices;
     }
-    }
+}

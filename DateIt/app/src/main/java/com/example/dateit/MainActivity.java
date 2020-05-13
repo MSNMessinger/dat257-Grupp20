@@ -20,20 +20,14 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static List<Company>  list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        JSONToCompanyReader tmp = new JSONToCompanyReader(this);
-        try {
-            List<Company> companies = tmp.createCompanies();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        get_json();
+        //get_json();
 
         TextView companyName = (TextView) findViewById(R.id.companyName);
 
@@ -48,7 +42,30 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+        try {
+            init();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(list.size());
     }
+
+    /**
+     * Initializes the list in the company fragment page
+     * @throws JSONException
+     */
+    private void init() throws JSONException {
+        JSONToCompanyReader reader = new JSONToCompanyReader(this);
+        list = reader.createCompanies();
+    }
+
+    public static List<Company> getList() {
+        return list;
+    }
+
+    /*
 
     public void run(CompanyToJSONWriter test) throws IOException, JSONException {
         test.getCompanies();
@@ -76,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(getApplicationContext(), "jeh", Toast.LENGTH_LONG).show();
 
-           /* for (int i = 0; i < jsonArr.length(); i++) {
+            for (int i = 0; i < jsonArr.length(); i++) {
                 JSONObject obj = jsonArr.getJSONObject(i);
 
                 if (obj.getString("id").equals("0")) {
@@ -84,17 +101,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            */
+           /*
 
             JSONObject obj = jsonArr.getJSONObject(0);
             String name = obj.getString("name");
 
             Toast.makeText(getApplicationContext(), "jeh", Toast.LENGTH_LONG).show();
+            }
+     */
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
 }

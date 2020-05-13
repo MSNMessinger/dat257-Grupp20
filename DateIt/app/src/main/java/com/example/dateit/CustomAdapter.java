@@ -63,9 +63,9 @@ public class CustomAdapter implements ListAdapter {
                     Toast.makeText(context, "CLICK", Toast.LENGTH_SHORT).show();
                 }
             });
-            TextView tittle=convertView.findViewById(R.id.title);
+            TextView title=convertView.findViewById(R.id.title);
             ImageView imag=convertView.findViewById(R.id.list_image);
-            tittle.setText(company.getName());
+            title.setText(company.getName());
 
             int id = context.getResources().getIdentifier(company.getLogo(), "drawable", context.getPackageName());
             Drawable drawable = context.getResources().getDrawable(id);
