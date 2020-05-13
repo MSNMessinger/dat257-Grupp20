@@ -27,6 +27,13 @@ public class Company {
         this.logo = logo;
     }
 
+    public Company(Integer id, String name, String logo, int favorite) {
+        this.id = id;
+        this.name = name;
+        this.logo = logo;
+        this.favorite = favorite;
+    }
+
     public Company(Integer id, String name, String programs, String jobtypes, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String logo, String note, int favorite) {
         this.id = id;
         this.name = name;

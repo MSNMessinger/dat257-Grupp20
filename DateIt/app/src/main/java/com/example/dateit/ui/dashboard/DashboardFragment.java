@@ -31,17 +31,7 @@ public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
     List<Company> list = MainActivity.getList();
-    private ImageView heartImg;
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        try {
-            init();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,34 +39,9 @@ public class DashboardFragment extends Fragment {
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-
        populateList(root);
 
         return root;
-    }
-    Company company = new Company(1, "Volvo", "volvocars", 0);
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        heartImg = view.findViewById(R.id.heartImage);
-        if(company.isFavorite() == 1) {
-            heartImg.setImageResource(R.drawable.heart_logo);
-        } else {
-            heartImg.setImageResource(R.drawable.emptyheart);
-        }
-
-        heartImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(company.isFavorite() == 1) {
-                    heartImg.setImageResource(R.drawable.emptyheart);
-                    company.setFavorite(0);
-                } else {
-                    heartImg.setImageResource(R.drawable.heart_logo);
-                    company.setFavorite(1);
-                }
-            }
-        });
     }
 
     private void populateList(View root) {
@@ -122,6 +87,4 @@ public class DashboardFragment extends Fragment {
 
         return result;
     }
-
-
 }
