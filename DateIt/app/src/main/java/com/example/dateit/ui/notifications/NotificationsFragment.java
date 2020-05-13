@@ -37,30 +37,16 @@ public class NotificationsFragment extends Fragment {
                 textView.setText(s);
             }
         });*/
-/*
-        String[] namesOfCompaniesToVisit = {"Volvo", "Ericsson", "Brocoli","Volvo", "Ericsson", "Brocoli","Volvo", "Ericsson", "Brocoli"};
-        ListView companyList = (ListView)root.findViewById(R.id.listToVisit);
-        ArrayAdapter<String> companyToVisitAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfCompaniesToVisit);
-        companyList.setAdapter(companyToVisitAdapter);
-        getTotalHeightofListView(companyList);
-
-        String[] namesOfFavorites = {"SKF", "Spotify"};
-        ListView companyListOfFav = (ListView)root.findViewById(R.id.listOfFavorites);
-        ArrayAdapter<String> favoriteCompanyAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfFavorites);
-        companyListOfFav.setAdapter(favoriteCompanyAdapter);
-        getTotalHeightofListView(companyListOfFav);
-
-        String[] namesOfNotes = {"SKF", "Spotify", "Ericsson"};
-        ListView companyListOfNotes = (ListView)root.findViewById(R.id.listOfNotes);
-        ArrayAdapter<String> notesCompanyAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfNotes);
-        companyListOfNotes.setAdapter(notesCompanyAdapter);
-        getTotalHeightofListView(companyListOfNotes);*/
 
         populateListFavorites(root);
         populateListNotes(root);
         return root;
     }
 
+    /**
+     * Populates the list of favorites with items marked as favorite from DB
+     * @param root
+     */
     private void populateListFavorites(View root) {
         final ListView list = (ListView)root.findViewById(R.id.listOfFavorites);
         ArrayList<Company> arrayList = new ArrayList<Company>();
@@ -77,6 +63,10 @@ public class NotificationsFragment extends Fragment {
         setListViewHeightBasedOnChildren(list);
     }
 
+    /**
+     * Populates the list of items with notes from DB
+     * @param root
+     */
     private void populateListNotes(View root) {
         final ListView list = (ListView)root.findViewById(R.id.listOfNotes);
         ArrayList<Company> arrayList = new ArrayList<Company>();
@@ -112,30 +102,6 @@ public class NotificationsFragment extends Fragment {
 
         ViewGroup.LayoutParams params = listView.getLayoutParams();
         params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
-        listView.requestLayout();
-    }
-
-    public static void getTotalHeightofListView(ListView listView) {
-
-        ListAdapter mAdapter = listView.getAdapter();
-
-        int totalHeight = 0;
-
-        for (int i = 0; i < mAdapter.getCount(); i++) {
-            View mView = mAdapter.getView(i, null, listView);
-
-            mView.measure(
-                    View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-
-                    View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
-
-            totalHeight += mView.getMeasuredHeight();
-        }
-
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight
-                + (listView.getDividerHeight() * (mAdapter.getCount() - 1));
         listView.setLayoutParams(params);
         listView.requestLayout();
     }
