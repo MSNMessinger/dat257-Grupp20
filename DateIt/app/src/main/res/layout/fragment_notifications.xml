@@ -18,35 +18,24 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/titleToVisit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Companies To Visit"
-                android:textColor="@color/colorTitle"
-                android:textSize="32sp" />
-
-            <ListView
-                android:id="@+id/listToVisit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/titleFavorites"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Favourite Companies"
+                android:text="@string/MyPage_favourites"
                 android:textColor="@color/colorTitle"
 
                 android:textSize="32sp" />
 
             <ListView
                 android:id="@+id/listOfFavorites"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:scrollbars="none">
 
             </ListView>
 
@@ -54,14 +43,16 @@
                 android:id="@+id/titleNotes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="My notes"
+                android:text="@string/Notes"
                 android:textColor="@color/colorTitle"
                 android:textSize="32sp" />
 
             <ListView
                 android:id="@+id/listOfNotes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:scrollbars="none" />
 
         </LinearLayout>
     </ScrollView>

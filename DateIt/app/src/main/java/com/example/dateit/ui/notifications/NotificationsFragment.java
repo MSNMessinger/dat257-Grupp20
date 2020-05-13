@@ -15,7 +15,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.dateit.Company;
+import com.example.dateit.CustomAdapter;
 import com.example.dateit.R;
+
+import java.util.ArrayList;
 
 public class NotificationsFragment extends Fragment {
 
@@ -33,7 +37,7 @@ public class NotificationsFragment extends Fragment {
                 textView.setText(s);
             }
         });*/
-
+/*
         String[] namesOfCompaniesToVisit = {"Volvo", "Ericsson", "Brocoli","Volvo", "Ericsson", "Brocoli","Volvo", "Ericsson", "Brocoli"};
         ListView companyList = (ListView)root.findViewById(R.id.listToVisit);
         ArrayAdapter<String> companyToVisitAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfCompaniesToVisit);
@@ -50,8 +54,66 @@ public class NotificationsFragment extends Fragment {
         ListView companyListOfNotes = (ListView)root.findViewById(R.id.listOfNotes);
         ArrayAdapter<String> notesCompanyAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfNotes);
         companyListOfNotes.setAdapter(notesCompanyAdapter);
-        getTotalHeightofListView(companyListOfNotes);
+        getTotalHeightofListView(companyListOfNotes);*/
+
+        populateListFavorites(root);
+        populateListNotes(root);
         return root;
+    }
+
+    private void populateListFavorites(View root) {
+        final ListView list = (ListView)root.findViewById(R.id.listOfFavorites);
+        ArrayList<Company> arrayList = new ArrayList<Company>();
+        arrayList.add(new Company(1, "Volvo", "volvo"));
+        arrayList.add(new Company(2, "Saab", "saab"));
+        arrayList.add(new Company(2, "Saab", "saab"));
+        arrayList.add(new Company(2, "Saab", "saab"));
+        arrayList.add(new Company(2, "Saab", "saab"));
+        arrayList.add(new Company(2, "Saab", "saab"));
+        arrayList.add(new Company(2, "Saab", "saab"));
+
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        list.setAdapter(customAdapter);
+        setListViewHeightBasedOnChildren(list);
+    }
+
+    private void populateListNotes(View root) {
+        final ListView list = (ListView)root.findViewById(R.id.listOfNotes);
+        ArrayList<Company> arrayList = new ArrayList<Company>();
+        arrayList.add(new Company(1, "Volvo", "volvo"));
+        arrayList.add(new Company(1, "Volvo", "volvo"));
+        arrayList.add(new Company(1, "Volvo", "volvo"));
+        arrayList.add(new Company(1, "Volvo", "volvo"));
+        arrayList.add(new Company(1, "Volvo", "volvo"));
+        arrayList.add(new Company(1, "Volvo", "volvo"));
+        arrayList.add(new Company(1, "Volvo", "volvo"));
+        arrayList.add(new Company(1, "Volvo", "volvo"));
+        arrayList.add(new Company(1, "Volvo", "volvo"));
+        arrayList.add(new Company(2, "Saab", "saab"));
+
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        list.setAdapter(customAdapter);
+        setListViewHeightBasedOnChildren(list);
+    }
+
+    public void setListViewHeightBasedOnChildren(ListView listView) {
+        CustomAdapter listAdapter = (CustomAdapter) listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = 0;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+        listView.requestLayout();
     }
 
     public static void getTotalHeightofListView(ListView listView) {
