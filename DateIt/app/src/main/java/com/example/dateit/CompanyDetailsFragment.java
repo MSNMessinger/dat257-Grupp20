@@ -47,6 +47,11 @@ public class CompanyDetailsFragment extends Fragment {
         if(bundle != null){
             id = bundle.getInt("id");
             Toast.makeText(getContext(), ""+id, Toast.LENGTH_LONG).show();
+            try {
+                company = jsonToCompanyReader.getCompany(id);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -78,7 +83,7 @@ public class CompanyDetailsFragment extends Fragment {
 
 
         TextView description = (TextView) root.findViewById(R.id.AboutText);
-       // TextView name = (TextView) root.findViewById(R.id.companyName);
+        TextView name = (TextView) root.findViewById(R.id.companyName);
         TextView it = (TextView) root.findViewById(R.id.ITkeyword);
         TextView d = (TextView) root.findViewById(R.id.CSkeyword);
         TextView e = (TextView) root.findViewById(R.id.Elektrokeyword);
@@ -90,18 +95,21 @@ public class CompanyDetailsFragment extends Fragment {
         TextView employees = (TextView) root.findViewById(R.id.EmployeesInformation);
         TextView offices = (TextView) root.findViewById(R.id.OfficesInformation);
 
-        description.setText(setDescription(id));
-        name.setText(setName(id));
+        name.setText(company.getName());
+
+     //   description.setText(setDescription(id));
+      //  name.setText(setName(id));
 
         /**
          * Find text written in company then save note to the given company.
          */
         TextInputEditText companyNote = (TextInputEditText) root.findViewById(R.id.AddNotesText);
-        setNote(id);
+       // setNote(id);
 
         /**
          * Make sure that the right programs and offerings are visible for every company.
          */
+        /*
         if (isIT(id)==0){
             it.setVisibility(View.INVISIBLE); }
         if (isD(id)==0){
@@ -119,13 +127,7 @@ public class CompanyDetailsFragment extends Fragment {
             internship.setVisibility(View.INVISIBLE);
         }
 
-
-        website.setText(setWebsite(id));
-        contact.setText(setContact(id));
-        employees.setText(setEmployees(id));
-        offices.setText(setOffices(id));
-
-
+*/
         return root;
     }
 
@@ -134,7 +136,7 @@ public class CompanyDetailsFragment extends Fragment {
     }
 
 
-
+/*
     private String setDescription( int id) {
         String description = "fel";
         for (Company company : list){
@@ -246,4 +248,5 @@ public class CompanyDetailsFragment extends Fragment {
             }
         } return offices;
     }
+    */
 }
