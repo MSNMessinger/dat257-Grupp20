@@ -24,16 +24,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        JSONToCompanyReader tmp = new JSONToCompanyReader(this);
-        try {
-            List<Company> companies = tmp.createCompanies();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        get_json();
+        //get_json();
 
         TextView companyName = (TextView) findViewById(R.id.companyName);
 
@@ -49,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
+
+    /*
 
     public void run(CompanyToJSONWriter test) throws IOException, JSONException {
         test.getCompanies();
@@ -76,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(getApplicationContext(), "jeh", Toast.LENGTH_LONG).show();
 
-           /* for (int i = 0; i < jsonArr.length(); i++) {
+            for (int i = 0; i < jsonArr.length(); i++) {
                 JSONObject obj = jsonArr.getJSONObject(i);
 
                 if (obj.getString("id").equals("0")) {
@@ -84,17 +79,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            */
+           /*
 
             JSONObject obj = jsonArr.getJSONObject(0);
             String name = obj.getString("name");
 
             Toast.makeText(getApplicationContext(), "jeh", Toast.LENGTH_LONG).show();
+            }
+     */
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
 }
