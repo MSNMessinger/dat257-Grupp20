@@ -4,14 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import android.graphics.drawable.Drawable;
-
-import android.os.Bundle;
-import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.core.widget.NestedScrollView;
-
 public class Company {
 
     private Integer id;
@@ -27,19 +19,13 @@ public class Company {
     private String email;
     private String logo;
     private String note;
-    private boolean favorite;
+    private int favorite;
 
-    public Company(Integer id, String name, String logo) {
-        this.id = id;
-        this.name = name;
-        this.logo = logo;
-    }
-
-    public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email) {
+    public Company(Integer id, String name, String programs, String jobtypes, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String logo, String note, int favorite) {
         this.id = id;
         this.name = name;
         this.programs = programs;
-        this.jobtypes = offers;
+        this.jobtypes = jobtypes;
         this.description = description;
         this.locations = locations;
         this.foundingYear = foundingYear;
@@ -47,14 +33,37 @@ public class Company {
         this.employeesSwe = employeeSwe;
         this.website = website;
         this.email = email;
-        this.note = note;
         this.logo = logo;
-        this.favorite = false;
+        this.note = note;
+        this.favorite = favorite;
 
     }
 
+    public Company(Integer id, String name, String logo) {
+        this.id = id;
+        this.name = name;
+        this.logo = logo;
+    }
+
+    public Company(Integer id, Company company, String logo) {
+        this.id = id;
+        this.name = company.name;
+        this.programs = company.programs;
+        this.jobtypes = company.jobtypes;
+        this.description = company.description;
+        this.locations = company.locations;
+        this.foundingYear = company.foundingYear;
+        this.employeesWorld = company.employeesWorld;
+        this.employeesSwe = company.employeesSwe;
+        this.website = company.website;
+        this.email = company.email;
+        this.note = company.note;
+        this.logo = logo;
+        this.favorite = 1;
+    }
+
     public void setFavorite(boolean favorite) {
-        this.favorite = favorite;
+        this.favorite = 1;
     }
 
     public boolean hasNote(){
@@ -88,7 +97,7 @@ public class Company {
         }
     }
 
-    public boolean isFavorite(){
+    public int isFavorite(){
         return favorite;
     }
 

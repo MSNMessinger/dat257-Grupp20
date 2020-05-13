@@ -15,6 +15,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dateit.Company;
+import com.example.dateit.R;
 import com.example.dateit.ui.dashboard.DashboardFragment;
 import com.example.dateit.ui.dashboard.CompanyDetailsViewModel;
 import com.google.android.material.textfield.TextInputEditText;
@@ -73,6 +75,8 @@ public class CompanyDetailsFragment extends Fragment {
         /**
          * Connects the object's text to the textview for all different headings.
          */
+
+
         TextView description = (TextView) root.findViewById(R.id.AboutText);
        // TextView name = (TextView) root.findViewById(R.id.companyName);
         TextView it = (TextView) root.findViewById(R.id.ITkeyword);
@@ -86,20 +90,18 @@ public class CompanyDetailsFragment extends Fragment {
         TextView employees = (TextView) root.findViewById(R.id.EmployeesInformation);
         TextView offices = (TextView) root.findViewById(R.id.OfficesInformation);
 
-        /*
+        description.setText(setDescription(id));
+        name.setText(setName(id));
 
         /**
          * Find text written in company then save note to the given company.
          */
-
-        /*
         TextInputEditText companyNote = (TextInputEditText) root.findViewById(R.id.AddNotesText);
         setNote(id);
 
         /**
          * Make sure that the right programs and offerings are visible for every company.
          */
-        /*
         if (isIT(id)==0){
             it.setVisibility(View.INVISIBLE); }
         if (isD(id)==0){
@@ -116,14 +118,14 @@ public class CompanyDetailsFragment extends Fragment {
         if(hasInternship(id)==0){
             internship.setVisibility(View.INVISIBLE);
         }
-/*
+
 
         website.setText(setWebsite(id));
         contact.setText(setContact(id));
         employees.setText(setEmployees(id));
         offices.setText(setOffices(id));
 
-*/
+
         return root;
     }
 
@@ -133,7 +135,6 @@ public class CompanyDetailsFragment extends Fragment {
 
 
 
-/*
     private String setDescription( int id) {
         String description = "fel";
         for (Company company : list){
@@ -142,9 +143,6 @@ public class CompanyDetailsFragment extends Fragment {
             }
         }return description;
     }
-    */
-
-/*
 
     private void setNote(int id) {
 
@@ -246,8 +244,6 @@ public class CompanyDetailsFragment extends Fragment {
             if (company.getId() == id) {
                 offices =company.getLocations();
             }
-        }return offices;
+        } return offices;
     }
-
- */
-    }
+}

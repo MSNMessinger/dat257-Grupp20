@@ -1,55 +1,5 @@
 {
-      "0": {
-            "id": 0,
-            "name": "Oscar&Cecilia",
-            "programs": "IT,E,D",
-            "jobtypes": "Summer,Master Thesis",
-            "description": "We are a great company!",
-            "locations": "Gothenburg, Stockholm",
-            "foundingYear": 2020,
-            "employeesWorld": 10,
-            "employeesSwe": 5,
-            "website": "www.google.com",
-            "email": "test@gmail.com",
-            "note": ""
-      },
-      "1": {
-            "id": 1,
-            "name": "Oscar&Cajsa",
-            "programs": "IT,E",
-            "jobtypes": "Summer,Master Thesis",
-            "description": "We are a great company!",
-            "locations": "Gothenburg, Stockholm",
-            "foundingYear": 2020,
-            "employeesWorld": 10,
-            "employeesSwe": 5,
-            "website": "www.cajsa.com",
-            "email": "test@gmail.com"
-      },
-      "2": {
-            "id": 2,
-            "name": "Apple",
-            "programs": "IT,E",
-            "jobtypes": "Summer,Master Thesis",
-            "description": "We are a great company!",
-            "locations": "Gothenburg, Stockholm",
-            "foundingYear": 2020,
-            "employeesWorld": 10,
-            "employeesSwe": 5,
-            "website": "www.apple.com",
-            "email": "test@gmail.com"
-      },
-      "3": {
-            "id": 3,
-            "name": "ÅF",
-            "programs": "IT,E,D",
-            "jobtypes": "Summer,Master Thesis",
-            "description": "We are a great company!",
-            "locations": "Gothenburg, Stockholm",
-            "foundingYear": 2020,
-            "employeesWorld": 10,
-            "employeesSwe": 5,
-            "website": "www.astra.com",
-            "email": "astra@zeneca.com"
-      }
+      "0": { "id": 0, "name": "ABCA", "programs": "D,IT", "jobtypes": "Master thesis,Employment", "description": "3bits was founded in 2008, we are more than 40 persons with a passion for e-commerce. Together with our customers we develop e-commerce solutions; everything from web to logistics. We have been trusted to deliver different solutions for many years to several of our successful customers as Lindex, Tingstad, Ragn-Sells and Mölnlycke Health Care. We work in-house at our office close to the Central station. Do you want to learn more about Elasticsearch, Azure or Docker? We are a driven growth company offering you the possibility to grow with us.", "locations": "Gothenburg", "foundingYear": 2008, "employeesWorld": 43, "employeesSwe": 43, "website": "www.3bits.se/en/", "email": "sofia.winterlen@3bits.se","logo": "_3bits","note": "a","favorite": 1},
+      "1": {"id": 1,"name": "Academic Work","programs": "IT,E,D","jobtypes": "Summer job,Employment","description": "Academic Work is the home of the young professionals. We offer jobs to students and academics in the beginning of their careers (0-5 years experience). That is our niche, our area of expertise and the target group we believe in. Academic Work operates in six countries and mediates over 16 000 jobs on a yearly basis. We offer qualified jobs within multiple business areas and the opportunity to form business relationships relevant for the future.","locations": "We have 18 offices in Sweden; 4 in Stockholm, Gothenburg, Uppsala, Karlstad, Malmö, Linköping, Jönköping, Västerås, Gävle, Örebro, Sundsvall, Umeå, Luleå, Borlänge and at Arlanda airport.","foundingYear": 1998,"employeesWorld": 300,"employeesSwe": 1100,"website": "www.academicwork.se","email": "Louise.henriksson@academicwork.se","logo": "academicwork","note": "a","favorite": 1},
+      "2": { "id": 2,"name": "ÅF","programs": "E,D,IT","jobtypes": "Employment,Master thesis","description": "ÅF Pöyry is an international leader within engineering, design and advisory services. We create solutions to support our customers worldwide to act on sustainability as well as the global trends of urbanisation and digitalisation. We are more than 16,000 devoted experts within the fields of infrastructure, industry and energy operating across the world to create sustainable solutions for the next generation. Making Future.","locations": "We have offices in more then 50 countries, from Sweden to China.","foundingYear": 1895,"employeesWorld": 16000,"employeesSwe": 8200,"website": "www.afconsult.com/en/","email": "frida.hornquist@afconsult.com","logo": "af","note": "a","favorite": 1}
 }

@@ -32,7 +32,7 @@ public class CompanyDetails extends Fragment {
      * @param company
      */
     public void changeIfFavorite(Company company){
-        company.setFavorite(!(company.isFavorite()));
+        //company.setFavorite(!(company.isFavorite()));
     }
 
 
