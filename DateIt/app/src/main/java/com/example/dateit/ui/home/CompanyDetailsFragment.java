@@ -79,17 +79,13 @@ public class CompanyDetailsFragment extends Fragment {
             internship.setVisibility(View.INVISIBLE);
         }
 
-
         website.setText(setWebsite(id));
         contact.setText(setContact(id));
         employees.setText(setEmployees(id));
         offices.setText(setOffices(id));
 
-
         return root;
     }
-
-
 
 
     private String setDescription( int id) {

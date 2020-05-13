@@ -35,6 +35,13 @@ public class Company {
         this.logo = logo;
     }
 
+    public Company(Integer id, String name, String logo, Boolean fav) {
+        this.id = id;
+        this.name = name;
+        this.logo = logo;
+        this.favorite = fav;
+    }
+
     public Company(Integer id, String name, String programs, String offers, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email) {
         this.id = id;
         this.name = name;

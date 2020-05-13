@@ -5,18 +5,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
 import com.example.dateit.JSONToCompanyReader;
 import com.example.dateit.R;
 import com.example.dateit.SubjectData;
+import com.example.dateit.ui.home.HomeFragment;
 
 import org.json.JSONException;
 import java.util.ArrayList;
@@ -28,6 +31,7 @@ public class DashboardFragment extends Fragment {
     private DashboardViewModel dashboardViewModel;
     private List<Company> list = new ArrayList<>();
     private List<String> names = new ArrayList<>();
+    private ImageView heartImg;
 
     @Override
     public void onStart() {
@@ -43,16 +47,39 @@ public class DashboardFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View root = inflater.inflate(R.layout.company_details_fragment, container, false);
         try {
             init();
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-       populateList(root);
-
+       //populateList(root);
         return root;
+    }
+    Company company = new Company(1, "Volvo", "volvocars", true);
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        heartImg = view.findViewById(R.id.heartImage);
+        if(company.isFavorite()) {
+            heartImg.setImageResource(R.drawable.heart_logo);
+        } else {
+            heartImg.setImageResource(R.drawable.emptyheart);
+        }
+
+        heartImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(company.isFavorite()) {
+                    heartImg.setImageResource(R.drawable.emptyheart);
+                    company.setFavorite(false);
+                } else {
+                    heartImg.setImageResource(R.drawable.heart_logo);
+                    company.setFavorite(true);
+                }
+            }
+        });
     }
 
     private void populateList(View root) {
