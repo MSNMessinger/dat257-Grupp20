@@ -82,6 +82,11 @@ public class NotificationsFragment extends Fragment {
         setListViewHeightBasedOnChildren(list);
     }
 
+    /**
+     * filters companies by is marked as favorite
+     * @param companies
+     * @return
+     */
     private List<Company> filterFavorites(List<Company> companies) {
         List<Company> favCompanies = new ArrayList<Company>();
         for(Company c : companies) {
@@ -92,6 +97,11 @@ public class NotificationsFragment extends Fragment {
         return favCompanies;
     }
 
+    /**
+     * filters companies by contains note
+     * @param companies
+     * @return
+     */
     private List<Company> filterNotesNotFavorites(List<Company> companies) {
         List<Company> noteCompanies = new ArrayList<Company>();
         for(Company c : companies) {
@@ -102,6 +112,10 @@ public class NotificationsFragment extends Fragment {
         return noteCompanies;
     }
 
+    /**
+     * Dynamically sets height od listview based on nb of children
+     * @param listView
+     */
     public void setListViewHeightBasedOnChildren(ListView listView) {
         CustomAdapter listAdapter = (CustomAdapter) listView.getAdapter();
         if (listAdapter == null) {
