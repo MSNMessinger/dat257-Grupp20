@@ -96,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
         for (Company tmpComp : companies){
             notes.add(tmpComp.getNote());
         }
-        //resetNotes(notes);
         String fileContents = new Gson().toJson(notes);
         try (FileOutputStream fos = this.openFileOutput(filename, Context.MODE_PRIVATE)) {
             fos.write(fileContents.getBytes());
@@ -116,9 +115,7 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private String readNotes(String filename) throws IOException {
         if(!fileExists(this, filename)){
-            String fileContents = "";
-            FileOutputStream fos = this.openFileOutput(filename, Context.MODE_PRIVATE);
-            fos.write(fileContents.getBytes());
+            saveNotes();
         }
         String contents = null;
         FileInputStream fis = null;
