@@ -20,6 +20,7 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static List<Company>  list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,27 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+        try {
+            init();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(list.size());
+    }
+
+    /**
+     * Initializes the list in the company fragment page
+     * @throws JSONException
+     */
+    private void init() throws JSONException {
+        JSONToCompanyReader reader = new JSONToCompanyReader(this);
+        list = reader.createCompanies();
+    }
+
+    public static List<Company> getList() {
+        return list;
     }
 
     /*

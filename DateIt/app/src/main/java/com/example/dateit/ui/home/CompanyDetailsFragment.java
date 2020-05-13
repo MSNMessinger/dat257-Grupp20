@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.dateit.Company;
+import com.example.dateit.MainActivity;
 import com.example.dateit.R;
 import com.example.dateit.ui.dashboard.DashboardFragment;
 import com.google.android.material.textfield.TextInputEditText;
@@ -27,7 +28,7 @@ public class CompanyDetailsFragment extends Fragment {
     TextInputEditText companyNote;
 
     DashboardFragment dashboardFragment;
-    List<Company> list = dashboardFragment.getList();
+    List<Company> list = MainActivity.getList();
 
 
 

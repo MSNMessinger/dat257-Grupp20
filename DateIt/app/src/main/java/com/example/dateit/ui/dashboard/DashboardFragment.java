@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
 import com.example.dateit.JSONToCompanyReader;
+import com.example.dateit.MainActivity;
 import com.example.dateit.R;
 import com.example.dateit.SubjectData;
 
@@ -26,29 +27,13 @@ import java.util.List;
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
-    private List<Company> list = new ArrayList<>();
-    private List<String> names = new ArrayList<>();
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        try {
-            init();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
+    List<Company> list = MainActivity.getList();
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        try {
-            init();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
        populateList(root);
         return root;
@@ -65,22 +50,6 @@ public class DashboardFragment extends Fragment {
 
         CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
         alist.setAdapter(customAdapter);
-    }
-
-    /**
-     * Initializes the list in the company fragment page
-     * @throws JSONException
-     */
-    private void init() throws JSONException {
-        JSONToCompanyReader reader = new JSONToCompanyReader(getActivity());
-        list = reader.createCompanies();
-        for (Company comp : list) {
-            names.add(comp.getName());
-        }
-    }
-
-    public List<Company> getList() {
-        return list;
     }
 
     /**

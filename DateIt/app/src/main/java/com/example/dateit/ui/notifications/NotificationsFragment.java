@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
 import com.example.dateit.JSONToCompanyReader;
+import com.example.dateit.MainActivity;
 import com.example.dateit.R;
 import com.example.dateit.ui.dashboard.DashboardFragment;
 
@@ -59,8 +60,7 @@ public class NotificationsFragment extends Fragment {
     private void populateListFavorites(View root) throws JSONException {
         final ListView list = (ListView)root.findViewById(R.id.listOfFavorites);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        DashboardFragment dash = new DashboardFragment();
-        arrayList.addAll(filterFavorites(dash.getList()));
+        arrayList.addAll(MainActivity.getList());
         if(!arrayList.isEmpty()){
             CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
             list.setAdapter(customAdapter);
@@ -72,7 +72,7 @@ public class NotificationsFragment extends Fragment {
     private List<Company> filterFavorites(List<Company> companies) {
         List<Company> favCompanies = new ArrayList<Company>();
         for(Company c : companies) {
-            if(c.isFavorite()) {
+            if(c.isFavorite() == 1) {
                 favCompanies.add(c);
             }
         }
