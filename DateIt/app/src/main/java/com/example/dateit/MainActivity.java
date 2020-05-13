@@ -18,6 +18,7 @@ import androidx.navigation.ui.NavigationUI;
 import org.json.JSONException;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -53,7 +54,11 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-        initCompanies();
+        try {
+            initCompanies();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private void initCompanies(){
+    private void initCompanies() throws IOException {
         try {
             companies = new JSONToCompanyReader(this).createCompanies();
             Collections.sort(companies, new Comparator<Company>() {
@@ -109,7 +114,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private String readNotes(String filename){
+    private String readNotes(String filename) throws IOException {
+        if(!fileExists(this, filename)){
+            String fileContents = "";
+            FileOutputStream fos = this.openFileOutput(filename, Context.MODE_PRIVATE);
+            fos.write(fileContents.getBytes());
+        }
         String contents = null;
         FileInputStream fis = null;
         try {
@@ -138,6 +148,14 @@ public class MainActivity extends AppCompatActivity {
         for (Company company : companies){
             System.out.println("name: " + company.getName() + "& note: " + company.getNote());
         }
+    }
+
+    private boolean fileExists(Context context, String filename) {
+        File file = context.getFileStreamPath(filename);
+        if(file == null || !file.exists()) {
+            return false;
+        }
+        return true;
     }
 
 
