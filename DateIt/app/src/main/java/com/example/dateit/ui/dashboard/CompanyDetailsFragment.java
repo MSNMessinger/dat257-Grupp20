@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.dateit.Company;
 import com.example.dateit.MainActivity;
 import com.example.dateit.R;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class CompanyDetailsFragment extends Fragment {
 
@@ -59,12 +60,15 @@ public class CompanyDetailsFragment extends Fragment {
         TextView contact = (TextView) root.findViewById(R.id.ContactInformation);
         TextView employees = (TextView) root.findViewById(R.id.EmployeesInformation);
         TextView offices = (TextView) root.findViewById(R.id.OfficesInformation);
+        TextInputEditText companyNote = (TextInputEditText) root.findViewById(R.id.AddNotesText);
+
 
 
         /**
          * Sets correct values for given company
          */
         name.setText(company.getName());
+
 
         return root;
     }
