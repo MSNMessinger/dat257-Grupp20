@@ -33,7 +33,7 @@ public class DashboardFragment extends Fragment {
 
 
     private DashboardViewModel dashboardViewModel;
-    private List<Company> list = new ArrayList<>();
+    //private List<Company> list = new ArrayList<>();
     private List<String> names = new ArrayList<>();
     private ListView listView;
 
@@ -64,7 +64,7 @@ public class DashboardFragment extends Fragment {
 
         arrayList.addAll(MainActivity.getList());
 
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList, this);
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_dashboard_to_companyDetails);
         alist.setAdapter(customAdapter);
     }
 

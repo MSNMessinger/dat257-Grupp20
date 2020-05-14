@@ -1,48 +1,25 @@
 package com.example.dateit.ui.dashboard;
-
-import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.dateit.Company;
-import com.example.dateit.JSONToCompanyReader;
 import com.example.dateit.MainActivity;
 import com.example.dateit.R;
-import com.example.dateit.ui.dashboard.DashboardFragment;
-import com.example.dateit.ui.dashboard.CompanyDetailsViewModel;
-import com.google.android.material.textfield.TextInputEditText;
-
-import org.json.JSONException;
-
-import java.util.List;
 
 public class CompanyDetailsFragment extends Fragment {
 
     CompanyDetailsViewModel companyDetailsViewModel;
     Company company;
     int id;
-    TextInputEditText companyNote;
     private ImageView heartImg;
-    ListView list;
-
-    TextView name;
-
-    DashboardFragment dashboardFragment;
-    List<Company> list = MainActivity.getList();
-
-  //  List<Company> list = dashboardFragment.getList();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,15 +29,14 @@ public class CompanyDetailsFragment extends Fragment {
             id = bundle.getInt("id");
             Toast.makeText(getContext(), ""+id, Toast.LENGTH_LONG).show();
 
-           // try {
-           //     company = jsonToCompanyReader.getCompany(id);
-          //  } catch (JSONException e) {
-          //      e.printStackTrace();
-          //  }
+            for(Company c : MainActivity.getList()){
+                if(((Integer) id).equals(c.getId())){
+                    company = c;
+                    break;
+                }
+            }
         }
     }
-
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -86,53 +62,25 @@ public class CompanyDetailsFragment extends Fragment {
         TextView employees = (TextView) root.findViewById(R.id.EmployeesInformation);
         TextView offices = (TextView) root.findViewById(R.id.OfficesInformation);
 
-      //  name.setText(company.getName());
+       name.setText(company.getName());
 
-     //   description.setText(setDescription(id));
-      //  name.setText(setName(id));
-
-        /**
-         * Find text written in company then save note to the given company.
-         */
-        TextInputEditText companyNote = (TextInputEditText) root.findViewById(R.id.AddNotesText);
-       // setNote(id);
-
-        /**
-         * Make sure that the right programs and offerings are visible for every company.
-         */
-        /*
-        if (isIT(id)==0){
-            it.setVisibility(View.INVISIBLE); }
-        if (isD(id)==0){
-            d.setVisibility(View.INVISIBLE);}
-        if(isE(id)==0){
-            e.setVisibility(View.INVISIBLE);
-        }
-        if(hasSummer(id)==0){
-            summer.setVisibility(View.INVISIBLE);
-        }
-        if(hasMaster(id)==0){
-            master.setVisibility(View.INVISIBLE);
-        }
-        if(hasInternship(id)==0){
-            internship.setVisibility(View.INVISIBLE);
-        }
-
-*/
         return root;
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         heartImg = view.findViewById(R.id.heartImage);
-        if(company.isFavorite() == 1) {
+        if (company.isFavorite() == 1) {
             heartImg.setImageResource(R.drawable.heart_logo);
         } else {
             heartImg.setImageResource(R.drawable.emptyheart);
         }
 
-/*
+
+
+
         heartImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -146,117 +94,5 @@ public class CompanyDetailsFragment extends Fragment {
             }
         });
     }
-
-    private String setDescription( int id) {
-        String description = "fel";
-        for (Company company : list){
-            if (company.getId() == id) {
-                description =company.getDescription();
-            }
-        }return description;
-    }
-
-    private void setNote(int id) {
-
-        if(companyNote != null) {
-
-            String str = companyNote.getText().toString();
-
-            for (Company company : list) {
-                if (company.getId() == id) {
-                    company.setNote(str);
-                }
-            }
-        }
-    }
-
-    private String setName(int id) {
-        String name = "fel";
-        for (Company company : list){
-            if (company.getId() == id) {
-                name =company.getName();
-            }
-        }return name;
-    }
-
-    private int isIT (int id){
-        for (Company company : list){
-            if (company.getId() == id)
-                return company.isIT();
-        }return 0;
-    }
-
-    private int isD (int id){
-        for (Company company : list){
-            if (company.getId() == id)
-                return company.isD();
-        }return 0;
-    }
-
-    private int isE (int id){
-        for (Company company : list){
-            if (company.getId() == id)
-                return company.isE();
-        }return 0;
-    }
-
-    private int hasSummer (int id){
-        for (Company company : list){
-            if (company.getId() == id)
-                return company.hasSummerJob();
-        }return 0;
-    }
-
-    private int hasMaster (int id){
-        for (Company company : list){
-            if (company.getId() == id)
-                return company.hasMasterThesis();
-        }return 0;
-    }
-
-    private int hasInternship (int id){
-        for (Company company : list){
-            if (company.getId() == id)
-                return company.hasInternship();
-        }return 0;
-    }
-
-    private String setWebsite( int id) {
-        String website = "fel";
-        for (Company company : list){
-            if (company.getId() == id) {
-                website =company.getWebsite();
-            }
-        }return website;
-    }
-
-    private String setContact( int id) {
-        String contact = "fel";
-        for (Company company : list){
-            if (company.getId() == id) {
-                contact =company.getEmail();
-            }
-        }return contact;
-    }
-
-    private String setEmployees( int id) {
-        int employees = 0;
-        for (Company company : list){
-            if (company.getId() == id) {
-                employees =company.getEmployeesWorld();
-            }
-        }
-        String numberOfEmployees = ""+employees + "";
-        return numberOfEmployees;
-    }
-
-    private String setOffices( int id) {
-        String offices = "fel";
-        for (Company company : list){
-            if (company.getId() == id) {
-                offices =company.getLocations();
-            }
-        } return offices;
-    }
-    */
 }
+

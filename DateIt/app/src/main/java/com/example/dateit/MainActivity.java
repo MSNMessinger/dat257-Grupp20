@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private void init() throws JSONException {
         JSONToCompanyReader reader = new JSONToCompanyReader(this);
         list = reader.createCompanies();
+        System.out.println(list.get(0).getId());
     }
 
     /**

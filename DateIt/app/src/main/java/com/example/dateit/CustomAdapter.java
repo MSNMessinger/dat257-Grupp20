@@ -1,5 +1,6 @@
 package com.example.dateit;
 
+import android.app.Notification;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -27,13 +28,15 @@ public class CustomAdapter implements ListAdapter {
     ArrayList<Company> arrayList;
     FragmentActivity context;
     Fragment fragment;
+    int action;
 
 
-    public CustomAdapter(FragmentActivity context, ArrayList<Company> arrayList, Fragment fragment) {
+    public CustomAdapter(FragmentActivity context, ArrayList<Company> arrayList, Fragment fragment, int action) {
         this.arrayList=arrayList;
         this.context=context;
         this.mContext = context;
         this.fragment = fragment;
+        this.action = action;
 
     }
     private FragmentActivity mContext;
@@ -83,11 +86,11 @@ public class CustomAdapter implements ListAdapter {
                    // finalConvertView.setVisibility(View.INVISIBLE);
 
                     Bundle bundle = new Bundle();
-                    bundle.putInt("id", company.getId());
+                    bundle.putInt("id", (int) company.getId());
 
                   //  System.out.println(bundle);
 
-                    NavHostFragment.findNavController(fragment).navigate(R.id.action_navigation_dashboard_to_companyDetails, bundle);
+                    NavHostFragment.findNavController(fragment).navigate(action, bundle);
 
                 }
             });

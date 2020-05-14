@@ -62,7 +62,7 @@ public class NotificationsFragment extends Fragment {
         ArrayList<Company> arrayList = new ArrayList<Company>();
         List<Company> favComp = filterFavorites(MainActivity.getList());
         arrayList.addAll(favComp);
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_notifications_to_companyDetails);
         list.setAdapter(customAdapter);
         setListViewHeightBasedOnChildren(list);
 
@@ -77,7 +77,7 @@ public class NotificationsFragment extends Fragment {
         ArrayList<Company> arrayList = new ArrayList<Company>();
         List<Company> favComp = filterNotesNotFavorites(MainActivity.getList());
         arrayList.addAll(favComp);
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_notifications_to_companyDetails);
         list.setAdapter(customAdapter);
         setListViewHeightBasedOnChildren(list);
     }
