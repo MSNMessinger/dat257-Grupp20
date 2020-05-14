@@ -1,7 +1,5 @@
 package com.example.dateit;
 
-import android.content.Context;
-import android.content.Intent;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -9,30 +7,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.dateit.ui.dashboard.CompanyDetailsFragment;
 import com.example.dateit.ui.dashboard.DashboardFragment;
+import com.example.dateit.ui.home.HomeFragment;
 
 import java.util.ArrayList;
 
 public class CustomAdapter implements ListAdapter {
     ArrayList<Company> arrayList;
     FragmentActivity context;
+    Fragment fragment;
 
 
-    public CustomAdapter(FragmentActivity context, ArrayList<Company> arrayList) {
+    public CustomAdapter(FragmentActivity context, ArrayList<Company> arrayList, Fragment fragment) {
         this.arrayList=arrayList;
         this.context=context;
         this.mContext = context;
+        this.fragment = fragment;
 
     }
     private FragmentActivity mContext;
@@ -77,22 +78,16 @@ public class CustomAdapter implements ListAdapter {
                 @Override
                 public void onClick(View v) {
 
-                    finalConvertView.setVisibility(View.INVISIBLE);
+
+
+                   // finalConvertView.setVisibility(View.INVISIBLE);
 
                     Bundle bundle = new Bundle();
                     bundle.putInt("id", company.getId());
-                    System.out.println(bundle);
 
+                  //  System.out.println(bundle);
 
-                    CompanyDetailsFragment tf = new CompanyDetailsFragment();
-                    tf.setArguments(bundle);
-
-
-                    FragmentManager fm = mContext.getSupportFragmentManager();
-                    FragmentTransaction ft = fm.beginTransaction();
-
-                    ft.replace(R.id.dashboard_container, tf);
-                    ft.commit();
+                    NavHostFragment.findNavController(fragment).navigate(R.id.action_navigation_dashboard_to_companyDetails, bundle);
 
                 }
             });

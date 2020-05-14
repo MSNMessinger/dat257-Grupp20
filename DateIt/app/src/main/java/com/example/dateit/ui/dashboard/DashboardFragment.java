@@ -1,6 +1,5 @@
 package com.example.dateit.ui.dashboard;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.dateit.Company;
-import com.example.dateit.CompanyDetailsFragment;
 import com.example.dateit.CustomAdapter;
 import com.example.dateit.JSONToCompanyReader;
 import com.example.dateit.R;
@@ -61,14 +58,6 @@ public class DashboardFragment extends Fragment {
             e.printStackTrace();
         }
 
-       listView = (ListView) root.findViewById(R.id.list);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), ""+id, Toast.LENGTH_LONG).show();
-                listView.setVisibility(View.INVISIBLE);
-            }
-        });
    //     listView.setVisibility(View.INVISIBLE);
 
         populateList(root);
@@ -88,7 +77,7 @@ public class DashboardFragment extends Fragment {
         //arrayList.add(new Company(1, "Volvo", "volvo"));
         //arrayList.add(new Company(2, "Saab", "saab"));
 
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList, this);
         alist.setAdapter(customAdapter);
     }
 

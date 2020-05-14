@@ -1,4 +1,4 @@
-package com.example.dateit;
+package com.example.dateit.ui.dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dateit.Company;
+import com.example.dateit.JSONToCompanyReader;
 import com.example.dateit.R;
 import com.example.dateit.ui.dashboard.DashboardFragment;
 import com.example.dateit.ui.dashboard.CompanyDetailsViewModel;
@@ -47,11 +48,12 @@ public class CompanyDetailsFragment extends Fragment {
         if(bundle != null){
             id = bundle.getInt("id");
             Toast.makeText(getContext(), ""+id, Toast.LENGTH_LONG).show();
-            try {
-                company = jsonToCompanyReader.getCompany(id);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+
+           // try {
+           //     company = jsonToCompanyReader.getCompany(id);
+          //  } catch (JSONException e) {
+          //      e.printStackTrace();
+          //  }
         }
     }
 
@@ -95,7 +97,7 @@ public class CompanyDetailsFragment extends Fragment {
         TextView employees = (TextView) root.findViewById(R.id.EmployeesInformation);
         TextView offices = (TextView) root.findViewById(R.id.OfficesInformation);
 
-        name.setText(company.getName());
+      //  name.setText(company.getName());
 
      //   description.setText(setDescription(id));
       //  name.setText(setName(id));

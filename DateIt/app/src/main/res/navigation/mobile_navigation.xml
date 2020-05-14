@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_navigation_dashboard_to_companyDetails"
             app:destination="@id/companyDetails" />
+        <argument
+            android:name="sendID"
+            app:argType="integer" />
     </fragment>
 
     <fragment
@@ -35,7 +38,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/companyDetails"
-        android:name="com.example.dateit.CompanyDetailsFragment"
+        android:name="com.example.dateit.ui.dashboard.CompanyDetailsFragment"
         android:label="company_details_fragment"
         tools:layout="@layout/company_details_fragment" />
     <fragment
