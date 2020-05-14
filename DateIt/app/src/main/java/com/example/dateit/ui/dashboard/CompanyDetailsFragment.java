@@ -12,11 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dateit.Company;
 import com.example.dateit.JSONToCompanyReader;
+import com.example.dateit.MainActivity;
 import com.example.dateit.R;
 import com.example.dateit.ui.dashboard.DashboardFragment;
 import com.example.dateit.ui.dashboard.CompanyDetailsViewModel;
@@ -32,12 +34,13 @@ public class CompanyDetailsFragment extends Fragment {
     Company company;
     int id;
     TextInputEditText companyNote;
-    JSONToCompanyReader jsonToCompanyReader;
+    private ImageView heartImg;
     ListView list;
 
     TextView name;
 
     DashboardFragment dashboardFragment;
+    List<Company> list = MainActivity.getList();
 
   //  List<Company> list = dashboardFragment.getList();
 
@@ -64,20 +67,6 @@ public class CompanyDetailsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         companyDetailsViewModel = ViewModelProviders.of(this).get(CompanyDetailsViewModel.class);
         View root = inflater.inflate(R.layout.company_details_fragment, container, false);
-
-
-        /*
-        try {
-            company = jsonToCompanyReader.getCompany(id);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        name = (TextView) root.findViewById(R.id.companyName);
-        name.setText(company.getName());
-    */
-
-     //   list = (ListView) root.findViewById(R.id.list);
-     //   list.setVisibility(View.INVISIBLE);
 
         /**
          * Connects the object's text to the textview for all different headings.
@@ -133,12 +122,31 @@ public class CompanyDetailsFragment extends Fragment {
         return root;
     }
 
-    private void setName() throws JSONException {
-    name.setText(jsonToCompanyReader.getCompany(id).getName());
-    }
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        heartImg = view.findViewById(R.id.heartImage);
+        if(company.isFavorite() == 1) {
+            heartImg.setImageResource(R.drawable.heart_logo);
+        } else {
+            heartImg.setImageResource(R.drawable.emptyheart);
+        }
 
 /*
+        heartImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(company.isFavorite() == 1) {
+                    heartImg.setImageResource(R.drawable.emptyheart);
+                    company.setFavorite(0);
+                } else {
+                    heartImg.setImageResource(R.drawable.heart_logo);
+                    company.setFavorite(1);
+                }
+            }
+        });
+    }
+
     private String setDescription( int id) {
         String description = "fel";
         for (Company company : list){

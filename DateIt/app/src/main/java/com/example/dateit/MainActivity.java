@@ -14,16 +14,13 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static List<Company>  list = new ArrayList<>();
 
 
     @Override
@@ -31,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-        //get_json();
 
         TextView companyName = (TextView) findViewById(R.id.companyName);
 
@@ -46,51 +42,28 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-    }
 
-    /*
-
-    public void run(CompanyToJSONWriter test) throws IOException, JSONException {
-        test.getCompanies();
-
-    }
-
-    public void get_json(){
-
-        ArrayList<String> numberList = new ArrayList<>();
-        String json;
         try {
+            init();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
-            InputStream is = getAssets().open("companies.json");
-            int size = is.available();
-
-            byte[] buffer = new byte[size];
-
-            is.read(buffer);
-            is.close();
-
-
-
-            json = new String(buffer, "UTF-8");
-            JSONArray jsonArr = new JSONArray(json);
-
-            Toast.makeText(getApplicationContext(), "jeh", Toast.LENGTH_LONG).show();
-
-            for (int i = 0; i < jsonArr.length(); i++) {
-                JSONObject obj = jsonArr.getJSONObject(i);
-
-                if (obj.getString("id").equals("0")) {
-                    numberList.add(obj.getString("name"));
-                }
-            }
-
-           /*
-
-            JSONObject obj = jsonArr.getJSONObject(0);
-            String name = obj.getString("name");
-
-            Toast.makeText(getApplicationContext(), "jeh", Toast.LENGTH_LONG).show();
-            }
+    /**
+     * Initializes the list in the company fragment page
+     * @throws JSONException
      */
+    private void init() throws JSONException {
+        JSONToCompanyReader reader = new JSONToCompanyReader(this);
+        list = reader.createCompanies();
+    }
 
+    /**
+     * Returns list of all companies that all fragments use (or should use at least, :/)
+     * @return
+     */
+    public static List<Company> getList() {
+        return list;
+    }
 }

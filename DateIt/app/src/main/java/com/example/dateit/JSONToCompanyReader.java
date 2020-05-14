@@ -90,8 +90,6 @@ public class JSONToCompanyReader {
         return list;
     }
 
-
-
     public Company getCompany(int id) throws JSONException {
         JSONObject jsonFile = new JSONObject(jsonString);
         JSONObject tmp = jsonFile.getJSONObject("" + id + "");

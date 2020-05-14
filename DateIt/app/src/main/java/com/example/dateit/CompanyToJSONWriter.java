@@ -31,10 +31,6 @@ public class CompanyToJSONWriter {
         Gson gson = new Gson();
         String str = gson.toJson(list.get(0).getName());
 
-
-
-
-
         jsonObject.put("name", list.get(0).getName());
 
         JSONObject company = new JSONObject();

@@ -15,7 +15,17 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.dateit.Company;
+import com.example.dateit.CustomAdapter;
+import com.example.dateit.JSONToCompanyReader;
+import com.example.dateit.MainActivity;
 import com.example.dateit.R;
+import com.example.dateit.ui.dashboard.DashboardFragment;
+
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class NotificationsFragment extends Fragment {
 
@@ -34,46 +44,94 @@ public class NotificationsFragment extends Fragment {
             }
         });*/
 
-        String[] namesOfCompaniesToVisit = {"Volvo", "Ericsson", "Brocoli","Volvo", "Ericsson", "Brocoli","Volvo", "Ericsson", "Brocoli"};
-        ListView companyList = (ListView)root.findViewById(R.id.listToVisit);
-        ArrayAdapter<String> companyToVisitAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfCompaniesToVisit);
-        companyList.setAdapter(companyToVisitAdapter);
-        getTotalHeightofListView(companyList);
-
-        String[] namesOfFavorites = {"SKF", "Spotify"};
-        ListView companyListOfFav = (ListView)root.findViewById(R.id.listOfFavorites);
-        ArrayAdapter<String> favoriteCompanyAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfFavorites);
-        companyListOfFav.setAdapter(favoriteCompanyAdapter);
-        getTotalHeightofListView(companyListOfFav);
-
-        String[] namesOfNotes = {"SKF", "Spotify", "Ericsson"};
-        ListView companyListOfNotes = (ListView)root.findViewById(R.id.listOfNotes);
-        ArrayAdapter<String> notesCompanyAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1,namesOfNotes);
-        companyListOfNotes.setAdapter(notesCompanyAdapter);
-        getTotalHeightofListView(companyListOfNotes);
+        try {
+            populateListFavorites(root);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        populateListNotes(root);
         return root;
     }
 
-    public static void getTotalHeightofListView(ListView listView) {
+    /**
+     * Populates the list of favorites with items marked as favorite from DB
+     * @param root
+     */
+    private void populateListFavorites(View root) throws JSONException {
+        final ListView list = (ListView)root.findViewById(R.id.listOfFavorites);
+        ArrayList<Company> arrayList = new ArrayList<Company>();
+        List<Company> favComp = filterFavorites(MainActivity.getList());
+        arrayList.addAll(favComp);
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        list.setAdapter(customAdapter);
+        setListViewHeightBasedOnChildren(list);
 
-        ListAdapter mAdapter = listView.getAdapter();
+    }
+
+    /**
+     * Populates the list of items with notes from DB
+     * @param root
+     */
+    private void populateListNotes(View root) {
+        final ListView list = (ListView)root.findViewById(R.id.listOfNotes);
+        ArrayList<Company> arrayList = new ArrayList<Company>();
+        List<Company> favComp = filterNotesNotFavorites(MainActivity.getList());
+        arrayList.addAll(favComp);
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        list.setAdapter(customAdapter);
+        setListViewHeightBasedOnChildren(list);
+    }
+
+    /**
+     * filters companies by is marked as favorite
+     * @param companies
+     * @return
+     */
+    private List<Company> filterFavorites(List<Company> companies) {
+        List<Company> favCompanies = new ArrayList<Company>();
+        for(Company c : companies) {
+            if(c.isFavorite() == 1) {
+                favCompanies.add(c);
+            }
+        }
+        return favCompanies;
+    }
+
+    /**
+     * filters companies by contains note
+     * @param companies
+     * @return
+     */
+    private List<Company> filterNotesNotFavorites(List<Company> companies) {
+        List<Company> noteCompanies = new ArrayList<Company>();
+        for(Company c : companies) {
+            if(c.hasNote()) {
+                noteCompanies.add(c);
+            }
+        }
+        return noteCompanies;
+    }
+
+    /**
+     * Dynamically sets height od listview based on nb of children
+     * @param listView
+     */
+    public void setListViewHeightBasedOnChildren(ListView listView) {
+        CustomAdapter listAdapter = (CustomAdapter) listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
 
         int totalHeight = 0;
-
-        for (int i = 0; i < mAdapter.getCount(); i++) {
-            View mView = mAdapter.getView(i, null, listView);
-
-            mView.measure(
-                    View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-
-                    View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
-
-            totalHeight += mView.getMeasuredHeight();
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
         }
 
         ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight
-                + (listView.getDividerHeight() * (mAdapter.getCount() - 1));
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
         listView.setLayoutParams(params);
         listView.requestLayout();
     }

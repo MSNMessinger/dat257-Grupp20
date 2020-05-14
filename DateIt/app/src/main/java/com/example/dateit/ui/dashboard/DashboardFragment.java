@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -12,11 +14,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
 import com.example.dateit.JSONToCompanyReader;
+import com.example.dateit.MainActivity;
 import com.example.dateit.R;
+import com.example.dateit.SubjectData;
+import com.example.dateit.ui.home.HomeFragment;
 
 import org.json.JSONException;
 import java.util.ArrayList;
@@ -36,71 +42,30 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+    List<Company> list = MainActivity.getList();
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        try {
-            init();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public View onCreateView(@NonNull final LayoutInflater inflater,
+    public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        try {
-            init();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
    //     listView.setVisibility(View.INVISIBLE);
 
         populateList(root);
 
-
-
         return root;
     }
-
 
     private void populateList(View root) {
         final ListView alist = (ListView)root.findViewById(R.id.list);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        for (Company comp : list){
-            arrayList.add(new Company(comp.getId(), comp.getName(), comp.getLogo()));
-        }
-        //arrayList.add(new Company(1, "Volvo", "volvo"));
-        //arrayList.add(new Company(2, "Saab", "saab"));
+
+        arrayList.addAll(MainActivity.getList());
 
         CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList, this);
         alist.setAdapter(customAdapter);
-    }
-
-    /**
-     * Initializes the list in the company fragment page
-     * @throws JSONException
-     */
-
-    private void init() throws JSONException {
-        JSONToCompanyReader reader = new JSONToCompanyReader(getActivity());
-            list = reader.createCompanies();
-            for (Company comp : list) {
-            names.add(comp.getName());
-        }
-    }
-
-    public List<Company> getList() {
-        try {
-            init();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return list;
     }
 
     /**
