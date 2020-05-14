@@ -52,6 +52,8 @@ public class DashboardFragment extends Fragment {
 
        populateList(root);
 
+        
+
         return root;
     }
 
