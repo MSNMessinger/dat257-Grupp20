@@ -25,6 +25,9 @@ public class Company {
         this.id = id;
         this.name = name;
         this.logo = logo;
+        if(name == null || name.isEmpty()){
+            this.name = "hej";
+        }
     }
 
     public Company(Integer id, String name, String logo, int favorite) {
@@ -49,6 +52,9 @@ public class Company {
         this.logo = logo;
         this.note = note;
         this.favorite = favorite;
+        if(name == null || name.isEmpty()){
+            this.name = "hej";
+        }
     }
 
     public Company(Integer id, Company company, String logo) {

@@ -33,12 +33,11 @@ import java.util.List;
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
-    private List<Company> list = new ArrayList<>();
     private List<String> names = new ArrayList<>();
     private EditText etSearch;
 
     private CustomAdapter customAdapter;
-    List<Company> list = MainActivity.getList();
+    private List<Company> list;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -46,7 +45,7 @@ public class DashboardFragment extends Fragment {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-
+        list = MainActivity.getList();
        populateList(root);
 
 
@@ -79,10 +78,11 @@ public class DashboardFragment extends Fragment {
     private void populateList(View root) {
         final ListView alist = (ListView)root.findViewById(R.id.list);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-
-        arrayList.addAll(MainActivity.getList());
-
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        //arrayList.addAll(list);
+        arrayList.add(new Company(1, "Volvo", "volvocars"));
+        arrayList.add(new Company(2, "Saab", "saab"));
+        arrayList.add(new Company(3, "<3", "heart_logo"));
+        customAdapter = new CustomAdapter(getActivity(), arrayList);
         alist.setAdapter(customAdapter);
     }
 
