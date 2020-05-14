@@ -59,6 +59,7 @@ public class DashboardFragment extends Fragment {
 
        populateList(root);
 
+
         etSearch = (EditText) root.findViewById(R.id.searchField);
         // Add Text Change Listener to EditText
         etSearch.addTextChangedListener(new TextWatcher() {
@@ -67,19 +68,20 @@ public class DashboardFragment extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 // Call back the Adapter with current character to Filter
                 customAdapter.getFilter().filter(s.toString());
-                customAdapter.notifyDataSetChanged();
+
             }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count,int after) {
-                customAdapter.notifyDataSetChanged();
+
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                customAdapter.notifyDataSetChanged();
+
             }
         });
+
 
         return root;
     }
