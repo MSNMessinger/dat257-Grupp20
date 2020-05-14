@@ -89,8 +89,6 @@ public class DashboardFragment extends Fragment {
     private void populateList(View root) {
         final ListView list = (ListView)root.findViewById(R.id.list);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(2, "Saab", "saab"));
 
         customAdapter = new CustomAdapter(getActivity(), arrayList);
         list.setAdapter(customAdapter);

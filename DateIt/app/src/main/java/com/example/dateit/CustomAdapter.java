@@ -19,127 +19,70 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomAdapter extends BaseAdapter implements ListAdapter, Filterable {
-    private ArrayList<Company> data;
-    private List<Company> originalData;
+public class CustomAdapter extends BaseAdapter implements Filterable {
+
+    List<Company> arrayList;
+    List<Company> mOriginalValues; // Original Values
+    LayoutInflater inflater;
     Context context;
-    private int lastPosition = -1;
 
-    private List<Company>filteredData = null;
-
-    public CustomAdapter(Context context, ArrayList<Company> arrayList) {
-        this.originalData=arrayList;
-        this.data=arrayList;
-        this.context=context;
-    }
-    private static class ViewHolder {
-        TextView txtName;
-        TextView txtType;
-        TextView txtVersion;
-        ImageView info;
+    public CustomAdapter(Context context, List<Company> arrayList) {
+        this.arrayList = arrayList;
+        inflater = LayoutInflater.from(context);
+        this.context = context;
     }
 
-    @Override
-    public boolean areAllItemsEnabled() {
-        return false;
-    }
-    @Override
-    public boolean isEnabled(int position) {
-        return true;
-    }
-    @Override
-    public void registerDataSetObserver(DataSetObserver observer) {
-    }
-    @Override
-    public void unregisterDataSetObserver(DataSetObserver observer) {
-    }
     @Override
     public int getCount() {
-        return data.size();
+        return arrayList.size();
     }
+
     @Override
     public Object getItem(int position) {
         return position;
     }
+
     @Override
     public long getItemId(int position) {
         return position;
     }
-    @Override
-    public boolean hasStableIds() {
-        return false;
+
+    private class ViewHolder {
+        TextView textView;
+        ImageView logo;
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        /*
-        Company dataModel =data.get(position);
-        // Check if an existing view is being reused, otherwise inflate the view
-        ViewHolder viewHolder; // view lookup cache stored in tag
 
-        final View result;
+        ViewHolder holder = null;
 
         if (convertView == null) {
 
-            viewHolder = new ViewHolder();
-            LayoutInflater inflater = LayoutInflater.from(context);
-            convertView = inflater.inflate(R.layout.list_row, parent, false);
-            viewHolder.txtName = (TextView) convertView.findViewById(R.id.title);
+            holder = new ViewHolder();
+            convertView = inflater.inflate(R.layout.list_row, null);
+            holder.textView = (TextView) convertView.findViewById(R.id.title);
+            holder.logo = (ImageView) convertView.findViewById(R.id.list_image);
 
-            result=convertView;
-
-            convertView.setTag(viewHolder);
+            convertView.setTag(holder);
         } else {
-            viewHolder = (ViewHolder) convertView.getTag();
-            result=convertView;
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        Animation animation = AnimationUtils.loadAnimation(context, (position > lastPosition) ? R.anim.up_from_bottom : R.anim.down_from_top);
-        result.startAnimation(animation);
-        lastPosition = position;
 
-        viewHolder.txtName.setText(dataModel.getName());
-        //viewHolder.txtVersion.setText(dataModel.getVersion_number());
-        //viewHolder.info.setOnClickListener(this);
-        //viewHolder.info.setTag(position);
-        // Return the completed view to render on screen
-        System.out.println("hej");
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(context, "CLICK", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.textView.setText(arrayList.get(position).getName());
+        int id = context.getResources().getIdentifier(arrayList.get(position).getLogo(), "drawable", context.getPackageName());
+        holder.logo.setImageResource(id);
+
         return convertView;
-        */
-        Company company=data.get(position);
-        if(convertView==null) {
-            LayoutInflater layoutInflater = LayoutInflater.from(context);
-            convertView=layoutInflater.inflate(R.layout.list_row, null);
-            convertView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Toast.makeText(context, "CLICK", Toast.LENGTH_SHORT).show();
-                }
-            });
-
-
-            TextView tittle=convertView.findViewById(R.id.title);
-            ImageView imag=convertView.findViewById(R.id.list_image);
-            tittle.setText(company.getName());
-
-            int id = context.getResources().getIdentifier(company.getLogo(), "drawable", context.getPackageName());
-            Drawable drawable = context.getResources().getDrawable(id);
-            imag.setImageResource(id);
-        }
-        System.out.println("hej");
-        return convertView;
-    }
-    @Override
-    public int getItemViewType(int position) {
-        return position;
-    }
-    @Override
-    public int getViewTypeCount() {
-        return data.size();
-    }
-    @Override
-    public boolean isEmpty() {
-        return false;
     }
 
     @Override
@@ -148,19 +91,19 @@ public class CustomAdapter extends BaseAdapter implements ListAdapter, Filterabl
 
             @SuppressWarnings("unchecked")
             @Override
-            protected void publishResults(CharSequence constraint, FilterResults results) {
-                data = (ArrayList<Company>) results.values; // has the filtered values
-                System.out.println(results.count);
+            protected void publishResults(CharSequence constraint,FilterResults results) {
+
+                arrayList = (List<Company>) results.values; // has the filtered values
                 notifyDataSetChanged();  // notifies the data with new filtered values
             }
 
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
                 FilterResults results = new FilterResults();        // Holds the results of a filtering operation in values
-                ArrayList<Company> FilteredArrList = new ArrayList<Company>();
+                List<Company> FilteredArrList = new ArrayList<Company>();
 
-                if (originalData == null) {
-                    originalData = new ArrayList<Company>(data); // saves the original data in mOriginalValues
+                if (mOriginalValues == null) {
+                    mOriginalValues = new ArrayList<Company>(arrayList); // saves the original data in mOriginalValues
                 }
 
                 /********
@@ -172,23 +115,21 @@ public class CustomAdapter extends BaseAdapter implements ListAdapter, Filterabl
                 if (constraint == null || constraint.length() == 0) {
 
                     // set the Original result to return
-                    results.count = originalData.size();
-                    results.values = originalData;
+                    results.count = mOriginalValues.size();
+                    results.values = mOriginalValues;
                 } else {
                     constraint = constraint.toString().toLowerCase();
-                    for (int i = 0; i < originalData.size(); i++) {
-                        String data = originalData.get(i).getName();
-                        if (data.toLowerCase().startsWith(constraint.toString())) {
-                            FilteredArrList.add(new Company(originalData.get(i).getId(), originalData.get(i).getName(), originalData.get(i).getLogo()));
+                    for (int i = 0; i < mOriginalValues.size(); i++) {
+                        Company data = mOriginalValues.get(i);
+                        if (data.getName().toLowerCase().startsWith(constraint.toString())) {
+                            FilteredArrList.add(data);
                         }
                     }
                     // set the Filtered result to return
                     results.count = FilteredArrList.size();
                     results.values = FilteredArrList;
                 }
-
                 return results;
-
             }
         };
         return filter;
