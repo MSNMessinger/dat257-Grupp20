@@ -63,5 +63,8 @@ If you choose to leave your résumé, remember that it is your way of marketing 
     <string name="mailIconDesc">Picture of the fair</string>
     <string name="fbIconDesc">Picture of the fair</string>
     <string name="locationIconImgDesc">Picture of the fair</string>
+
+
+    <string name="MyPage_favourites">Favourites</string>
     <string name="searchHint">Sök företag</string>
 </resources>

@@ -64,7 +64,7 @@ public class JSONToCompanyReader {
         for (int i = 0; i < countItems(jsonFile); i++) {
                 tmp = jsonFile.getJSONObject("" + i + "");
                 Company tmpComp = new Gson().fromJson(tmp.toString(), Company.class);
-                if(tmpComp.isFavorite()) {
+                if(tmpComp.isFavorite() == 1) {
                     list.add(tmpComp);
                 }
         }
@@ -89,8 +89,6 @@ public class JSONToCompanyReader {
         }
         return list;
     }
-
-
 
     public Company getCompany(int id) throws JSONException {
         JSONObject jsonFile = new JSONObject(jsonString);

@@ -26,6 +26,11 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
     LayoutInflater inflater;
     Context context;
 
+    private class ViewHolder {
+        TextView textView;
+        ImageView logo;
+    }
+
     public CustomAdapter(Context context, List<Company> arrayList) {
         this.arrayList = arrayList;
         inflater = LayoutInflater.from(context);
@@ -46,11 +51,11 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
     public long getItemId(int position) {
         return position;
     }
-
-    private class ViewHolder {
-        TextView textView;
-        ImageView logo;
+    @Override
+    public boolean hasStableIds() {
+        return false;
     }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -133,5 +138,17 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
             }
         };
         return filter;
+    }
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+    @Override
+    public int getViewTypeCount() {
+        return arrayList.size();
+    }
+    @Override
+    public boolean isEmpty() {
+        return false;
     }
 }

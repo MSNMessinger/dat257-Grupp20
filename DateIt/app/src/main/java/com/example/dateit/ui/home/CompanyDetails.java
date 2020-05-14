@@ -28,27 +28,11 @@ public class CompanyDetails extends Fragment {
     }
 
     /**
-     * Gets text from input and saves that text to the note of the corresponding company.
-     * @param view
-     * @param savedInstanceState
-     */
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        companyNote = view.findViewById(R.id.AddNotesText);
-        String str = "";
-
-        if(companyNote.getText() != null)
-            str = companyNote.getText().toString();
-        company.setNote(str);
-    }
-
-    /**
      * Changes if the company is favorite or not
      * @param company
      */
     public void changeIfFavorite(Company company){
-        company.setFavorite(!(company.isFavorite()));
+        //company.setFavorite(!(company.isFavorite()));
     }
 
 

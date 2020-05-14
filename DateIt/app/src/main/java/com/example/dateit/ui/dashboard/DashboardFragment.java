@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
@@ -21,6 +23,7 @@ import com.example.dateit.JSONToCompanyReader;
 import com.example.dateit.MainActivity;
 import com.example.dateit.R;
 import com.example.dateit.SubjectData;
+import com.example.dateit.ui.home.HomeFragment;
 
 import org.json.JSONException;
 import java.util.ArrayList;
@@ -35,27 +38,14 @@ public class DashboardFragment extends Fragment {
     private EditText etSearch;
 
     private CustomAdapter customAdapter;
+    List<Company> list = MainActivity.getList();
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        try {
-            init();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        try {
-            init();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
        populateList(root);
 
@@ -87,11 +77,13 @@ public class DashboardFragment extends Fragment {
     }
 
     private void populateList(View root) {
-        final ListView list = (ListView)root.findViewById(R.id.list);
+        final ListView alist = (ListView)root.findViewById(R.id.list);
         ArrayList<Company> arrayList = new ArrayList<Company>();
 
-        customAdapter = new CustomAdapter(getActivity(), arrayList);
-        list.setAdapter(customAdapter);
+        arrayList.addAll(MainActivity.getList());
+
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        alist.setAdapter(customAdapter);
     }
 
     /**
@@ -143,6 +135,4 @@ public class DashboardFragment extends Fragment {
 
         return result;
     }
-
-
 }
