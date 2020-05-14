@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> numberList = new ArrayList<>();
         String json;
         try {
-
             InputStream is = getAssets().open("companies.json");
             int size = is.available();
 

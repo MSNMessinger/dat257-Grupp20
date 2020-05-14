@@ -1,10 +1,13 @@
 package com.example.dateit.ui.dashboard;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,6 +18,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
 import com.example.dateit.JSONToCompanyReader;
+import com.example.dateit.MainActivity;
 import com.example.dateit.R;
 import com.example.dateit.SubjectData;
 
@@ -28,6 +32,9 @@ public class DashboardFragment extends Fragment {
     private DashboardViewModel dashboardViewModel;
     private List<Company> list = new ArrayList<>();
     private List<String> names = new ArrayList<>();
+    private EditText etSearch;
+
+    private CustomAdapter customAdapter;
 
     @Override
     public void onStart() {
@@ -52,6 +59,28 @@ public class DashboardFragment extends Fragment {
 
        populateList(root);
 
+        etSearch = (EditText) root.findViewById(R.id.searchField);
+        // Add Text Change Listener to EditText
+        etSearch.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Call back the Adapter with current character to Filter
+                customAdapter.getFilter().filter(s.toString());
+                customAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,int after) {
+                customAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                customAdapter.notifyDataSetChanged();
+            }
+        });
+
         return root;
     }
 
@@ -61,7 +90,7 @@ public class DashboardFragment extends Fragment {
         arrayList.add(new Company(1, "Volvo", "volvo"));
         arrayList.add(new Company(2, "Saab", "saab"));
 
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        customAdapter = new CustomAdapter(getActivity(), arrayList);
         list.setAdapter(customAdapter);
     }
 
