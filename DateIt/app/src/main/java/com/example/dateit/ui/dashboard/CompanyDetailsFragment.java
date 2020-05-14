@@ -47,8 +47,6 @@ public class CompanyDetailsFragment extends Fragment {
         /**
          * Connects the object's text to the textview for all different headings.
          */
-
-
         TextView description = (TextView) root.findViewById(R.id.AboutText);
         TextView name = (TextView) root.findViewById(R.id.companyName);
         TextView it = (TextView) root.findViewById(R.id.ITkeyword);
@@ -62,7 +60,11 @@ public class CompanyDetailsFragment extends Fragment {
         TextView employees = (TextView) root.findViewById(R.id.EmployeesInformation);
         TextView offices = (TextView) root.findViewById(R.id.OfficesInformation);
 
-       name.setText(company.getName());
+
+        /**
+         * Sets correct values for given company
+         */
+        name.setText(company.getName());
 
         return root;
     }
@@ -70,16 +72,12 @@ public class CompanyDetailsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         heartImg = view.findViewById(R.id.heartImage);
         if (company.isFavorite() == 1) {
             heartImg.setImageResource(R.drawable.heart_logo);
         } else {
             heartImg.setImageResource(R.drawable.emptyheart);
         }
-
-
-
 
         heartImg.setOnClickListener(new View.OnClickListener() {
             @Override

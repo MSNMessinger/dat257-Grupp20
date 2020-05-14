@@ -1,6 +1,5 @@
 package com.example.dateit;
 
-import android.app.Notification;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -10,18 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
-
-import com.example.dateit.ui.dashboard.CompanyDetailsFragment;
-import com.example.dateit.ui.dashboard.DashboardFragment;
-import com.example.dateit.ui.home.HomeFragment;
-
 import java.util.ArrayList;
 
 public class CustomAdapter implements ListAdapter {
@@ -30,16 +20,13 @@ public class CustomAdapter implements ListAdapter {
     Fragment fragment;
     int action;
 
-
     public CustomAdapter(FragmentActivity context, ArrayList<Company> arrayList, Fragment fragment, int action) {
         this.arrayList=arrayList;
         this.context=context;
-        this.mContext = context;
         this.fragment = fragment;
         this.action = action;
 
     }
-    private FragmentActivity mContext;
     @Override
     public boolean areAllItemsEnabled() {
         return false;
@@ -81,17 +68,9 @@ public class CustomAdapter implements ListAdapter {
                 @Override
                 public void onClick(View v) {
 
-
-
-                   // finalConvertView.setVisibility(View.INVISIBLE);
-
                     Bundle bundle = new Bundle();
                     bundle.putInt("id", (int) company.getId());
-
-                  //  System.out.println(bundle);
-
                     NavHostFragment.findNavController(fragment).navigate(action, bundle);
-
                 }
             });
             TextView title=convertView.findViewById(R.id.title);

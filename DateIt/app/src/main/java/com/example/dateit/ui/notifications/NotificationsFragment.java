@@ -4,26 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
-import com.example.dateit.JSONToCompanyReader;
 import com.example.dateit.MainActivity;
 import com.example.dateit.R;
-import com.example.dateit.ui.dashboard.DashboardFragment;
-
 import org.json.JSONException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +55,6 @@ public class NotificationsFragment extends Fragment {
         CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_notifications_to_companyDetails);
         list.setAdapter(customAdapter);
         setListViewHeightBasedOnChildren(list);
-
     }
 
     /**
