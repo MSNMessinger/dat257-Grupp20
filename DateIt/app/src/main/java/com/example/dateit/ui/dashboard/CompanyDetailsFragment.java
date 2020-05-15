@@ -65,6 +65,7 @@ public class CompanyDetailsFragment extends Fragment {
         TextInputEditText companyNote = (TextInputEditText) root.findViewById(R.id.AddNotesText);
 
 
+
         /**
          * Sets correct values for given company
          */
