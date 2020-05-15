@@ -210,8 +210,8 @@ public class Company {
             return 0;
         }
     }
-    public int hasInternship(){
-        if (jobtypes.contains("Internship")){
+    public int hasEmployment(){
+        if (jobtypes.contains("Employment")){
             return 1;
         } else {
             return 0;

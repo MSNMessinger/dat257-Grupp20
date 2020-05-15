@@ -1,4 +1,5 @@
 package com.example.dateit.ui.dashboard;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,6 +40,7 @@ public class CompanyDetailsFragment extends Fragment {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -63,11 +65,34 @@ public class CompanyDetailsFragment extends Fragment {
         TextInputEditText companyNote = (TextInputEditText) root.findViewById(R.id.AddNotesText);
 
 
-
         /**
          * Sets correct values for given company
          */
         name.setText(company.getName());
+        description.setText(company.getDescription());
+        website.setText(company.getWebsite());
+        contact.setText(company.getEmail());
+        employees.setText((int)company.getEmployeesWorld()+"");
+        offices.setText(company.getLocations());
+        companyNote.setText(company.getNote());
+        if (company.isIT()==0){
+            it.setText("");
+        }
+        if (company.isD()==0){
+            d.setText("");
+        }
+        if (company.isE()==0){
+            e.setText("");
+        }
+        if (company.hasSummerJob()==0){
+            summer.setText("");
+        }
+        if (company.hasEmployment()==0){
+            internship.setText("");
+        }
+        if (company.hasMasterThesis()==0){
+            master.setText("");
+        }
 
 
         return root;

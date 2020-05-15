@@ -52,14 +52,14 @@
                         android:id="@+id/JobOfferID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Internship"
+                        android:text="@string/Employment"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
                         android:typeface="serif"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ITkeyword"  />
+                        app:layout_constraintTop_toBottomOf="@id/ITkeyword" />
 
                     <TextView
                         android:id="@+id/MasterID"
@@ -204,7 +204,7 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/InformationConstraint"
                     android:layout_width="409dp"
-                    android:layout_height="250dp"
+                    android:layout_height="310dp"
                     android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -228,8 +228,8 @@
 
                     <TextView
                         android:id="@+id/WebsiteRubrik"
-                        android:layout_width="100dp"
-                        android:layout_height="30dp"
+                        android:layout_width="84dp"
+                        android:layout_height="36dp"
                         android:layout_marginStart="24dp"
                         android:text="@string/Website"
                         android:textColor="@color/TextColorDark"
@@ -242,9 +242,9 @@
 
                     <TextView
                         android:id="@+id/WebsiteInformation"
-                        android:layout_width="300dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_width="342dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="8dp"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
                         android:typeface="serif"
@@ -256,7 +256,7 @@
 
                     <TextView
                         android:id="@+id/ContactRubrik"
-                        android:layout_width="100dp"
+                        android:layout_width="80dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="24dp"
                         android:text="@string/Contact"
@@ -272,7 +272,7 @@
                         android:id="@+id/ContactInformation"
                         android:layout_width="300dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginStart="8dp"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
                         android:typeface="serif"
@@ -293,24 +293,24 @@
                         app:layout_constraintBottom_toTopOf="@id/OfficesRubrik"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/ContactRubrik"
-                        app:layout_constraintVertical_bias="0.578"/>
+                        app:layout_constraintVertical_bias="0.578" />
 
                     <TextView
                         android:id="@+id/EmployeesInformation"
                         android:layout_width="300dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginStart="8dp"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
                         android:typeface="serif"
                         app:layout_constraintBottom_toTopOf="@id/OfficesRubrik"
                         app:layout_constraintStart_toEndOf="@id/EmployeesRubrik"
                         app:layout_constraintTop_toBottomOf="@+id/ContactRubrik"
-                        app:layout_constraintVertical_bias="0.578"/>
+                        app:layout_constraintVertical_bias="0.578" />
 
                     <TextView
                         android:id="@+id/OfficesRubrik"
-                        android:layout_width="100dp"
+                        android:layout_width="80dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="24dp"
                         android:text="@string/Offices"
@@ -320,20 +320,20 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/EmployeesRubrik"
-                        app:layout_constraintVertical_bias="0.578"/>
+                        app:layout_constraintVertical_bias="0.578" />
 
                     <TextView
                         android:id="@+id/OfficesInformation"
                         android:layout_width="300dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_height="120dp"
+                        android:layout_marginStart="8dp"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
                         android:typeface="serif"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/OfficesRubrik"
-                        app:layout_constraintTop_toBottomOf="@+id/EmployeesRubrik"
-                        app:layout_constraintVertical_bias="0.578"/>
+                        app:layout_constraintTop_toTopOf="@+id/OfficesRubrik"
+                        app:layout_constraintVertical_bias="0.578" />
 
 
 
