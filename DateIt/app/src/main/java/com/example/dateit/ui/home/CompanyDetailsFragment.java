@@ -63,7 +63,7 @@ public class CompanyDetailsFragment extends Fragment {
          * Find text written in company then save note to the given company.
          */
         TextInputEditText companyNote = (TextInputEditText) root.findViewById(R.id.AddNotesText);
-        setNote(id);
+        companyNote.setText(company.getNote());
 
         /**
          * Make sure that the right programs and offerings are visible for every company.
@@ -207,6 +207,6 @@ public class CompanyDetailsFragment extends Fragment {
             if (company.getId() == id) {
                 offices =company.getLocations();
             }
-        }return offices;
+        } return offices;
     }
-    }
+}

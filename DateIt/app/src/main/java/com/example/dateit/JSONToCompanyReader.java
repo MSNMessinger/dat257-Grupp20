@@ -18,14 +18,12 @@ public class JSONToCompanyReader {
 
     private FragmentActivity activity;
     private String jsonString;
+    public static int nrOfCompanies;
 
-    public JSONToCompanyReader(FragmentActivity activity) {
+    public JSONToCompanyReader(FragmentActivity activity) throws JSONException {
         this.activity = activity;
         this.jsonString = inputStreamToString();
-    }
-
-    public JSONToCompanyReader() {
-
+        nrOfCompanies = countItems(new JSONObject(jsonString));
     }
 
     private String inputStreamToString() {
@@ -64,7 +62,7 @@ public class JSONToCompanyReader {
         for (int i = 0; i < countItems(jsonFile); i++) {
                 tmp = jsonFile.getJSONObject("" + i + "");
                 Company tmpComp = new Gson().fromJson(tmp.toString(), Company.class);
-                if(tmpComp.isFavorite()) {
+                if(tmpComp.isFavorite() == 1) {
                     list.add(tmpComp);
                 }
         }
@@ -106,6 +104,5 @@ public class JSONToCompanyReader {
         }
         return count;
     }
-
 
 }

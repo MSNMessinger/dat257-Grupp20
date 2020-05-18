@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -14,9 +12,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
-import com.example.dateit.JSONToCompanyReader;
+import com.example.dateit.MainActivity;
 import com.example.dateit.R;
-import com.example.dateit.SubjectData;
 
 import org.json.JSONException;
 import java.util.ArrayList;
@@ -56,13 +53,14 @@ public class DashboardFragment extends Fragment {
     }
 
     private void populateList(View root) {
-        final ListView list = (ListView)root.findViewById(R.id.list);
+        final ListView alist = (ListView)root.findViewById(R.id.list);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        arrayList.add(new Company(1, "Volvo", "volvo"));
-        arrayList.add(new Company(2, "Saab", "saab"));
+        for (Company comp : MainActivity.companies){
+            arrayList.add(new Company(comp.getId(), comp.getName(), comp.getLogo()));
+        }
 
         CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
-        list.setAdapter(customAdapter);
+        alist.setAdapter(customAdapter);
     }
 
     /**
@@ -70,9 +68,7 @@ public class DashboardFragment extends Fragment {
      * @throws JSONException
      */
     private void init() throws JSONException {
-        JSONToCompanyReader reader = new JSONToCompanyReader(getActivity());
-        list = reader.createCompanies();
-        for (Company comp : list) {
+        for (Company comp : MainActivity.companies) {
             names.add(comp.getName());
         }
     }
