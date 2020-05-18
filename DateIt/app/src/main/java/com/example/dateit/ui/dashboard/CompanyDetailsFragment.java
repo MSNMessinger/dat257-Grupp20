@@ -62,9 +62,16 @@ public class CompanyDetailsFragment extends Fragment {
         TextView contact = (TextView) root.findViewById(R.id.ContactInformation);
         TextView employees = (TextView) root.findViewById(R.id.EmployeesInformation);
         TextView offices = (TextView) root.findViewById(R.id.OfficesInformation);
-        TextInputEditText companyNote = (TextInputEditText) root.findViewById(R.id.AddNotesText);
+        final TextInputEditText companyNote = (TextInputEditText)root.findViewById(R.id.AddNotesText);
 
-
+        companyNote.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    company.setNote(companyNote.getText().toString());
+                }
+            }
+        });
 
         /**
          * Sets correct values for given company
