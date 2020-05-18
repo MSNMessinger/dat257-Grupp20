@@ -21,6 +21,22 @@ public class Company {
     private String note;
     private int favorite;
 
+    public Company(Integer id, String name, String logo) {
+        this.id = id;
+        this.name = name;
+        this.logo = logo;
+        if(name == null || name.isEmpty()){
+            this.name = "hej";
+        }
+    }
+
+    public Company(Integer id, String name, String logo, int favorite) {
+        this.id = id;
+        this.name = name;
+        this.logo = logo;
+        this.favorite = favorite;
+    }
+
     public Company(Integer id, String name, String programs, String jobtypes, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String logo, String note, int favorite) {
         this.id = id;
         this.name = name;
@@ -36,13 +52,9 @@ public class Company {
         this.logo = logo;
         this.note = note;
         this.favorite = favorite;
-
-    }
-
-    public Company(Integer id, String name, String logo) {
-        this.id = id;
-        this.name = name;
-        this.logo = logo;
+        if(name == null || name.isEmpty()){
+            this.name = "hej";
+        }
     }
 
     public Company(Integer id, Company company, String logo) {
@@ -59,15 +71,15 @@ public class Company {
         this.email = company.email;
         this.note = company.note;
         this.logo = logo;
-        this.favorite = 1;
+        this.favorite = company.favorite;
     }
 
-    public void setFavorite(boolean favorite) {
-        this.favorite = 1;
+    public void setFavorite(int favorite) {
+        this.favorite = favorite;
     }
 
     public boolean hasNote(){
-        if (this.getNote() != null)
+        if (this.getNote() != null && !this.note.isEmpty())
             return true;
         else
             return false;

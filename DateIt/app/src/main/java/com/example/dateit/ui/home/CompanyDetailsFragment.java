@@ -10,9 +10,11 @@ import androidx.lifecycle.ViewModelProviders;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.dateit.Company;
+import com.example.dateit.MainActivity;
 import com.example.dateit.R;
 import com.example.dateit.ui.dashboard.DashboardFragment;
 import com.google.android.material.textfield.TextInputEditText;
@@ -25,9 +27,10 @@ public class CompanyDetailsFragment extends Fragment {
     Company company;
     int id;
     TextInputEditText companyNote;
+    private ImageView heartImg;
 
     DashboardFragment dashboardFragment;
-    List<Company> list = dashboardFragment.getList();
+    List<Company> list = MainActivity.getList();
 
 
 
@@ -85,18 +88,37 @@ public class CompanyDetailsFragment extends Fragment {
             internship.setVisibility(View.INVISIBLE);
         }
 
-
         website.setText(setWebsite(id));
         contact.setText(setContact(id));
         employees.setText(setEmployees(id));
         offices.setText(setOffices(id));
 
-
         return root;
     }
 
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        heartImg = view.findViewById(R.id.heartImage);
+        if(company.isFavorite() == 1) {
+            heartImg.setImageResource(R.drawable.heart_logo);
+        } else {
+            heartImg.setImageResource(R.drawable.emptyheart);
+        }
 
+        heartImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(company.isFavorite() == 1) {
+                    heartImg.setImageResource(R.drawable.emptyheart);
+                    company.setFavorite(0);
+                } else {
+                    heartImg.setImageResource(R.drawable.heart_logo);
+                    company.setFavorite(1);
+                }
+            }
+        });
+    }
 
     private String setDescription( int id) {
         String description = "fel";

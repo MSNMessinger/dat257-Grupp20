@@ -32,6 +32,7 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static List<Company>  list = new ArrayList<>();
 
     public static List<Company> companies;
 
@@ -136,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             // Error occurred when opening raw file for reading.
         } finally {
-             contents = stringBuilder.toString();
+            contents = stringBuilder.toString();
         }
         return contents;
     }
@@ -155,5 +156,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
+    /**
+     * Returns list of all companies that all fragments use (or should use at least, :/)
+     * @return
+     */
+    public static List<Company> getList() {
+        return list;
+    }
 }

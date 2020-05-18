@@ -1,19 +1,29 @@
 package com.example.dateit.ui.dashboard;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
+import com.example.dateit.JSONToCompanyReader;
+import com.example.dateit.MainActivity;
 import com.example.dateit.MainActivity;
 import com.example.dateit.R;
+import com.example.dateit.SubjectData;
+import com.example.dateit.ui.home.HomeFragment;
 
 import org.json.JSONException;
 import java.util.ArrayList;
@@ -23,31 +33,44 @@ import java.util.List;
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
-    private List<Company> list = new ArrayList<>();
     private List<String> names = new ArrayList<>();
+    private EditText etSearch;
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        try {
-            init();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
+    private CustomAdapter customAdapter;
+    private List<Company> list;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
                 ViewModelProviders.of(this).get(DashboardViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        try {
-            init();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
+        list = MainActivity.getList();
        populateList(root);
+
+
+        etSearch = (EditText) root.findViewById(R.id.searchField);
+        // Add Text Change Listener to EditText
+        etSearch.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Call back the Adapter with current character to Filter
+                customAdapter.getFilter().filter(s.toString());
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
 
         return root;
     }
@@ -110,6 +133,4 @@ public class DashboardFragment extends Fragment {
 
         return result;
     }
-
-
 }
