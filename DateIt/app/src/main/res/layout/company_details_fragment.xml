@@ -23,35 +23,37 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
                 android:layout_width="421dp"
-                android:layout_height="935dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="7dp">
-
-                <TableRow
-                    android:id="@+id/UpperLine"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginBottom="6dp"
-                    android:background="#444"
-                    app:layout_constraintBottom_toTopOf="@+id/companyName"
-                    app:layout_constraintTop_toBottomOf="@+id/AvailableOffersConstraint"
-                    tools:layout_editor_absoluteX="8dp">
-
-                </TableRow>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/AvailableOffersConstraint"
                     android:layout_width="418dp"
-                    android:layout_height="66dp"
+                    android:layout_height="84dp"
+                    android:layout_marginBottom="1dp"
+                    app:layout_constraintBottom_toTopOf="@+id/AboutConstraint"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
+                    app:layout_constraintTop_toBottomOf="@+id/companyNameContainer">
+
+                    <TableRow
+                        android:id="@+id/LowerLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="#444"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/JobOfferID"></TableRow>
 
                     <TextView
                         android:id="@+id/JobOfferID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
                         android:text="@string/Employment"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
@@ -65,6 +67,7 @@
                         android:id="@+id/MasterID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
                         android:text="@string/MasterThesis"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
@@ -80,6 +83,7 @@
                         android:id="@+id/SummerJobID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
                         android:text="@string/SummerJob"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
@@ -93,12 +97,11 @@
                         android:id="@+id/Elektrokeyword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
                         android:text="@string/Elektro"
                         android:textColor="#FFCB05"
                         android:textSize="15sp"
                         android:typeface="serif"
-                        app:layout_constraintBottom_toTopOf="@+id/SummerJobID"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/CSkeyword"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -107,16 +110,15 @@
                         android:id="@+id/CSkeyword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginBottom="23dp"
                         android:text="@string/CS"
                         android:textColor="#F15A22"
                         android:textSize="15sp"
                         android:typeface="serif"
-                        app:layout_constraintBottom_toTopOf="@+id/SummerJobID"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/Elektrokeyword"
                         app:layout_constraintStart_toEndOf="@id/ITkeyword"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.347" />
 
                     <TextView
                         android:id="@+id/ITkeyword"
@@ -126,49 +128,73 @@
                         android:textColor="#00BCD4"
                         android:textSize="15sp"
                         android:typeface="serif"
-                        app:layout_constraintBottom_toTopOf="@+id/SummerJobID"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/CSkeyword"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+                    <TableRow
+                        android:id="@+id/UpperLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="#444"
+                        app:layout_constraintBottom_toTopOf="@+id/CSkeyword"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </TableRow>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/companyName"
-                    android:layout_width="203dp"
-                    android:layout_height="52dp"
-                    android:layout_marginTop="36dp"
-                    android:layout_marginEnd="70dp"
-                    android:text="@string/CompanyName"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/colorTitle"
-                    android:textStyle="bold"
-                    android:typeface="serif"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout3"
-                    android:layout_width="83dp"
-                    android:layout_height="108dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="63dp"
-                    android:layout_marginBottom="10dp"
+                    android:id="@+id/companyNameContainer"
+                    android:layout_width="411dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="3dp"
                     android:background="#0000E2FF"
                     app:layout_constraintBottom_toTopOf="@+id/AvailableOffersConstraint"
-                    app:layout_constraintEnd_toStartOf="@+id/companyName"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
+
+                    <TextView
+                        android:id="@+id/companyName"
+                        android:layout_width="203dp"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="95dp"
+                        android:layout_marginEnd="44dp"
+                        android:text="@string/CompanyName"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@color/colorTitle"
+                        android:textStyle="bold"
+                        android:typeface="serif"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/heartImage"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/heartImage"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="44dp"
+                        android:layout_marginTop="17dp"
+                        android:layout_marginEnd="34dp"
+                        android:src="@drawable/heart_logo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/companyName"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/AboutConstraint"
-                    android:layout_width="409dp"
+                    android:layout_width="421dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/AvailableOffersConstraint">
@@ -178,34 +204,41 @@
                         android:layout_width="96dp"
                         android:layout_height="49dp"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="297dp"
+                        android:layout_marginBottom="10dp"
                         android:text="@string/About"
                         android:textColor="@color/colorTitle"
                         android:textSize="30sp"
                         android:typeface="serif"
+                        app:layout_constraintBottom_toTopOf="@+id/AboutText"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/AboutText"
-                        android:layout_width="361dp"
+                        android:layout_width="358dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
-                        android:textColor="@color/TextColorLight"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="24dp"
+                        android:textColor="@color/TextColorDark"
                         android:textSize="15sp"
                         android:typeface="serif"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/AboutRubrik"
-                        app:layout_constraintVertical_bias="0.578" />
+                        app:layout_constraintTop_toBottomOf="@+id/AboutRubrik" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/InformationConstraint"
-                    android:layout_width="420dp"
-                    android:layout_height="377dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="427dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/AboutConstraint">
 
@@ -243,7 +276,7 @@
                         android:id="@+id/WebsiteInformation"
                         android:layout_width="300dp"
                         android:layout_height="30dp"
-                        android:textColor="@color/TextColorLight"
+                        android:textColor="@color/TextColorDark"
                         android:textSize="15sp"
                         android:typeface="serif"
                         app:layout_constraintBottom_toTopOf="@id/ContactRubrik"
@@ -271,7 +304,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="32dp"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/TextColorLight"
+                        android:textColor="@color/TextColorDark"
                         android:textSize="15sp"
                         android:typeface="serif"
                         app:layout_constraintStart_toEndOf="@id/ContactRubrik"
@@ -295,7 +328,7 @@
                         android:layout_width="287dp"
                         android:layout_height="32dp"
                         android:layout_marginStart="8dp"
-                        android:textColor="@color/TextColorLight"
+                        android:textColor="@color/TextColorDark"
                         android:textSize="15sp"
                         android:typeface="serif"
                         app:layout_constraintBottom_toTopOf="@id/OfficesRubrik"
@@ -307,111 +340,94 @@
                         android:id="@+id/OfficesRubrik"
                         android:layout_width="77dp"
                         android:layout_height="32dp"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="28dp"
                         android:text="@string/Offices"
                         android:textColor="@color/TextColorDark"
                         android:textSize="20sp"
                         android:typeface="serif"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/OfficesInformation"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/EmployeesRubrik"
-                        app:layout_constraintVertical_bias="0.15" />
+                        app:layout_constraintTop_toBottomOf="@+id/EmployeesRubrik" />
 
                     <TextView
                         android:id="@+id/OfficesInformation"
                         android:layout_width="279dp"
-                        android:layout_height="125dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="28dp"
                         android:layout_marginTop="20dp"
-                        android:textColor="@color/TextColorLight"
+                        android:layout_marginEnd="22dp"
+                        android:textColor="@color/TextColorDark"
                         android:textSize="15sp"
                         android:typeface="serif"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/OfficesRubrik"
-                        app:layout_constraintTop_toBottomOf="@+id/EmployeesInformation" />
+                        app:layout_constraintTop_toBottomOf="@+id/EmployeesInformation"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout"
+                        android:layout_width="340dp"
+                        android:layout_height="120dp"
+                        android:layout_marginStart="19dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="68dp"
+                        android:background="#2D000000"
+                        android:visibility="visible"
+                        app:boxBackgroundColor="#000000"
+                        app:boxBackgroundMode="filled"
+                        app:hintAnimationEnabled="true"
+                        app:hintEnabled="false"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/notesRubrik">
+
+                        <androidx.core.widget.NestedScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fillViewport="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/AddNotesText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/AddNotes"
+                                    android:overScrollMode="always"
+                                    android:scrollbarStyle="insideInset"
+                                    android:scrollbars="vertical"
+                                    android:shadowColor="#000000"
+                                    android:shadowDx="1"
+                                    android:shadowDy="1"
+                                    android:shadowRadius="1" />
+                            </LinearLayout>
+                        </androidx.core.widget.NestedScrollView>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/notesRubrik"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="333dp"
+                        android:text="@string/Notes"
+                        android:textColor="@color/colorTitle"
+                        android:textSize="30sp"
+                        android:typeface="serif"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/OfficesInformation" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <TextView
-                    android:id="@+id/notesRubrik"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="350dp"
-                    android:text="@string/Notes"
-                    android:textColor="@color/colorTitle"
-                    android:textSize="30sp"
-                    android:typeface="serif"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.509"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/InformationConstraint" />
-
-                <TableRow
-                    android:id="@+id/LowerLine"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginBottom="6dp"
-                    android:background="#444"
-                    app:layout_constraintBottom_toTopOf="@+id/AboutConstraint"
-                    app:layout_constraintTop_toBottomOf="@+id/AvailableOffersConstraint"
-                    tools:layout_editor_absoluteX="8dp"></TableRow>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout"
-                    android:layout_width="363dp"
-                    android:layout_height="256dp"
-                    android:layout_marginTop="25dp"
-                    android:background="#2D000000"
-                    android:visibility="visible"
-                    app:boxBackgroundColor="#000000"
-                    app:boxBackgroundMode="filled"
-                    app:hintAnimationEnabled="true"
-                    app:hintEnabled="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.432"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/notesRubrik">
-
-                    <androidx.core.widget.NestedScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fillViewport="true">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/AddNotesText"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/AddNotes"
-                                android:overScrollMode="always"
-                                android:scrollbarStyle="insideInset"
-                                android:scrollbars="vertical"
-                                android:shadowColor="#000000"
-                                android:shadowDx="1"
-                                android:shadowDy="1"
-                                android:shadowRadius="1" />
-                        </LinearLayout>
-                    </androidx.core.widget.NestedScrollView>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <ImageView
-                    android:id="@+id/heartImage"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="36dp"
-                    android:src="@drawable/heart_logo"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/companyName"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="275dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
