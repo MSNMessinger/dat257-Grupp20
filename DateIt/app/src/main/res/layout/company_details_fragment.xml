@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.CompanyDetailsFragment">
+    tools:context=".ui.dashboard.CompanyDetailsFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ITkeyword"  />
+                        app:layout_constraintTop_toBottomOf="@id/ITkeyword" />
 
                     <TextView
                         android:id="@+id/MasterID"
@@ -146,8 +146,7 @@
                     android:typeface="serif"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout3"
@@ -203,8 +202,8 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/InformationConstraint"
-                    android:layout_width="409dp"
-                    android:layout_height="250dp"
+                    android:layout_width="420dp"
+                    android:layout_height="377dp"
                     android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -226,93 +225,89 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
+
                     <TextView
                         android:id="@+id/WebsiteRubrik"
                         android:layout_width="100dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="25dp"
                         android:text="@string/Website"
                         android:textColor="@color/TextColorDark"
                         android:textSize="20sp"
                         android:typeface="serif"
-                        app:layout_constraintBottom_toTopOf="@id/ContactRubrik"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/InformationRubrik"
-                        app:layout_constraintVertical_bias="0.578" />
+                        app:layout_constraintTop_toBottomOf="@+id/InformationRubrik" />
 
                     <TextView
                         android:id="@+id/WebsiteInformation"
                         android:layout_width="300dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
                         android:typeface="serif"
                         app:layout_constraintBottom_toTopOf="@id/ContactRubrik"
                         app:layout_constraintStart_toEndOf="@id/WebsiteRubrik"
                         app:layout_constraintTop_toBottomOf="@+id/InformationRubrik"
-                        app:layout_constraintVertical_bias="0.578" />
-
+                        app:layout_constraintVertical_bias="0.49" />
 
                     <TextView
                         android:id="@+id/ContactRubrik"
                         android:layout_width="100dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="24dp"
                         android:text="@string/Contact"
                         android:textColor="@color/TextColorDark"
                         android:textSize="20sp"
                         android:typeface="serif"
-                        app:layout_constraintBottom_toTopOf="@id/EmployeesRubrik"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/WebsiteRubrik"
-                        app:layout_constraintVertical_bias="0.578" />
+                        app:layout_constraintTop_toBottomOf="@+id/WebsiteRubrik" />
 
                     <TextView
                         android:id="@+id/ContactInformation"
-                        android:layout_width="300dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_width="292dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="32dp"
+                        android:textAlignment="viewStart"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
                         android:typeface="serif"
-                        app:layout_constraintBottom_toTopOf="@id/EmployeesRubrik"
                         app:layout_constraintStart_toEndOf="@id/ContactRubrik"
-                        app:layout_constraintTop_toBottomOf="@+id/WebsiteRubrik"
-                        app:layout_constraintVertical_bias="0.578" />
+                        app:layout_constraintTop_toBottomOf="@+id/WebsiteInformation" />
 
                     <TextView
                         android:id="@+id/EmployeesRubrik"
                         android:layout_width="100dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="22dp"
                         android:text="@string/Employees"
                         android:textColor="@color/TextColorDark"
                         android:textSize="20sp"
                         android:typeface="serif"
-                        app:layout_constraintBottom_toTopOf="@id/OfficesRubrik"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/ContactRubrik"
-                        app:layout_constraintVertical_bias="0.578"/>
+                        app:layout_constraintTop_toBottomOf="@+id/ContactRubrik" />
 
                     <TextView
                         android:id="@+id/EmployeesInformation"
-                        android:layout_width="300dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_width="287dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="8dp"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
                         android:typeface="serif"
                         app:layout_constraintBottom_toTopOf="@id/OfficesRubrik"
                         app:layout_constraintStart_toEndOf="@id/EmployeesRubrik"
                         app:layout_constraintTop_toBottomOf="@+id/ContactRubrik"
-                        app:layout_constraintVertical_bias="0.578"/>
+                        app:layout_constraintVertical_bias="0.568" />
 
                     <TextView
                         android:id="@+id/OfficesRubrik"
-                        android:layout_width="100dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_width="77dp"
+                        android:layout_height="32dp"
+                        android:layout_marginStart="20dp"
                         android:text="@string/Offices"
                         android:textColor="@color/TextColorDark"
                         android:textSize="20sp"
@@ -320,21 +315,19 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/EmployeesRubrik"
-                        app:layout_constraintVertical_bias="0.578"/>
+                        app:layout_constraintVertical_bias="0.15" />
 
                     <TextView
                         android:id="@+id/OfficesInformation"
-                        android:layout_width="300dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="24dp"
+                        android:layout_width="279dp"
+                        android:layout_height="125dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="20dp"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
                         android:typeface="serif"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/OfficesRubrik"
-                        app:layout_constraintTop_toBottomOf="@+id/EmployeesRubrik"
-                        app:layout_constraintVertical_bias="0.578"/>
-
+                        app:layout_constraintTop_toBottomOf="@+id/EmployeesInformation" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -415,11 +408,10 @@
                     android:layout_height="35dp"
                     android:layout_marginTop="36dp"
                     android:src="@drawable/heart_logo"
-                    tools:layout_editor_absoluteX="275dp"
-                    app:layout_constraintStart_toEndOf="@+id/companyName"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/companyName"
                     app:layout_constraintTop_toTopOf="parent"
-                    />
+                    tools:layout_editor_absoluteX="275dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

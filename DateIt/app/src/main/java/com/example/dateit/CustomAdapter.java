@@ -3,6 +3,7 @@ package com.example.dateit;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,10 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.navigation.fragment.NavHostFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,16 +30,20 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
     List<Company> mOriginalValues; // Original Values
     LayoutInflater inflater;
     Context context;
+    Fragment fragment;
+    int action;
 
     private class ViewHolder {
         TextView textView;
         ImageView logo;
     }
 
-    public CustomAdapter(Context context, List<Company> arrayList) {
+    public CustomAdapter(FragmentActivity context, ArrayList<Company> arrayList, Fragment fragment, int action) {
         this.arrayList = arrayList;
         inflater = LayoutInflater.from(context);
         this.context = context;
+        this.fragment = fragment;
+        this.action = action;
     }
 
     @Override
@@ -58,7 +67,7 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
 
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder = null;
 
@@ -78,8 +87,9 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(context, "CLICK", Toast.LENGTH_SHORT).show();
+                Bundle bundle = new Bundle();
+                bundle.putInt("id", (int) arrayList.get(position).getId());
+                NavHostFragment.findNavController(fragment).navigate(action, bundle);
             }
         });
 

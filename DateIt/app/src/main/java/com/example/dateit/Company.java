@@ -21,7 +21,7 @@ public class Company {
     private String note;
     private Integer favorite;
 
-    public Company(Integer id, String name, String programs, String jobtypes, String description, String locations, int foundingYear, int employeesWorld, int employeeSwe, String website, String email, String logo, String note, int favorite) {
+    public Company(Integer id, String name, String programs, String jobtypes, String description, String locations, int foundingYear, int employeesWorld, int employeesSwe, String website, String email, String logo, String note, int favorite) {
         this.id = id;
         this.name = name;
         this.programs = programs;
@@ -30,7 +30,7 @@ public class Company {
         this.locations = locations;
         this.foundingYear = foundingYear;
         this.employeesWorld = employeesWorld;
-        this.employeesSwe = employeeSwe;
+        this.employeesSwe = employeesSwe;
         this.website = website;
         this.email = email;
         this.logo = logo;
@@ -142,7 +142,7 @@ public class Company {
         this.employeesWorld = employeesWorld;
     }
 
-    public int getEmployeeSwe() {
+    public int getEmployeesSwe() {
         return employeesSwe;
     }
 
@@ -181,8 +181,8 @@ public class Company {
             return 0;
         }
     }
-    public int hasInternship(){
-        if (jobtypes.contains("Internship")){
+    public int hasEmployment(){
+        if (jobtypes.contains("Employment")){
             return 1;
         } else {
             return 0;

@@ -123,3 +123,4 @@ public class CompanyDetailsFragment extends Fragment {
         });
     }
 }
+

@@ -1,4 +1,4 @@
-package com.example.dateit.ui.home;
+package com.example.dateit.ui.dashboard;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
