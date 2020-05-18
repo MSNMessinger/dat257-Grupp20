@@ -32,7 +32,6 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-    private static List<Company>  list = new ArrayList<>();
 
     public static List<Company> companies;
 
@@ -161,6 +160,6 @@ public class MainActivity extends AppCompatActivity {
      * @return
      */
     public static List<Company> getList() {
-        return list;
+        return companies;
     }
 }

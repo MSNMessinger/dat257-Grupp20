@@ -28,9 +28,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NotificationsFragment extends Fragment {
+    private CustomAdapter customAdapterNotes = null;
+    private CustomAdapter customAdapterFavorites = null;
 
     private NotificationsViewModel notificationsViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         notificationsViewModel =
@@ -49,6 +50,8 @@ public class NotificationsFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+
         populateListNotes(root);
         return root;
     }
@@ -61,11 +64,11 @@ public class NotificationsFragment extends Fragment {
         final ListView list = (ListView)root.findViewById(R.id.listOfFavorites);
         ArrayList<Company> arrayList = new ArrayList<Company>();
         List<Company> favComp = filterFavorites(MainActivity.getList());
-        arrayList.addAll(favComp);
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
-        list.setAdapter(customAdapter);
+        if(!arrayList.isEmpty()) {
+            customAdapterFavorites = new CustomAdapter(getActivity(), arrayList);
+            list.setAdapter(customAdapterFavorites);
+        }
         setListViewHeightBasedOnChildren(list);
-
     }
 
     /**
@@ -75,10 +78,11 @@ public class NotificationsFragment extends Fragment {
     private void populateListNotes(View root) {
         final ListView list = (ListView)root.findViewById(R.id.listOfNotes);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        List<Company> favComp = filterNotesNotFavorites(MainActivity.getList());
-        arrayList.addAll(favComp);
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
-        list.setAdapter(customAdapter);
+        arrayList.addAll(filterNotes(MainActivity.getList()));
+        if(!arrayList.isEmpty()) {
+            customAdapterNotes = new CustomAdapter(getActivity(), arrayList);
+            list.setAdapter(customAdapterNotes);
+        }
         setListViewHeightBasedOnChildren(list);
     }
 
@@ -91,6 +95,7 @@ public class NotificationsFragment extends Fragment {
         List<Company> favCompanies = new ArrayList<Company>();
         for(Company c : companies) {
             if(c.isFavorite() == 1) {
+
                 favCompanies.add(c);
             }
         }
@@ -102,7 +107,7 @@ public class NotificationsFragment extends Fragment {
      * @param companies
      * @return
      */
-    private List<Company> filterNotesNotFavorites(List<Company> companies) {
+    private List<Company> filterNotes(List<Company> companies) {
         List<Company> noteCompanies = new ArrayList<Company>();
         for(Company c : companies) {
             if(c.hasNote()) {

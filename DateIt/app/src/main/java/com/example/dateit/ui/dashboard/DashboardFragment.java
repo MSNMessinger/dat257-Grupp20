@@ -78,11 +78,8 @@ public class DashboardFragment extends Fragment {
     private void populateList(View root) {
         final ListView alist = (ListView)root.findViewById(R.id.list);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        for (Company comp : MainActivity.companies){
-            arrayList.add(new Company(comp.getId(), comp.getName(), comp.getLogo()));
-        }
-
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), arrayList);
+        arrayList.addAll(MainActivity.getList());
+        customAdapter = new CustomAdapter(getActivity(), arrayList);
         alist.setAdapter(customAdapter);
     }
 
