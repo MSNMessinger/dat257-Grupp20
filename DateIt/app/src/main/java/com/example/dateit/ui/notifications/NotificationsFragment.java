@@ -63,9 +63,10 @@ public class NotificationsFragment extends Fragment {
     private void populateListFavorites(View root) throws JSONException {
         final ListView list = (ListView)root.findViewById(R.id.listOfFavorites);
         ArrayList<Company> arrayList = new ArrayList<Company>();
-        List<Company> favComp = filterFavorites(MainActivity.getList());
+        //arrayList.addAll(MainActivity.getList());
+        arrayList.addAll(filterFavorites(MainActivity.getList()));
         if(!arrayList.isEmpty()) {
-            customAdapterFavorites = new CustomAdapter(getActivity(), arrayList);
+            customAdapterFavorites = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_notifications_to_companyDetails);
             list.setAdapter(customAdapterFavorites);
         }
         setListViewHeightBasedOnChildren(list);
@@ -78,9 +79,10 @@ public class NotificationsFragment extends Fragment {
     private void populateListNotes(View root) {
         final ListView list = (ListView)root.findViewById(R.id.listOfNotes);
         ArrayList<Company> arrayList = new ArrayList<Company>();
+        //arrayList.addAll(MainActivity.getList());
         arrayList.addAll(filterNotes(MainActivity.getList()));
         if(!arrayList.isEmpty()) {
-            customAdapterNotes = new CustomAdapter(getActivity(), arrayList);
+            customAdapterNotes = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_notifications_to_companyDetails);
             list.setAdapter(customAdapterNotes);
         }
         setListViewHeightBasedOnChildren(list);
@@ -95,7 +97,6 @@ public class NotificationsFragment extends Fragment {
         List<Company> favCompanies = new ArrayList<Company>();
         for(Company c : companies) {
             if(c.isFavorite() == 1) {
-
                 favCompanies.add(c);
             }
         }

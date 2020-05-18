@@ -44,7 +44,7 @@ public class Company {
     }
 
     public boolean hasNote(){
-        if (this.getNote() != null && !this.note.isEmpty())
+        if (!this.note.isEmpty())
             return true;
         else
             return false;

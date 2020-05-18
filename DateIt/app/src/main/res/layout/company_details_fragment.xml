@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/navigation_bar_height"
     tools:context=".ui.dashboard.CompanyDetailsFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/navigation_bar_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
                         android:id="@+id/JobOfferID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Internship"
+                        android:text="@string/Employment"
                         android:textColor="@color/TextColorLight"
                         android:textSize="15sp"
                         android:typeface="serif"
@@ -420,7 +420,6 @@
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
 
