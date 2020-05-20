@@ -81,7 +81,7 @@ public class DashboardFragment extends Fragment {
         customAdapter = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_dashboard_to_companyDetails);
         alist.setAdapter(customAdapter);
     }
-}
+
     /*
         /**
          * Initializes the list in the company fragment page
