@@ -1,5 +1,8 @@
 package com.example.dateit.ui.dashboard;
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +25,9 @@ public class CompanyDetailsFragment extends Fragment {
     Company company;
     int id;
     private ImageView heartImg;
+    private ImageView logo;
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -96,11 +102,20 @@ public class CompanyDetailsFragment extends Fragment {
         }
 
 
+
+
+
         return root;
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        super.onCreate(savedInstanceState);
+
+        logo = view.findViewById(R.id.imageLogo);
+        int id = getResources().getIdentifier(company.getLogo(), "drawable", getContext().getPackageName());
+        logo.setImageResource(id);
+
 
         heartImg = view.findViewById(R.id.heartImage);
         if (company.isFavorite() == 1) {
@@ -122,5 +137,10 @@ public class CompanyDetailsFragment extends Fragment {
             }
         });
     }
+
+
+
+
+
 }
 
