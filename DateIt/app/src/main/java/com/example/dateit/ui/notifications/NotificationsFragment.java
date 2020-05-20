@@ -32,8 +32,11 @@ public class NotificationsFragment extends Fragment {
     private CustomAdapter customAdapterNotes = null;
     private CustomAdapter customAdapterFavorites = null;
     private ImageView heartImg;
+    private ImageView arrowImg;
     private static boolean  showFavorites = true;
+    private static boolean showNotes = true;
     private TextView addFavoritesText;
+    private TextView addNotesText;
 
     private NotificationsViewModel notificationsViewModel;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -48,15 +51,14 @@ public class NotificationsFragment extends Fragment {
                 textView.setText(s);
             }
         });*/
+        addFavoritesText = (TextView) root.findViewById(R.id.addFavoritesText);
+        addNotesText = (TextView) root.findViewById(R.id.addNoteText);
 
         try {
             populateListFavorites(root);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        addFavoritesText = (TextView) root.findViewById(R.id.addFavoritesText);
-
-
         populateListNotes(root);
         return root;
     }
@@ -71,11 +73,10 @@ public class NotificationsFragment extends Fragment {
         //arrayList.addAll(MainActivity.getList());
         arrayList.addAll(filterFavorites(MainActivity.getList()));
         if(!arrayList.isEmpty()) {
+            addFavoritesText.setText("");
             customAdapterFavorites = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_notifications_to_companyDetails);
             list.setAdapter(customAdapterFavorites);
         }
-
-
        // setListViewHeightBasedOnChildren(list);
         makeListHide(list, !showFavorites, root);
     }
@@ -90,9 +91,11 @@ public class NotificationsFragment extends Fragment {
         //arrayList.addAll(MainActivity.getList());
         arrayList.addAll(filterNotes(MainActivity.getList()));
         if(!arrayList.isEmpty()) {
+            addNotesText.setText("");
             customAdapterNotes = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_notifications_to_companyDetails);
             list.setAdapter(customAdapterNotes);
         }
+        makeListHide(list, !showNotes, root);
        // setListViewHeightBasedOnChildren(list);
     }
 
@@ -179,6 +182,8 @@ public class NotificationsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final ListView list = (ListView)view.findViewById(R.id.listOfFavorites);
+        final ListView notesList = (ListView)view.findViewById(R.id.listOfNotes);
+
 
         heartImg = view.findViewById(R.id.favoriteImageHeart);
         if (showFavorites) {
@@ -207,5 +212,34 @@ public class NotificationsFragment extends Fragment {
                 }
             }
         });
+
+        arrowImg = view.findViewById(R.id.arrowImg);
+        if(showNotes) {
+            arrowImg.setImageResource(R.drawable.arrowdown);
+        } else {
+            arrowImg.setImageResource(R.drawable.arrowup);
+        }
+        arrowImg.callOnClick();
+
+        arrowImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(showNotes) {
+                    arrowImg.setImageResource(R.drawable.arrowup);
+
+                    notesList.setVisibility(View.INVISIBLE);
+                    makeListHide(notesList, true, view);
+                    showNotes = false;
+
+                } else {
+                    arrowImg.setImageResource(R.drawable.arrowdown);
+                    showNotes = true;
+                    notesList.setVisibility(View.VISIBLE);
+                    makeListHide(notesList, false, view);
+                }
+            }
+        });
+
+
     }
 }
