@@ -57,7 +57,6 @@ public class DashboardFragment extends Fragment {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 // Call back the Adapter with current character to Filter
                 customAdapter.getFilter().filter(s.toString());
-
             }
 
             @Override
@@ -82,16 +81,16 @@ public class DashboardFragment extends Fragment {
         customAdapter = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_dashboard_to_companyDetails);
         alist.setAdapter(customAdapter);
     }
+}
+    /*
+        /**
+         * Initializes the list in the company fragment page
+         * @throws JSONException
 
-    /**
-     * Initializes the list in the company fragment page
-     * @throws JSONException
-     */
     private void init() throws JSONException {
         for (Company comp : MainActivity.companies) {
             names.add(comp.getName());
         }
-    }
 
     public List<Company> getList() {
         return list;
@@ -101,7 +100,7 @@ public class DashboardFragment extends Fragment {
      * Given a list of filters as strings (tags) will return a new list with only the companies that match at least one of the filters
      * @param filters a list of strings where one string is a tag that will be filtered by
      * @return a list with all companies that matches one of the filters
-     */
+
     private List<Company> filter(List<String> filters) {
         List<Company> result = new ArrayList<>();
         for (Company comp : list) {
@@ -118,7 +117,7 @@ public class DashboardFragment extends Fragment {
      * A method, where given a word you are looking for, matches all words in a list and is returned
      * @param word the word you are looking for
      * @return a list of matching words from the list that was searched through
-     */
+
     private List<Company> search(String word){
         List<Company> result = new ArrayList<>();
         for(Company comp : list){
@@ -130,4 +129,5 @@ public class DashboardFragment extends Fragment {
 
         return result;
     }
+    */
 }

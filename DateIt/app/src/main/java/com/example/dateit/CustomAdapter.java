@@ -66,6 +66,13 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
     }
 
 
+    /**
+     * Generates each list item
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return
+     */
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
@@ -100,6 +107,10 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
         return convertView;
     }
 
+    /**
+     * Returns search filter
+     * @return
+     */
     @Override
     public Filter getFilter() {
         Filter filter = new Filter() {
@@ -149,10 +160,12 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
         };
         return filter;
     }
+
     @Override
     public int getItemViewType(int position) {
         return position;
     }
+
     @Override
     public int getViewTypeCount() {
         return arrayList.size();
