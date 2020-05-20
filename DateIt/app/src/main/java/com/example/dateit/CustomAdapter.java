@@ -1,21 +1,15 @@
 package com.example.dateit;
 
 import android.content.Context;
-import android.database.DataSetObserver;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -26,16 +20,26 @@ import java.util.List;
 
 public class CustomAdapter extends BaseAdapter implements Filterable {
 
-    List<Company> arrayList;
-    List<Company> mOriginalValues; // Original Values
-    LayoutInflater inflater;
-    Context context;
-    Fragment fragment;
-    int action;
+    private List<Company> arrayList;
+    private List<Company> mOriginalValues; // Original Values
+    private LayoutInflater inflater;
+    private Context context;
+    private Fragment fragment;
+    private FilterCriterias filterCriterias;
+    private int action;
 
     private class ViewHolder {
         TextView textView;
         ImageView logo;
+    }
+
+    public CustomAdapter(FragmentActivity context, ArrayList<Company> arrayList, Fragment fragment, int action, FilterCriterias filterCriterias) {
+        this.arrayList = arrayList;
+        inflater = LayoutInflater.from(context);
+        this.context = context;
+        this.fragment = fragment;
+        this.action = action;
+        this.filterCriterias = filterCriterias;
     }
 
     public CustomAdapter(FragmentActivity context, ArrayList<Company> arrayList, Fragment fragment, int action) {
@@ -138,7 +142,7 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
                  *  else does the Filtering and returns FilteredArrList(Filtered)
                  *
                  ********/
-                if (constraint == null || constraint.length() == 0) {
+                if (constraint == null) {
 
                     // set the Original result to return
                     results.count = mOriginalValues.size();
@@ -147,10 +151,11 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
                     constraint = constraint.toString().toLowerCase();
                     for (int i = 0; i < mOriginalValues.size(); i++) {
                         Company data = mOriginalValues.get(i);
-                        if (data.getName().toLowerCase().startsWith(constraint.toString())) {
+                        if (data.getName().toLowerCase().startsWith(constraint.toString()) && checkProgramType(data) && checkOfferType(data)) {
                             FilteredArrList.add(data);
                         }
                     }
+
                     // set the Filtered result to return
                     results.count = FilteredArrList.size();
                     results.values = FilteredArrList;
@@ -159,6 +164,38 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
             }
         };
         return filter;
+    }
+
+    private Boolean checkOfferType(Company data) {
+        if(filterCriterias.getIsEmployment() == 0 && filterCriterias.getIsSummerJob() == 0 && filterCriterias.getIsMasterThesis() == 0) {
+            return true;
+        } else {
+            if (checkFilter(filterCriterias.getIsEmployment(), data.hasEmployment()) || checkFilter(filterCriterias.getIsSummerJob(), data.hasSummerJob()) || checkFilter(filterCriterias.getIsMasterThesis(), data.hasMasterThesis())) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    private Boolean checkProgramType(Company data) {
+        if(filterCriterias.getIsD() == 0 && filterCriterias.getIsIT() == 0 && filterCriterias.getIsE() == 0) {
+            return true;
+        } else {
+            if (checkFilter(filterCriterias.getIsD(), data.isD()) || checkFilter(filterCriterias.getIsIT(), data.isIT()) || checkFilter(filterCriterias.getIsE(), data.isE())) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    private Boolean checkFilter(int value1, int value2) {
+        if(value1 == 1 && value1 == value2) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

@@ -66,5 +66,7 @@ If you choose to leave your résumé, remember that it is your way of marketing 
 
 
     <string name="MyPage_favourites">Favourites</string>
-    <string name="searchHint">Sök företag</string>
+    <string name="searchHint">Search</string>
+    <string name="filter_by_program">Filter by program</string>
+    <string name="filter_by_offers">Filter by offers</string>
 </resources>
