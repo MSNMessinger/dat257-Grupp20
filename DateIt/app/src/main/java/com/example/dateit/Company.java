@@ -176,10 +176,8 @@ public class Company {
 
     public int hasMasterThesis(){
         if (jobtypes.contains("Master thesis")){
-            System.out.println("true master"+getName());
             return 1;
         } else {
-            System.out.println("false master"+getName());
             return 0;
         }
     }
