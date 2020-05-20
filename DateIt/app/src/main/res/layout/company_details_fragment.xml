@@ -56,9 +56,9 @@
                         android:textColor="@color/TextColorDark"
                         android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ITkeyword" />
+                        app:layout_constraintEnd_toStartOf="@id/MasterID"
+                        app:layout_constraintStart_toEndOf="@id/SummerJobID"
+                        app:layout_constraintTop_toBottomOf="@id/lookingFor" />
 
                     <TextView
                         android:id="@+id/MasterID"
@@ -69,59 +69,84 @@
                         android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.855"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ITkeyword"
-                        app:layout_constraintVertical_bias="0.507" />
+                        app:layout_constraintStart_toEndOf="@id/JobOfferID"
+                        app:layout_constraintTop_toBottomOf="@id/lookingFor" />
 
                     <TextView
                         android:id="@+id/SummerJobID"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
                         android:text="@string/SummerJob"
                         android:textColor="@color/TextColorDark"
                         android:textSize="15sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/JobOfferID"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/ITkeyword" />
+                        app:layout_constraintStart_toEndOf="@id/offers"
+                        app:layout_constraintTop_toBottomOf="@id/lookingFor" />
 
                     <TextView
                         android:id="@+id/Elektrokeyword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginBottom="7dp"
                         android:text="@string/Elektro"
                         android:textColor="#FFCB05"
                         android:textSize="15sp"
-                        app:layout_constraintBottom_toTopOf="@+id/SummerJobID"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/CSkeyword"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintBottom_toTopOf="@+id/MasterID"
+                        app:layout_constraintStart_toEndOf="@id/CSkeyword" />
 
                     <TextView
                         android:id="@+id/CSkeyword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginBottom="23dp"
+                        android:layout_marginStart="85dp"
+                        android:layout_marginBottom="7dp"
                         android:text="@string/CS"
                         android:textColor="#F15A22"
                         android:textSize="15sp"
-                        app:layout_constraintBottom_toTopOf="@+id/SummerJobID"
-                        app:layout_constraintEnd_toStartOf="@id/Elektrokeyword"
-                        app:layout_constraintStart_toEndOf="@id/ITkeyword"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintBottom_toTopOf="@+id/JobOfferID"
+                        app:layout_constraintStart_toEndOf="@id/ITkeyword" />
 
                     <TextView
                         android:id="@+id/ITkeyword"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="45dp"
+                        android:layout_marginBottom="7dp"
                         android:text="@string/IT"
                         android:textColor="#00BCD4"
                         android:textSize="15sp"
                         app:layout_constraintBottom_toTopOf="@+id/SummerJobID"
-                        app:layout_constraintEnd_toStartOf="@id/CSkeyword"
+                        app:layout_constraintStart_toEndOf="@id/lookingFor" />
+
+                    <TextView
+                        android:id="@+id/offers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Offers"
+                        android:textColor="@color/TextColorDark"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/SummerJobID"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lookingFor" />
+
+                    <TextView
+                        android:id="@+id/lookingFor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="15dp"
+                        android:text="Looking for"
+                        android:textColor="@color/TextColorDark"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@id/offers"
+                        app:layout_constraintEnd_toStartOf="@id/ITkeyword"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -134,18 +159,18 @@
                     android:layout_marginTop="36dp"
                     android:text="@string/CompanyName"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/colorTitle"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
+                    android:textColor="@color/TextColorDark"
+                    android:textSize="27sp"
+                    android:textAlignment="center"
                     app:layout_constraintEnd_toStartOf="@+id/heartImage"
                     app:layout_constraintStart_toEndOf="@+id/imageLogo"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:id="@+id/imageLogo"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_marginTop="15dp"
                     android:src="@drawable/volvocars"
                     app:layout_constraintEnd_toStartOf="@+id/companyName"
                     app:layout_constraintStart_toStartOf="parent"
@@ -169,7 +194,6 @@
                         android:text="@string/About"
                         android:textColor="@color/colorTitle"
                         android:textSize="25sp"
-                        android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -207,14 +231,13 @@
                         android:textColorHint="#FFFFFF"
                         android:textColorLink="#00BCD4"
                         android:textSize="25sp"
-                        android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
 
                     <TextView
                         android:id="@+id/WebsiteRubrik"
-                        android:layout_width="100dp"
+                        android:layout_width="85dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="25dp"
@@ -239,7 +262,7 @@
 
                     <TextView
                         android:id="@+id/ContactRubrik"
-                        android:layout_width="100dp"
+                        android:layout_width="85dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="25dp"
@@ -264,7 +287,7 @@
 
                     <TextView
                         android:id="@+id/EmployeesRubrik"
-                        android:layout_width="100dp"
+                        android:layout_width="85dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="25dp"
@@ -288,7 +311,7 @@
 
                     <TextView
                         android:id="@+id/OfficesRubrik"
-                        android:layout_width="100dp"
+                        android:layout_width="85dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="20dp"
                         android:text="@string/Offices"
