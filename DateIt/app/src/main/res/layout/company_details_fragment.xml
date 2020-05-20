@@ -135,6 +135,7 @@
                     android:text="@string/CompanyName"
                     android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/colorTitle"
+                    android:textSize="25sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/heartImage"
                     app:layout_constraintStart_toEndOf="@+id/imageLogo"
@@ -167,7 +168,8 @@
                         android:layout_marginTop="16dp"
                         android:text="@string/About"
                         android:textColor="@color/colorTitle"
-                        android:textSize="30sp"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -204,7 +206,8 @@
                         android:textColorHighlight="#03A9F4"
                         android:textColorHint="#FFFFFF"
                         android:textColorLink="#00BCD4"
-                        android:textSize="30sp"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -217,17 +220,18 @@
                         android:layout_marginTop="25dp"
                         android:text="@string/Website"
                         android:textColor="@color/TextColorDark"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
                         app:layout_constraintBottom_toTopOf="@id/ContactRubrik"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/InformationRubrik" />
 
                     <TextView
                         android:id="@+id/WebsiteInformation"
-                        android:layout_width="300dp"
+                        android:layout_width="275dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="25dp"
                         android:textColor="@color/TextColorDark"
                         android:textSize="15sp"
                         app:layout_constraintStart_toEndOf="@id/WebsiteRubrik"
@@ -241,13 +245,14 @@
                         android:layout_marginTop="25dp"
                         android:text="@string/Contact"
                         android:textColor="@color/TextColorDark"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/WebsiteRubrik" />
 
                     <TextView
                         android:id="@+id/ContactInformation"
-                        android:layout_width="300dp"
+                        android:layout_width="275dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="25dp"
@@ -265,16 +270,17 @@
                         android:layout_marginTop="25dp"
                         android:text="@string/Employees"
                         android:textColor="@color/TextColorDark"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/ContactRubrik" />
 
                     <TextView
                         android:id="@+id/EmployeesInformation"
-                        android:layout_width="300dp"
+                        android:layout_width="275dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="25dp"
                         android:textColor="@color/TextColorDark"
                         android:textSize="15sp"
                         app:layout_constraintStart_toEndOf="@id/EmployeesRubrik"
@@ -287,7 +293,8 @@
                         android:layout_marginStart="20dp"
                         android:text="@string/Offices"
                         android:textColor="@color/TextColorDark"
-                        android:textSize="20sp"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/EmployeesRubrik"
@@ -295,10 +302,10 @@
 
                     <TextView
                         android:id="@+id/OfficesInformation"
-                        android:layout_width="300dp"
+                        android:layout_width="275dp"
                         android:layout_height="125dp"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="30dp"
+                        android:layout_marginTop="25dp"
                         android:textColor="@color/TextColorDark"
                         android:textSize="15sp"
                         app:layout_constraintStart_toEndOf="@id/OfficesRubrik"
@@ -316,7 +323,8 @@
                     android:layout_marginEnd="350dp"
                     android:text="@string/Notes"
                     android:textColor="@color/TextColorDark"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.509"
                     app:layout_constraintStart_toStartOf="parent"
