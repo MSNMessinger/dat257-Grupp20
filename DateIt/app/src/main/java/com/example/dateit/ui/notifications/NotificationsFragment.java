@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -30,6 +31,9 @@ import java.util.List;
 public class NotificationsFragment extends Fragment {
     private CustomAdapter customAdapterNotes = null;
     private CustomAdapter customAdapterFavorites = null;
+    private ImageView heartImg;
+    private static boolean  showFavorites = true;
+    private TextView addFavoritesText;
 
     private NotificationsViewModel notificationsViewModel;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -50,6 +54,7 @@ public class NotificationsFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        addFavoritesText = (TextView) root.findViewById(R.id.addFavoritesText);
 
 
         populateListNotes(root);
@@ -69,7 +74,10 @@ public class NotificationsFragment extends Fragment {
             customAdapterFavorites = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_notifications_to_companyDetails);
             list.setAdapter(customAdapterFavorites);
         }
-        setListViewHeightBasedOnChildren(list);
+
+
+       // setListViewHeightBasedOnChildren(list);
+        makeListHide(list, !showFavorites, root);
     }
 
     /**
@@ -85,7 +93,7 @@ public class NotificationsFragment extends Fragment {
             customAdapterNotes = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_notifications_to_companyDetails);
             list.setAdapter(customAdapterNotes);
         }
-        setListViewHeightBasedOnChildren(list);
+       // setListViewHeightBasedOnChildren(list);
     }
 
     /**
@@ -140,5 +148,64 @@ public class NotificationsFragment extends Fragment {
         params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
         listView.setLayoutParams(params);
         listView.requestLayout();
+    }
+
+    private void makeListHide(ListView listView, boolean hide, View root){
+        CustomAdapter listAdapter = (CustomAdapter) listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = 458;
+        listView.setVisibility(View.VISIBLE);
+      //  addFavoritesText.setVisibility(View.INVISIBLE);
+//        addFavoritesText.setVisibility(View.INVISIBLE);
+        if(listAdapter.getCount() == 0){
+        //    addFavoritesText.setText("Add your favorites by clicking on the heart symbol in a company...");
+        }
+        if(hide){
+          //  addFavoritesText.setText("");
+            totalHeight = 0;
+            listView.setVisibility(View.INVISIBLE);
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight;
+        listView.setLayoutParams(params);
+        listView.requestLayout();
+    }
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        final ListView list = (ListView)view.findViewById(R.id.listOfFavorites);
+
+        heartImg = view.findViewById(R.id.favoriteImageHeart);
+        if (showFavorites) {
+            heartImg.setImageResource(R.drawable.heart_logo);
+        } else {
+            heartImg.setImageResource(R.drawable.emptyheart);
+        }
+        heartImg.callOnClick();
+
+        heartImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(showFavorites) {
+                    heartImg.setImageResource(R.drawable.emptyheart);
+
+                    list.setVisibility(View.INVISIBLE);
+                    makeListHide(list, true, view);
+                    showFavorites = false;
+
+                } else {
+                    heartImg.setImageResource(R.drawable.heart_logo);
+                    showFavorites = true;
+                    list.setVisibility(View.VISIBLE);
+                    makeListHide(list, false, view);
+
+                }
+            }
+        });
     }
 }
