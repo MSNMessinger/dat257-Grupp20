@@ -9,4 +9,5 @@
     <color name="colorTitle">#49494d</color>
     <color name="TextColorDark">#333333</color>
     <color name="TextColorLight">#808080</color>
+    <color name="TextColorSuperLight">#c5c5c5</color>
 </resources>

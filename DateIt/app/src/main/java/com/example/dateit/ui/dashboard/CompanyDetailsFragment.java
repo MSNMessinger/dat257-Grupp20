@@ -83,25 +83,23 @@ public class CompanyDetailsFragment extends Fragment {
         offices.setText(company.getLocations());
         companyNote.setText(company.getNote());
         if (company.isIT()==0){
-            it.setText("");
+            it.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
         if (company.isD()==0){
-            d.setText("");
+            d.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
         if (company.isE()==0){
-            e.setText("");
+            e.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
         if (company.hasSummerJob()==0){
-            summer.setText("");
+            summer.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
         if (company.hasEmployment()==0){
-            internship.setText("");
+            internship.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
         if (company.hasMasterThesis()==0){
-            master.setText("");
+            master.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
-
-
 
 
 
