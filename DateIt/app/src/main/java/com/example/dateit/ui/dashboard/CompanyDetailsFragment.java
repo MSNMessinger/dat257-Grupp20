@@ -1,5 +1,8 @@
 package com.example.dateit.ui.dashboard;
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +25,9 @@ public class CompanyDetailsFragment extends Fragment {
     Company company;
     int id;
     private ImageView heartImg;
+    private ImageView logo;
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -84,23 +90,24 @@ public class CompanyDetailsFragment extends Fragment {
         offices.setText(company.getLocations());
         companyNote.setText(company.getNote());
         if (company.isIT()==0){
-            it.setText("");
+            it.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
         if (company.isD()==0){
-            d.setText("");
+            d.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
         if (company.isE()==0){
-            e.setText("");
+            e.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
         if (company.hasSummerJob()==0){
-            summer.setText("");
+            summer.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
         if (company.hasEmployment()==0){
-            internship.setText("");
+            internship.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
         if (company.hasMasterThesis()==0){
-            master.setText("");
+            master.setTextColor(getResources().getColor(R.color.TextColorSuperLight));
         }
+
 
 
         return root;
@@ -108,6 +115,12 @@ public class CompanyDetailsFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        super.onCreate(savedInstanceState);
+
+        logo = view.findViewById(R.id.imageLogo);
+        int id = getResources().getIdentifier(company.getLogo(), "drawable", getContext().getPackageName());
+        logo.setImageResource(id);
+
 
         heartImg = view.findViewById(R.id.heartImage);
         if (company.isFavorite() == 1) {
@@ -129,5 +142,10 @@ public class CompanyDetailsFragment extends Fragment {
             }
         });
     }
+
+
+
+
+
 }
 
