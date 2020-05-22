@@ -35,16 +35,17 @@ public class CompanyDetailsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Bundle bundle = this.getArguments();
         if(bundle != null){
-
+            id = bundle.getInt("id");
+                System.out.println(bundle);
             for(Company c : MainActivity.getList()){
-                if(((Integer) id).equals(c.getId())){
+                if( id == c.getId()){
+                    System.out.println(c);
                     company = c;
                     break;
                 }
             }
         }
     }
-
     @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -85,7 +86,7 @@ public class CompanyDetailsFragment extends Fragment {
         description.setText(company.getDescription());
         website.setText(company.getWebsite());
         contact.setText(company.getEmail());
-        employees.setText((int)company.getEmployeesWorld()+"");
+        employees.setText(company.getEmployeesWorld()+"");
         offices.setText(company.getLocations());
         companyNote.setText(company.getNote());
         if (company.isIT()==0){

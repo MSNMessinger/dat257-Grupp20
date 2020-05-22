@@ -27,7 +27,6 @@ import com.example.dateit.MainActivity;
 import com.example.dateit.R;
 import com.example.dateit.SubjectData;
 import com.example.dateit.ui.home.HomeFragment;
-
 import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.Collections;

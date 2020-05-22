@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         String filename = "favorites";
         List<String> favorites = new ArrayList<>();
         for (Company tmpComp : companies){
-            favorites.add(tmpComp.getFavorite().toString());
+            favorites.add(String.valueOf(tmpComp.getFavorite()));
         }
         String fileContents = new Gson().toJson(favorites);
         try (FileOutputStream fos = this.openFileOutput(filename, Context.MODE_PRIVATE)) {

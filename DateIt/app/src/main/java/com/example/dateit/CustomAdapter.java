@@ -99,7 +99,7 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putInt("id", (int) arrayList.get(position).getId());
+                bundle.putInt("id", arrayList.get(position).getId());
                 NavHostFragment.findNavController(fragment).navigate(action, bundle);
             }
         });

@@ -6,22 +6,22 @@ import java.util.List;
 
 public class Company {
 
-    private Integer id;
+    private int id;
     private String name;
     private String programs;
     private String jobtypes;
     private String description;
     private String locations;
-    private Integer foundingYear;
-    private Integer employeesWorld;
-    private Integer employeesSwe;
+    private int foundingYear;
+    private int employeesWorld;
+    private int employeesSwe;
     private String website;
     private String email;
     private String logo;
     private String note;
-    private Integer favorite;
+    private int favorite;
 
-    public Company(Integer id, String name, String programs, String jobtypes, String description, String locations, int foundingYear, int employeesWorld, int employeesSwe, String website, String email, String logo, String note, int favorite) {
+    public Company(int id, String name, String programs, String jobtypes, String description, String locations, int foundingYear, int employeesWorld, int employeesSwe, String website, String email, String logo, String note, int favorite) {
         this.id = id;
         this.name = name;
         this.programs = programs;
@@ -74,7 +74,7 @@ public class Company {
         }
     }
 
-    public Integer getFavorite() {
+    public int getFavorite() {
         return favorite;
     }
 
@@ -86,7 +86,7 @@ public class Company {
 
     public void setLogo(String id) { this.logo = logo; }
 
-    public Integer getId() { return id; }
+    public int getId() { return id; }
 
     public void setId(Integer id) { this.id = id; }
 
