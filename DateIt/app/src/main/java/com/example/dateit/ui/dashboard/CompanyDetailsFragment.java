@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.example.dateit.Company;
 import com.example.dateit.MainActivity;
 import com.example.dateit.R;
@@ -34,8 +35,6 @@ public class CompanyDetailsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         Bundle bundle = this.getArguments();
         if(bundle != null){
-            id = bundle.getInt("id");
-            Toast.makeText(getContext(), ""+id, Toast.LENGTH_LONG).show();
 
             for(Company c : MainActivity.getList()){
                 if(((Integer) id).equals(c.getId())){
