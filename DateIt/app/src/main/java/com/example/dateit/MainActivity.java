@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
 
         String result = readNotes("notes");
         List<String> notes = new Gson().fromJson(result, (List.class));
-        for (int i = 0; i < JSONToCompanyReader.nrOfCompanies; i++){
+        //saveNotes();
+        for (int i = 0; i < notes.size(); i++){
             companies.get(i).setNote(notes.get(i));
         }
 
