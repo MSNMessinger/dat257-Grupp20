@@ -175,7 +175,7 @@ public class Company {
     }
 
     public int hasMasterThesis(){
-        if (jobtypes.contains("Master Thesis")){
+        if (jobtypes.contains("Master thesis")){
             return 1;
         } else {
             return 0;
