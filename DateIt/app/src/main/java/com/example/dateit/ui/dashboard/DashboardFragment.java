@@ -159,9 +159,6 @@ public class DashboardFragment extends Fragment {
         final ListView alist = (ListView)root.findViewById(R.id.list);
         ArrayList<Company> arrayList = new ArrayList<Company>();
         arrayList.addAll(MainActivity.getList());
-        arrayList.addAll(MainActivity.getList());
-        arrayList.addAll(MainActivity.getList());
-        arrayList.addAll(MainActivity.getList());
         filterCriterias = new FilterCriterias();
         customAdapter = new CustomAdapter(getActivity(), arrayList, this, R.id.action_navigation_dashboard_to_companyDetails, filterCriterias);
         alist.setAdapter(customAdapter);

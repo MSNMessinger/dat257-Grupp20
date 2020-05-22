@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
         String resultF = readFavorites("favorites");
         List<String> favorites = new Gson().fromJson(resultF, (List.class));
-        for (int i = 0; i < JSONToCompanyReader.nrOfCompanies; i++){
+        for (int i = 0; i < favorites.size(); i++){
             companies.get(i).setFavorite(Integer.parseInt(favorites.get(i)));
         }
     }
