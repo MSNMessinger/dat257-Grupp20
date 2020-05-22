@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         saveNotes();
+        saveFavorites();
         super.onStop();
     }
 
@@ -87,6 +88,12 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < JSONToCompanyReader.nrOfCompanies; i++){
             companies.get(i).setNote(notes.get(i));
         }
+
+        String resultF = readFavorites("favorites");
+        List<String> favorites = new Gson().fromJson(resultF, (List.class));
+        for (int i = 0; i < JSONToCompanyReader.nrOfCompanies; i++){
+            companies.get(i).setFavorite(Integer.parseInt(favorites.get(i)));
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -106,9 +113,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void saveFavorites(){
+        String filename = "favorites";
+        List<String> favorites = new ArrayList<>();
+        for (Company tmpComp : companies){
+            favorites.add(tmpComp.getFavorite().toString());
+        }
+        String fileContents = new Gson().toJson(favorites);
+        try (FileOutputStream fos = this.openFileOutput(filename, Context.MODE_PRIVATE)) {
+            fos.write(fileContents.getBytes());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void resetNotes(List<String> notes){
         for (Company tmpComp : companies){
             notes.add(tmpComp.getNote());
+        }
+    }
+
+    private void resetFavourites(List<Integer> favourites){
+        for (Company tmpComp : companies){
+            favourites.add(tmpComp.isFavorite());
         }
     }
 
@@ -116,6 +146,35 @@ public class MainActivity extends AppCompatActivity {
     private String readNotes(String filename) throws IOException {
         if(!fileExists(this, filename)){
             saveNotes();
+        }
+        String contents = null;
+        FileInputStream fis = null;
+        try {
+            fis = this.openFileInput(filename);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        InputStreamReader inputStreamReader =
+                new InputStreamReader(fis, StandardCharsets.UTF_8);
+        StringBuilder stringBuilder = new StringBuilder();
+        try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
+            String line = reader.readLine();
+            while (line != null) {
+                stringBuilder.append(line).append('\n');
+                line = reader.readLine();
+            }
+        } catch (IOException e) {
+            // Error occurred when opening raw file for reading.
+        } finally {
+            contents = stringBuilder.toString();
+        }
+        return contents;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private String readFavorites(String filename) throws IOException {
+        if(!fileExists(this, filename)){
+            saveFavorites();
         }
         String contents = null;
         FileInputStream fis = null;

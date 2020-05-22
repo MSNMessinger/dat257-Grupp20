@@ -39,7 +39,7 @@ public class Company {
     }
 
 
-    public void setFavorite(int favorite) {
+    public void setFavorite(Integer favorite) {
         this.favorite = favorite;
     }
 
@@ -72,6 +72,10 @@ public class Company {
         } else {
             return 0;
         }
+    }
+
+    public Integer getFavorite() {
+        return favorite;
     }
 
     public int isFavorite(){
