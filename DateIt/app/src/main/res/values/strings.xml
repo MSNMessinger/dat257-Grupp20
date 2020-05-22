@@ -69,4 +69,8 @@ If you choose to leave your résumé, remember that it is your way of marketing 
     <string name="searchHint">Search</string>
     <string name="filter_by_program">Filter by program</string>
     <string name="filter_by_offers">Filter by offers</string>
+    <string name="searchHint">Sök företag</string>
+    <string name="MyPage">MyPage</string>
+    <string name="AddFavoritesText">Add your favorites by clicking on the heart symbol in a company...</string>
+    <string name="AddNoteText">Write a note on a company to make it appear here...</string>
 </resources>
