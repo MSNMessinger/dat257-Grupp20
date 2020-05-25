@@ -17,7 +17,7 @@ The unit-tests are applied to test the different Classes with specific functiona
 
 ## Built With
 
-* [Android Studios](https://developer.android.com/studio) - Dependency Management
+* [Android Studios](https://developer.android.com/studio) - Tool for developing Android apps
 * [JUnit](https://junit.org/junit5/) - Unit testing
 
 
