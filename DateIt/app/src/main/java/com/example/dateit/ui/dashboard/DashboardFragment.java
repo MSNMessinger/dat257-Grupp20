@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.fragment.NavHostFragment;
@@ -93,8 +94,10 @@ public class DashboardFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     filterCriterias.setIsIT(1);
+                    setToggleActive(toggleIt);
                 } else {
                     filterCriterias.setIsIT(0);
+                    setToggleInactive(toggleIt);
                 }
                 customAdapter.getFilter().filter(etSearch.getText());
             }
@@ -103,8 +106,10 @@ public class DashboardFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     filterCriterias.setIsD(1);
+                    setToggleActive(toggleD);
                 } else {
                     filterCriterias.setIsD(0);
+                    setToggleInactive(toggleD);
                 }
                 customAdapter.getFilter().filter(etSearch.getText());
             }
@@ -113,19 +118,22 @@ public class DashboardFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     filterCriterias.setIsE(1);
+                    setToggleActive(toggleE);
                 } else {
                     filterCriterias.setIsE(0);
+                    setToggleInactive(toggleE);
                 }
                 customAdapter.getFilter().filter(etSearch.getText());
             }
         });
-
         toggleSummer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     filterCriterias.setIsSummerJob(1);
+                    setToggleActive(toggleSummer);
                 } else {
                     filterCriterias.setIsSummerJob(0);
+                    setToggleInactive(toggleSummer);
                 }
                 customAdapter.getFilter().filter(etSearch.getText());
             }
@@ -134,8 +142,10 @@ public class DashboardFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     filterCriterias.setIsEmployment(1);
+                    setToggleActive(toggleEmployment);
                 } else {
                     filterCriterias.setIsEmployment(0);
+                    setToggleInactive(toggleEmployment);
                 }
                 customAdapter.getFilter().filter(etSearch.getText());
             }
@@ -144,14 +154,26 @@ public class DashboardFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     filterCriterias.setIsMasterThesis(1);
+                    setToggleActive(toggleMaster);
                 } else {
                     filterCriterias.setIsMasterThesis(0);
+                    setToggleInactive(toggleMaster);
                 }
                 customAdapter.getFilter().filter(etSearch.getText());
             }
         });
 
         return root;
+    }
+
+    private void setToggleActive(ToggleButton btn) {
+        btn.setBackground(getResources().getDrawable(R.drawable.button_background_active));
+       // btn.setTextColor(getResources().getColor(R.color.TextColorLight));
+    }
+
+    private void setToggleInactive(ToggleButton btn) {
+        btn.setBackground(getResources().getDrawable(R.drawable.button_background));
+       // btn.setTextColor(getResources().getColor(R.color.TextColorLight));
     }
 
     private void populateList(View root) {

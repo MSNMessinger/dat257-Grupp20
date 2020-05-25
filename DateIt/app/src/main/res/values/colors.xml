@@ -10,4 +10,5 @@
     <color name="TextColorDark">#333333</color>
     <color name="TextColorSuperLight">#c5c5c5</color>
     <color name="TextColorLight">#f2f2f2</color>
+    <color name="activeToggle">#00a8e1</color>
 </resources>

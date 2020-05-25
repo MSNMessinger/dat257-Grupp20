@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginBottom="@dimen/navigation_bar_height"
     tools:context=".ui.dashboard.DashboardFragment">
 
     <EditText
@@ -39,14 +38,16 @@
             android:textColor="@color/TextColorDark"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ToggleButton
             android:id="@+id/toggleIt"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/button_background"
             android:text="@string/IT"
+            android:textColor="@color/TextColorLight"
             android:textOff="@string/IT"
             android:textOn="@string/IT"
             android:textSize="12sp"
@@ -56,9 +57,12 @@
 
         <ToggleButton
             android:id="@+id/toggleSummer"
-            android:layout_width="wrap_content"
-            android:layout_height="35sp"
+            android:layout_width="110dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/button_background"
             android:text="@string/SummerJob"
+            android:textColor="@color/TextColorLight"
             android:textOff="@string/SummerJob"
             android:textOn="@string/SummerJob"
             android:textSize="12sp"
@@ -69,8 +73,11 @@
         <ToggleButton
             android:id="@+id/toggleD"
             android:layout_width="wrap_content"
-            android:layout_height="35sp"
+            android:layout_height="32dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/button_background"
             android:text="@string/CS"
+            android:textColor="@color/TextColorLight"
             android:textOff="@string/CS"
             android:textOn="@string/CS"
             android:textSize="12sp"
@@ -83,6 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
             android:text="@string/filter_by_offers"
             android:textColor="@color/TextColorDark"
             android:textSize="16sp"
@@ -91,21 +99,27 @@
 
         <ToggleButton
             android:id="@+id/toggleEmployment"
-            android:layout_width="wrap_content"
-            android:layout_height="35sp"
+            android:layout_width="110dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/button_background"
             android:text="@string/Employment"
+            android:textColor="@color/TextColorLight"
             android:textOff="@string/Employment"
             android:textOn="@string/Employment"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <ToggleButton
             android:id="@+id/toggleE"
             android:layout_width="wrap_content"
-            android:layout_height="35sp"
+            android:layout_height="32dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/button_background"
             android:text="@string/Elektro"
+            android:textColor="@color/TextColorLight"
             android:textOff="@string/Elektro"
             android:textOn="@string/Elektro"
             android:textSize="12sp"
@@ -115,9 +129,12 @@
 
         <ToggleButton
             android:id="@+id/toggleMaster"
-            android:layout_width="wrap_content"
-            android:layout_height="35sp"
+            android:layout_width="110dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/button_background"
             android:text="@string/MasterThesis"
+            android:textColor="@color/TextColorLight"
             android:textOff="@string/MasterThesis"
             android:textOn="@string/MasterThesis"
             android:textSize="12sp"
@@ -128,26 +145,27 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="411dp"
-        android:layout_height="513dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="@dimen/navigation_bar_height"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-        app:layout_constraintVertical_bias="0.06">
+        app:layout_constraintVertical_bias="0.0">
 
         <ListView
             android:id="@+id/list"
-            android:layout_width="396dp"
-            android:layout_height="403dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="164dp"
             android:divider="#000"
             android:dividerHeight="1dp"
             android:footerDividersEnabled="false"
             android:headerDividersEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.64"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
