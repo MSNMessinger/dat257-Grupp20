@@ -11,7 +11,9 @@ import androidx.navigation.fragment.NavHostFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.example.dateit.ui.home.HomeFragment;
 
@@ -20,6 +22,10 @@ import org.w3c.dom.Text;
 public class faqFragment extends Fragment {
     TextView titleContainer;
     TextView textContainer;
+
+    Button prepareBtn;
+    Button MakeContactBtn;
+    Button resumeBtn;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,36 +45,57 @@ public class faqFragment extends Fragment {
         titleContainer = view.findViewById(R.id.titleContainer);
         textContainer = view.findViewById(R.id.contentContainer);
 
+        prepareBtn = view.findViewById(R.id.PrepareBtn);
+        MakeContactBtn = view.findViewById(R.id.MakeContactBtn);
+        resumeBtn = view.findViewById(R.id.ResumeBtn);
+        setToggleActive(resumeBtn);
         // prepare
-        view.findViewById(R.id.PrepareBtn).setOnClickListener(new View.OnClickListener() {
+        prepareBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 titleContainer.setText(getResources().getString(R.string.Prepare));
                 textContainer.setText(getResources().getString(R.string.PrepareText));
+                setToggleActive(prepareBtn);
+                setToggleInactive(MakeContactBtn);
+                setToggleInactive(resumeBtn);
             }
         });
 
         // make contact
-        view.findViewById(R.id.MakeContactBtn).setOnClickListener(new View.OnClickListener() {
+        MakeContactBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 titleContainer.setText(getResources().getString(R.string.MakeContact));
                 textContainer.setText(getResources().getString(R.string.MakeContactText));
+                setToggleInactive(prepareBtn);
+                setToggleActive(MakeContactBtn);
+                setToggleInactive(resumeBtn);
             }
         });
 
         // resume crap
-        view.findViewById(R.id.ResumeBtn).setOnClickListener(new View.OnClickListener() {
+        resumeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 titleContainer.setText(getResources().getString(R.string.Resume));
                 textContainer.setText(getResources().getString(R.string.ResumeText));
+                setToggleInactive(prepareBtn);
+                setToggleInactive(MakeContactBtn);
+                setToggleActive(resumeBtn);
             }
         });
 
         // NavHostFragment.findNavController(View);
 
         //view.findViewById(R.id.faqButton).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.fragment_faq, null));
+    }
+
+    private void setToggleActive(Button btn) {
+        btn.setBackground(getResources().getDrawable(R.drawable.button_background_active));
+    }
+
+    private void setToggleInactive(Button btn) {
+        btn.setBackground(getResources().getDrawable(R.drawable.button_background));
     }
 
  /*

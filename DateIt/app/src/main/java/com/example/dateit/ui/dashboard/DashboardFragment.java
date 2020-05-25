@@ -168,12 +168,10 @@ public class DashboardFragment extends Fragment {
 
     private void setToggleActive(ToggleButton btn) {
         btn.setBackground(getResources().getDrawable(R.drawable.button_background_active));
-       // btn.setTextColor(getResources().getColor(R.color.TextColorLight));
     }
 
     private void setToggleInactive(ToggleButton btn) {
         btn.setBackground(getResources().getDrawable(R.drawable.button_background));
-       // btn.setTextColor(getResources().getColor(R.color.TextColorLight));
     }
 
     private void populateList(View root) {
