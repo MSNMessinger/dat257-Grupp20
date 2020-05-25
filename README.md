@@ -3,22 +3,28 @@ An android application with all the information you need on the fair and all com
 
 ## Getting Started
 
-Download the project and start it. Ready to run.
+### Apk download link: ADD APK HERE
+
+HOW TO RUN APK INSTRUCTIONS
+
+Code can be found in /DateIt/
+
+Team reflections can be found under /reflections/
+
+Individual reflections under /reflections/CHOOSEWEEK/CHOOSEMEMBER
+
+Trello link: https://trello.com/b/yeGti8yf/agile-project
+
 
 ### Prerequisites
 
-Android studios, java compiler, Android emulator or Android phone.
-
-
-## Tests
-
-The unit-tests are applied to test the different Classes with specific functionality that could not be tested by graphical tests. By testing scenarios and outcomes the tests has coverage on implemented logic.
+Either Android studios, java compiler and Android emulator
+Or Android phone
 
 
 ## Built With
 
 * [Android Studios](https://developer.android.com/studio) - Tool for developing Android apps
-* [JUnit](https://junit.org/junit5/) - Unit testing
 
 
 ## Authors
