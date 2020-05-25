@@ -7,20 +7,20 @@ An android application with all the information you need on the fair and all com
 
 HOW TO RUN APK INSTRUCTIONS
 
-Code can be found in /DateIt/
+* *Code can be found in /DateIt/*
 
-Team reflections can be found under /reflections/
+* *Team reflections can be found under /reflections/*
 
-Individual reflections under /reflections/CHOOSEWEEK/CHOOSEMEMBER
+* *Individual reflections under /reflections/CHOOSEWEEK/CHOOSEMEMBER*
 
-Trello link: https://trello.com/b/yeGti8yf/agile-project
+* *Trello link: https://trello.com/b/yeGti8yf/agile-project*
 
 
 ### Prerequisites
 
-Either Android studios, java compiler and Android emulator
+* *Either Android studios, java compiler and Android emulator*
 
-Or Android phone
+* *Or Android phone*
 
 
 ## Built With
