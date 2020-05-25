@@ -84,10 +84,6 @@ public class faqFragment extends Fragment {
                 setToggleActive(resumeBtn);
             }
         });
-
-        // NavHostFragment.findNavController(View);
-
-        //view.findViewById(R.id.faqButton).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.fragment_faq, null));
     }
 
     private void setToggleActive(Button btn) {
@@ -97,31 +93,4 @@ public class faqFragment extends Fragment {
     private void setToggleInactive(Button btn) {
         btn.setBackground(getResources().getDrawable(R.drawable.button_background));
     }
-
- /*
-    public void changeFaqFragment(View view) {
-       Fragment fragment;
-
-        if (view == view.findViewById(R.id.PrepareBtn)) {
-            fragment = new PrepareFragment();
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragmentPlace, fragment);
-            ft.commit();
-        }
-        if (view == view.findViewById(R.id.ResumeBtn)) {
-            fragment = new Resume();
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragmentPlace, fragment);
-            ft.commit();
-        }
-        if (view == view.findViewById(R.id.MakeContactBtn)){
-            fragment = new MakeContact();
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragmentPlace, fragment);
-            ft.commit();
-        }
-    }*/
 }
