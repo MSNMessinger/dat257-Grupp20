@@ -19,6 +19,7 @@ Trello link: https://trello.com/b/yeGti8yf/agile-project
 ### Prerequisites
 
 Either Android studios, java compiler and Android emulator
+
 Or Android phone
 
 
