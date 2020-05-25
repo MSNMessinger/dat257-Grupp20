@@ -48,7 +48,7 @@ public class faqFragment extends Fragment {
         prepareBtn = view.findViewById(R.id.PrepareBtn);
         MakeContactBtn = view.findViewById(R.id.MakeContactBtn);
         resumeBtn = view.findViewById(R.id.ResumeBtn);
-        setToggleActive(resumeBtn);
+        setToggleActive(prepareBtn);
         // prepare
         prepareBtn.setOnClickListener(new View.OnClickListener() {
             @Override
