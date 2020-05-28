@@ -141,88 +141,100 @@ public class NotificationsFragment extends Fragment {
         listView.requestLayout();
     }
 
-    private void makeListHide(ListView listView, boolean hide){
+    private int getListHeight(ListView listView) {
         CustomAdapter listAdapter = (CustomAdapter) listView.getAdapter();
         if (listAdapter == null) {
             // pre-condition
-            return;
+            return 0;
         }
 
-        int totalHeight = 458;
-        listView.setVisibility(View.VISIBLE);
+        int totalHeight = 0;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
 
-        if(hide){
-            totalHeight = 0;
-            listView.setVisibility(View.INVISIBLE);
         }
-
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight;
-        listView.setLayoutParams(params);
-        listView.requestLayout();
+        return totalHeight;
     }
 
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        final ListView list = view.findViewById(R.id.listOfFavorites);
-        final ListView notesList = view.findViewById(R.id.listOfNotes);
-
-
-        heartImg = view.findViewById(R.id.favoriteImageHeart);
-        if (showFavorites) {
-            heartImg.setImageResource(R.drawable.down_arrow_key);
-        } else {
-            heartImg.setImageResource(R.drawable.up_arrow_key);
-        }
-        heartImg.callOnClick();
-
-        heartImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(showFavorites) {
-                    heartImg.setImageResource(R.drawable.up_arrow_key);
-
-                    list.setVisibility(View.INVISIBLE);
-                    makeListHide(list, true);
-                    showFavorites = false;
-
-                } else {
-                    heartImg.setImageResource(R.drawable.down_arrow_key);
-                    showFavorites = true;
-                    list.setVisibility(View.VISIBLE);
-                    setListViewHeightBasedOnChildren(list);
-
-                }
+        private void makeListHide(ListView listView, boolean hide){
+            CustomAdapter listAdapter = (CustomAdapter) listView.getAdapter();
+            if (listAdapter == null) {
+                // pre-condition
+                return;
             }
-        });
 
-        arrowImg = view.findViewById(R.id.arrowImg);
-        if(showNotes) {
-            arrowImg.setImageResource(R.drawable.down_arrow_key);
-        } else {
-            arrowImg.setImageResource(R.drawable.up_arrow_key);
-        }
-        arrowImg.callOnClick();
+            int totalHeight = getListHeight(listView);
+            listView.setVisibility(View.VISIBLE);
 
-        arrowImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(showNotes) {
-                    arrowImg.setImageResource(R.drawable.up_arrow_key);
-
-                    notesList.setVisibility(View.INVISIBLE);
-                    makeListHide(notesList, true);
-                    showNotes = false;
-
-                } else {
-                    arrowImg.setImageResource(R.drawable.down_arrow_key);
-                    showNotes = true;
-                    notesList.setVisibility(View.VISIBLE);
-                    setListViewHeightBasedOnChildren(notesList);
-                }
+            if(hide){
+                totalHeight = 0;
+                listView.setVisibility(View.INVISIBLE);
             }
-        });
+
+            ViewGroup.LayoutParams params = listView.getLayoutParams();
+            params.height = totalHeight;
+            listView.setLayoutParams(params);
+            listView.requestLayout();
+        }
+
+        public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+            super.onViewCreated(view, savedInstanceState);
+            final ListView list = view.findViewById(R.id.listOfFavorites);
+            final ListView notesList = view.findViewById(R.id.listOfNotes);
 
 
+            heartImg = view.findViewById(R.id.favoriteImageHeart);
+            if (showFavorites) {
+                heartImg.setImageResource(R.drawable.up_arrow_key);
+            } else {
+                heartImg.setImageResource(R.drawable.down_arrow_key);
+            }
+            heartImg.callOnClick();
+
+            heartImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(showFavorites) {
+                        heartImg.setImageResource(R.drawable.down_arrow_key);
+                        list.setVisibility(View.INVISIBLE);
+                        makeListHide(list, true);
+                        showFavorites = false;
+                    } else {
+                        heartImg.setImageResource(R.drawable.up_arrow_key);
+                        showFavorites = true;
+                        list.setVisibility(View.VISIBLE);
+                        setListViewHeightBasedOnChildren(list);
+                    }
+                }
+            });
+
+            arrowImg = view.findViewById(R.id.arrowImg);
+            if(showNotes) {
+                arrowImg.setImageResource(R.drawable.up_arrow_key);
+            } else {
+                arrowImg.setImageResource(R.drawable.down_arrow_key);
+            }
+            arrowImg.callOnClick();
+
+            arrowImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(showNotes) {
+                        arrowImg.setImageResource(R.drawable.down_arrow_key);
+                        notesList.setVisibility(View.INVISIBLE);
+                        makeListHide(notesList, true);
+                        showNotes = false;
+                    } else {
+                        arrowImg.setImageResource(R.drawable.up_arrow_key);
+                        showNotes = true;
+                        notesList.setVisibility(View.VISIBLE);
+                        setListViewHeightBasedOnChildren(notesList);
+                    }
+                }
+            });
+
+
+        }
     }
-}
