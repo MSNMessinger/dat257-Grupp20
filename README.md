@@ -3,7 +3,7 @@ An android application with all the information you need on the fair and all com
 
 ## Getting Started
 
-### Apk download link: ADD APK HERE
+### Apk download link: https://github.com/MSNMessinger/dat257-Grupp20/raw/master/DateIt.apk
 
 HOW TO RUN APK INSTRUCTIONS
 
