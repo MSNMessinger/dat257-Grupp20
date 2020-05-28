@@ -86,8 +86,8 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
 
             holder = new ViewHolder();
             convertView = inflater.inflate(R.layout.list_row, null);
-            holder.textView = (TextView) convertView.findViewById(R.id.title);
-            holder.logo = (ImageView) convertView.findViewById(R.id.list_image);
+            holder.textView = convertView.findViewById(R.id.title);
+            holder.logo = convertView.findViewById(R.id.list_image);
 
             convertView.setTag(holder);
         } else {
@@ -166,36 +166,34 @@ public class CustomAdapter extends BaseAdapter implements Filterable {
         return filter;
     }
 
+    /**
+     * Checks if a given company follows the job offer filter criteria
+     * @param data the company to be checked
+     * @return true if the company follows the criteria, false otherwise
+     */
     private Boolean checkOfferType(Company data) {
         if(filterCriterias.getIsEmployment() == 0 && filterCriterias.getIsSummerJob() == 0 && filterCriterias.getIsMasterThesis() == 0) {
             return true;
         } else {
-            if (checkFilter(filterCriterias.getIsEmployment(), data.hasEmployment()) || checkFilter(filterCriterias.getIsSummerJob(), data.hasSummerJob()) || checkFilter(filterCriterias.getIsMasterThesis(), data.hasMasterThesis())) {
-                return true;
-            } else {
-                return false;
-            }
+            return checkFilter(filterCriterias.getIsEmployment(), data.hasEmployment()) || checkFilter(filterCriterias.getIsSummerJob(), data.hasSummerJob()) || checkFilter(filterCriterias.getIsMasterThesis(), data.hasMasterThesis());
         }
     }
 
+    /**
+     * Checks if a given company follows the program filter criteria
+     * @param data the company to be checked
+     * @return true if the company follows the criteria, false otherwise
+     */
     private Boolean checkProgramType(Company data) {
         if(filterCriterias.getIsD() == 0 && filterCriterias.getIsIT() == 0 && filterCriterias.getIsE() == 0) {
             return true;
         } else {
-            if (checkFilter(filterCriterias.getIsD(), data.isD()) || checkFilter(filterCriterias.getIsIT(), data.isIT()) || checkFilter(filterCriterias.getIsE(), data.isE())) {
-                return true;
-            } else {
-                return false;
-            }
+            return checkFilter(filterCriterias.getIsD(), data.isD()) || checkFilter(filterCriterias.getIsIT(), data.isIT()) || checkFilter(filterCriterias.getIsE(), data.isE());
         }
     }
 
     private Boolean checkFilter(int value1, int value2) {
-        if(value1 == 1 && value1 == value2) {
-            return true;
-        } else {
-            return false;
-        }
+        return value1 == 1 && value1 == value2;
     }
 
     @Override

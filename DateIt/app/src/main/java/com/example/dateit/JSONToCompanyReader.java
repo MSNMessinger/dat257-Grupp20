@@ -4,7 +4,6 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.google.gson.Gson;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,15 +16,15 @@ import java.util.List;
 public class JSONToCompanyReader {
 
     private FragmentActivity activity;
-    private String jsonString;
-    public static int nrOfCompanies;
 
-    public JSONToCompanyReader(FragmentActivity activity) throws JSONException {
+    public JSONToCompanyReader(FragmentActivity activity) {
         this.activity = activity;
-        this.jsonString = inputStreamToString();
-        nrOfCompanies = countItems(new JSONObject(jsonString));
     }
 
+    /**
+     * A method that returns the file contents of the company.json file as a String
+     * @return A string of the contents in company.json
+     */
     private String inputStreamToString() {
         InputStream inputStream = activity.getResources().openRawResource(R.raw.company);
         try {
@@ -38,62 +37,33 @@ public class JSONToCompanyReader {
         }
     }
 
-    public List<Company> createCompanies() throws JSONException {
-        List<Company> list = new ArrayList<>();
-        JSONObject jsonFile = new JSONObject(jsonString);
-        JSONObject tmp;
-        for (int i = 0; i < countItems(jsonFile); i++) {
-            tmp = jsonFile.getJSONObject("" + i + "");
-            Company tmpComp = new Gson().fromJson(tmp.toString(), Company.class);
-            list.add(tmpComp);
-        }
-        return list;
-    }
-
     /**
-     * Create a list of companies marked as favorite.
-     * @return
+     * Read in the companies from the json-file and creates a company object for each one of them and
+     * places them in a list
+     * @return a list of all companies located in the companies.json file
      * @throws JSONException
      */
-    public List<Company> getFavorites() throws JSONException {
-        List<Company> list = new ArrayList<>();
-        JSONObject jsonFile = new JSONObject(jsonString);
-        JSONObject tmp = new JSONObject();
-        for (int i = 0; i < countItems(jsonFile); i++) {
-                tmp = jsonFile.getJSONObject("" + i + "");
-                Company tmpComp = new Gson().fromJson(tmp.toString(), Company.class);
-                if(tmpComp.isFavorite() == 1) {
-                    list.add(tmpComp);
-                }
-        }
-        return list;
-    }
-
-    /**
-     * make a list of companies which have a note.
-     * @return
-     * @throws JSONException
-     */
-    public List<Company> hasNote() throws JSONException {
-        List<Company> list = new ArrayList<>();
-        JSONObject jsonFile = new JSONObject(jsonString);
-        JSONObject tmp = new JSONObject();
-        for (int i = 0; i < countItems(jsonFile); i++) {
-            if(getCompany(i).hasNote()){
+    public List<Company> createCompanies(){
+        try {
+            List<Company> list = new ArrayList<>();
+            JSONObject jsonFile = new JSONObject(inputStreamToString());
+            JSONObject tmp;
+            for (int i = 0; i < countItems(jsonFile); i++) {
                 tmp = jsonFile.getJSONObject("" + i + "");
                 Company tmpComp = new Gson().fromJson(tmp.toString(), Company.class);
                 list.add(tmpComp);
             }
+            return list;
+        } catch (JSONException e){
+            return null;
         }
-        return list;
     }
 
-    public Company getCompany(int id) throws JSONException {
-        JSONObject jsonFile = new JSONObject(jsonString);
-        JSONObject tmp = jsonFile.getJSONObject("" + id + "");
-        return new Gson().fromJson(tmp.toString(), Company.class);
-    }
-
+    /**
+     * Counts the number of different companies there is in the JSON-backend file from a JSONObject
+     * @param obj A json-object created from the backend file
+     * @return the number of companies in the json-object
+     */
     private int countItems(JSONObject obj){
         int count = 0;
         for (Iterator key = obj.keys(); key.hasNext();){

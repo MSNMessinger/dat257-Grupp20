@@ -3,7 +3,6 @@ package com.example.dateit;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.widget.TextView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 
@@ -35,13 +34,15 @@ public class MainActivity extends AppCompatActivity {
 
     public static List<Company> companies;
 
+    /**
+     * A method that is run when a MainActivity object is being created
+     * @param savedInstanceState
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-
-        TextView companyName = (TextView) findViewById(R.id.companyName);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -54,13 +55,13 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-        try {
-            initCompanies();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        initCompanies();
     }
 
+    /**
+     * A method that is run when the program is shut down
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onStop() {
@@ -69,9 +70,11 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    /**
+     * Initialises the companies and assigns it to an attribute
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private void initCompanies() throws IOException {
-        try {
+    private void initCompanies() {
             companies = new JSONToCompanyReader(this).createCompanies();
             Collections.sort(companies, new Comparator<Company>() {
                 @Override
@@ -79,24 +82,24 @@ public class MainActivity extends AppCompatActivity {
                     return o1.getName().toLowerCase().compareTo(o2.getName().toLowerCase());
                 }
             });
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
-        String result = readNotes("notes");
+
+        String result = readFile("notes");
         List<String> notes = new Gson().fromJson(result, (List.class));
-        //saveNotes();
         for (int i = 0; i < notes.size(); i++){
             companies.get(i).setNote(notes.get(i));
         }
 
-        String resultF = readFavorites("favorites");
+        String resultF = readFile("favorites");
         List<String> favorites = new Gson().fromJson(resultF, (List.class));
         for (int i = 0; i < favorites.size(); i++){
             companies.get(i).setFavorite(Integer.parseInt(favorites.get(i)));
         }
     }
 
+    /**
+     * A method for saving the list a list of notes in an app-specific file
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void saveNotes(){
         String filename = "notes";
@@ -114,6 +117,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * A method for saving the list a list of favorites in an app-specific file
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void saveFavorites(){
         String filename = "favorites";
@@ -131,22 +137,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void resetNotes(List<String> notes){
-        for (Company tmpComp : companies){
-            notes.add(tmpComp.getNote());
-        }
-    }
-
-    private void resetFavourites(List<Integer> favourites){
-        for (Company tmpComp : companies){
-            favourites.add(tmpComp.isFavorite());
-        }
-    }
-
+    /**
+     * Reads the contents from a file
+     * @param filename the file to be read
+     * @return the content as a String that will be converted to objects by the Gson API
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private String readNotes(String filename) throws IOException {
-        if(!fileExists(this, filename)){
-            saveNotes();
+    private String readFile(String filename) {
+        if(!fileExists(filename)){
+            if (filename == "favorites"){
+                saveFavorites();
+            } else if (filename == "notes"){
+                saveNotes();
+            }
+
         }
         String contents = null;
         FileInputStream fis = null;
@@ -172,47 +176,14 @@ public class MainActivity extends AppCompatActivity {
         return contents;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    private String readFavorites(String filename) throws IOException {
-        if(!fileExists(this, filename)){
-            saveFavorites();
-        }
-        String contents = null;
-        FileInputStream fis = null;
-        try {
-            fis = this.openFileInput(filename);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        InputStreamReader inputStreamReader =
-                new InputStreamReader(fis, StandardCharsets.UTF_8);
-        StringBuilder stringBuilder = new StringBuilder();
-        try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
-            String line = reader.readLine();
-            while (line != null) {
-                stringBuilder.append(line).append('\n');
-                line = reader.readLine();
-            }
-        } catch (IOException e) {
-            // Error occurred when opening raw file for reading.
-        } finally {
-            contents = stringBuilder.toString();
-        }
-        return contents;
-    }
-
-    private void testSaveFunction(){
-        for (Company company : companies){
-            System.out.println("name: " + company.getName() + "& note: " + company.getNote());
-        }
-    }
-
-    private boolean fileExists(Context context, String filename) {
-        File file = context.getFileStreamPath(filename);
-        if(file == null || !file.exists()) {
-            return false;
-        }
-        return true;
+    /**
+     * A method that checks if
+     * @param filename the name of the file whose existence is to be checked
+     * @return a boolean true if the file exists or false if it does not
+     */
+    private boolean fileExists(String filename) {
+        File file = this.getFileStreamPath(filename);
+        return file != null && file.exists();
     }
 
     /**
