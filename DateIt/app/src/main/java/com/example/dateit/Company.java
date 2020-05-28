@@ -44,10 +44,7 @@ public class Company {
     }
 
     public boolean hasNote(){
-        if (!this.note.isEmpty())
-            return true;
-        else
-            return false;
+        return !note.isEmpty();
     }
 
     public int isIT(){

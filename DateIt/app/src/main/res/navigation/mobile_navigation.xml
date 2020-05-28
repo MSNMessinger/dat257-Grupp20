@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.dateit.ui.dashboard.DashboardFragment"
+        android:name="com.example.dateit.ui.companies.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" >
         <action
@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.dateit.ui.notifications.NotificationsFragment"
+        android:name="com.example.dateit.ui.mypage.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" >
         <action
@@ -45,12 +45,12 @@
     </fragment>
     <fragment
         android:id="@+id/companyDetails"
-        android:name="com.example.dateit.ui.dashboard.CompanyDetailsFragment"
+        android:name="com.example.dateit.ui.companies.CompanyDetailsFragment"
         android:label="company_details_fragment"
         tools:layout="@layout/company_details_fragment" />
     <fragment
         android:id="@+id/fragment_second"
-        android:name="com.example.dateit.faqFragment"
+        android:name="com.example.dateit.ui.home.faqFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_faq" />
 </navigation>

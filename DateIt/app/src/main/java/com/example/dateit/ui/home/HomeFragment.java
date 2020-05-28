@@ -53,19 +53,12 @@ public class HomeFragment extends Fragment {
         view.findViewById(R.id.faqButton).setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View view) { /*
-                NavDirections action =
-                        HomeFragmentDirections
-                                .actionNavigationHomeToFaqFragment2();
-                Navigation.findNavController(view).navigate(action);
-
-             */
+            public void onClick(View view) {
             NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_navigation_home_to_fragment_second);
-
             }
         });
 
-        fbImg = (ImageView) view.findViewById(R.id.contactsFbInfo);
+        fbImg = view.findViewById(R.id.contactsFbInfo);
         fbImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +67,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        emailImg = (ImageView) view.findViewById(R.id.emailImg);
+        emailImg = view.findViewById(R.id.emailImg);
         emailImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,7 +82,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        findLocation = (ImageView) view.findViewById(R.id.findLocation);
+        findLocation = view.findViewById(R.id.findLocation);
 
         findLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,12 +92,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-
-
-       // NavHostFragment.findNavController(View);
-
-        //view.findViewById(R.id.faqButton).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.fragment_faq, null));
     }
 
 }
