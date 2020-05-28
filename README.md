@@ -7,7 +7,7 @@ An android application with all the information you need on the fair and all com
 
 HOW TO RUN APK INSTRUCTIONS
 
-Download the ______.apk file to the android phone you wish to install in on. You might have to enable installation of apps from third party. After download click install when the option is prompted, if it's not open the file explorer on your phone and click on the apk file to install. You might get a couple of warnings due to unknown developer of app and that is from a unknown source. Just ignore this and continue to install. The app will "probably" not possess your phone by an evil spirit.
+Download the DateIt.apk file to the android phone you wish to install in on. You might have to enable installation of apps from third party in your settings. After download click install when the option is prompted. If it's not, open the file explorer on your phone and click on the apk file to install. You might get a couple of warnings due to unknown developer of app and that is from a unknown source. Just ignore these and continue to install. Your phone will "probably" not get possessed by an evil spirit, but you never know :/.
 
 
 * *Code can be found in /DateIt/*
