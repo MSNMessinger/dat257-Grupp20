@@ -9,6 +9,8 @@ HOW TO RUN APK INSTRUCTIONS
 
 * *Code can be found in /DateIt/*
 
+* *Gitinspector statistics can be found under https://github.com/MSNMessinger/dat257-Grupp20/tree/master/stats*
+
 * *Team reflections can be found under /reflections/*
 
 * *Individual reflections under /reflections/CHOOSEWEEK/CHOOSEMEMBER*
