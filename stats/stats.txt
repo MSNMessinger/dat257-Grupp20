@@ -1,0 +1,195 @@
+Statistical information for the repository 'dat257-Grupp20' was gathered on
+2020/05/28.
+The following historical commit information, by author, was found:
+
+Author                     Commits    Insertions      Deletions    % of changes
+Jacob                           24          1020            450           23.76
+Norbert                         43          1213           1345           41.34
+Norbert Laszlo                   2           472              0            7.63
+Oscar Helgesson                  9           530            504           16.71
+Tina Samimian                   10           144             10            2.49
+ceciliamichelsen                 1           112              0            1.81
+eelinnilssson                    4           300             39            5.48
+rebeckajakobsson                 3            37             11            0.78
+
+Below are the number of rows from each author that have survived and are still
+intact in the current revision:
+
+Author                     Rows      Stability          Age       % in comments
+Jacob                       212           20.8          1.8                6.13
+Norbert                     664           54.7          2.0                7.83
+Norbert Laszlo              208           44.1          5.3                6.25
+Oscar Helgesson             345           65.1          1.5               22.61
+Tina Samimian                43           29.9          1.3                0.00
+ceciliamichelsen             83           74.1          4.3                0.00
+eelinnilssson                92           30.7          2.7                0.00
+rebeckajakobsson             23           62.2          2.1                0.00
+
+The following history timeline has been gathered from the repository:
+
+Author                  2020W17    2020W18    2020W19    2020W20    2020W21
+Jacob                         +    +++++++     ++++++    ----+++         ++
+Norbert                   -----   ---+++++  -----++++  ----+++++   ----++++
+Norbert Laszlo        +++++++++
+Oscar Helgesson               .       ++++                  --++
+Tina Samimian                 +                     .          .          +
+ceciliamichelsen                       +++
+eelinnilssson                 .                ++++++                     .
+rebeckajakobsson              .                                .
+Modified Rows:              990        888        995       1851        826
+
+Author                  2020W22
+Norbert                      -+
+Oscar Helgesson        -----+++
+Modified Rows:              637
+
+The following files have an elevated cyclomatic complexity (in order of severity):
+DateIt/app/src/main/java/com/example/dateit/Company.java (55 in cyclomatic complexity)
+
+The following responsibilities, by author, were found in the current revision of
+the repository (comments are excluded from the line count, if possible):
+
+Jacob is mostly responsible for:
+    77 .../src/main/java/com/example/dateit/ui/mypage/NotificationsFragment.java
+    32 DateIt/app/src/main/java/com/example/dateit/ui/home/HomeFragment.java
+    30 DateIt/app/src/main/java/com/example/dateit/Company.java
+    24 .../main/java/com/example/dateit/ui/companies/CompanyDetailsFragment.java
+    13 DateIt/app/src/main/java/com/example/dateit/MainActivity.java
+    12 DateIt/app/src/main/java/com/example/dateit/JSONToCompanyReader.java
+    11 DateIt/app/src/main/java/com/example/dateit/CustomAdapter.java
+
+Norbert is mostly responsible for:
+   167 DateIt/app/src/main/java/com/example/dateit/CustomAdapter.java
+   128 ...p/src/main/java/com/example/dateit/ui/companies/DashboardFragment.java
+    91 DateIt/app/src/main/java/com/example/dateit/ui/home/faqFragment.java
+    67 DateIt/app/src/main/java/com/example/dateit/FilterCriterias.java
+    66 .../src/main/java/com/example/dateit/ui/mypage/NotificationsFragment.java
+    33 .../main/java/com/example/dateit/ui/companies/CompanyDetailsFragment.java
+    29 DateIt/app/src/main/java/com/example/dateit/Company.java
+    23 DateIt/app/src/main/java/com/example/dateit/ui/home/HomeFragment.java
+     8 DateIt/app/src/main/java/com/example/dateit/MainActivity.java
+
+Norbert Laszlo is mostly responsible for:
+    35 DateIt/app/src/main/java/com/example/dateit/ui/home/HomeFragment.java
+    27 DateIt/app/src/main/java/com/example/dateit/MainActivity.java
+    24 .../src/main/java/com/example/dateit/ui/mypage/NotificationsFragment.java
+    23 ...p/src/main/java/com/example/dateit/ui/companies/DashboardFragment.java
+    21 ...p/src/androidTest/java/com/example/dateit/ExampleInstrumentedTest.java
+    18 ...src/main/java/com/example/dateit/ui/mypage/NotificationsViewModel.java
+    18 DateIt/app/src/main/java/com/example/dateit/ui/home/HomeViewModel.java
+    17 .../src/main/java/com/example/dateit/ui/companies/DashboardViewModel.java
+    12 DateIt/app/src/test/java/com/example/dateit/ExampleUnitTest.java
+
+Oscar Helgesson is mostly responsible for:
+    79 DateIt/app/src/main/java/com/example/dateit/MainActivity.java
+    63 DateIt/app/src/main/java/com/example/dateit/Company.java
+    49 DateIt/app/src/main/java/com/example/dateit/JSONToCompanyReader.java
+    33 .../src/main/java/com/example/dateit/ui/mypage/NotificationsFragment.java
+    19 ...p/src/main/java/com/example/dateit/ui/companies/DashboardFragment.java
+    14 .../main/java/com/example/dateit/ui/companies/CompanyDetailsFragment.java
+     5 DateIt/app/src/main/java/com/example/dateit/CustomAdapter.java
+     2 DateIt/app/src/main/java/com/example/dateit/ui/home/faqFragment.java
+     1 ...src/main/java/com/example/dateit/ui/mypage/NotificationsViewModel.java
+     1 .../src/main/java/com/example/dateit/ui/companies/DashboardViewModel.java
+
+Tina Samimian is mostly responsible for:
+    36 DateIt/app/src/main/java/com/example/dateit/MainActivity.java
+     4 DateIt/app/src/main/java/com/example/dateit/Company.java
+     2 .../src/main/java/com/example/dateit/ui/mypage/NotificationsFragment.java
+     1 ...p/src/main/java/com/example/dateit/ui/companies/DashboardFragment.java
+
+ceciliamichelsen is mostly responsible for:
+    83 DateIt/app/src/main/java/com/example/dateit/Company.java
+
+eelinnilssson is mostly responsible for:
+    51 .../main/java/com/example/dateit/ui/companies/CompanyDetailsFragment.java
+    22 DateIt/app/src/main/java/com/example/dateit/Company.java
+    18 ...main/java/com/example/dateit/ui/companies/CompanyDetailsViewModel.java
+     1 ...p/src/main/java/com/example/dateit/ui/companies/DashboardFragment.java
+
+rebeckajakobsson is mostly responsible for:
+    19 .../main/java/com/example/dateit/ui/companies/CompanyDetailsFragment.java
+     2 ...p/src/main/java/com/example/dateit/ui/companies/DashboardFragment.java
+     2 DateIt/app/src/main/java/com/example/dateit/Company.java
+
+The following files were excluded from the statistics due to the specified
+exclusion patterns:
+DateIt/node_modules/python-shell/CHANGELOG.md
+DateIt/node_modules/gitinspector/gitinspector/metrics.py
+DateIt/node_modules/gitinspector/gitinspector/format.py
+DateIt/node_modules/gitinspector/gitinspector/translations/messages_pl.po
+DateIt/node_modules/gitinspector/stdeb.cfg
+DateIt/node_modules/gitinspector/gitinspector/output/__init__.py
+DateIt/node_modules/python-shell/test/python/echo_json.py
+DateIt/node_modules/gitinspector/.pylintrc
+DateIt/node_modules/gitinspector/setup.py
+DateIt/node_modules/gitinspector/gitinspector/translations/messages_sv.po
+DateIt/node_modules/gitinspector/gitinspector/translations/messages_de.po
+DateIt/node_modules/gitinspector/gitinspector/translations/messages_fr.po
+DateIt/node_modules/gitinspector/gitinspector/optval.py
+DateIt/node_modules/python-shell/package.json
+DateIt/node_modules/gitinspector/tests/resources/commented_file.tex
+DateIt/node_modules/gitinspector/gitinspector/output/changesoutput.py
+DateIt/node_modules/.bin/gitinspector
+DateIt/node_modules/gitinspector/gitinspector/html/html.footer
+DateIt/node_modules/gitinspector/CHANGES.txt
+DateIt/node_modules/gitinspector/README.md
+DateIt/node_modules/gitinspector/gitinspector/gravatar.py
+DateIt/node_modules/gitinspector/README.txt
+DateIt/node_modules/python-shell/test/python/echo_text.py
+DateIt/node_modules/gitinspector/gitinspector/translations/messages_es.po
+DateIt/node_modules/gitinspector/tests/__init__.py
+DateIt/node_modules/gitinspector/tests/resources/commented_file.cpp
+DateIt/node_modules/gitinspector/gitinspector/responsibilities.py
+DateIt/node_modules/gitinspector/gitinspector/gitinspector.py
+DateIt/node_modules/python-shell/test/python/echo_args.py
+DateIt/node_modules/gitinspector/gitinspector/output/responsibilitiesoutput.py
+DateIt/node_modules/python-shell/test/python/echo_binary.py
+DateIt/node_modules/python-shell/index.js
+DateIt/node_modules/gitinspector/gitinspector.py
+DateIt/node_modules/gitinspector/package.json
+DateIt/node_modules/gitinspector/gitinspector/filtering.py
+DateIt/node_modules/gitinspector/gitinspector/clone.py
+DateIt/node_modules/gitinspector/docs/gitinspector.html
+DateIt/node_modules/gitinspector/gitinspector/output/extensionsoutput.py
+DateIt/node_modules/gitinspector/docs/docbook-xsl.css
+DateIt/node_modules/gitinspector/gitinspector/translations/messages_zh.po
+DateIt/node_modules/gitinspector/docs/gitinspector.1
+DateIt/node_modules/gitinspector/gitinspector/translations/messages.pot
+DateIt/node_modules/gitinspector/gitinspector/interval.py
+DateIt/node_modules/gitinspector/gitinspector/terminal.py
+DateIt/node_modules/gitinspector/gitinspector/output/metricsoutput.py
+DateIt/node_modules/gitinspector/gitinspector/output/filteringoutput.py
+DateIt/node_modules/gitinspector/gitinspector/output/outputable.py
+DateIt/node_modules/gitinspector/LICENSE.txt
+DateIt/node_modules/gitinspector/gitinspector/html/html.header
+DateIt/node_modules/gitinspector/gitinspector/timeline.py
+DateIt/node_modules/gitinspector/gitinspector/comment.py
+DateIt/node_modules/python-shell/test/.jshintrc
+DateIt/node_modules/python-shell/test/python/exit-code.py
+DateIt/node_modules/gitinspector/gitinspector/translations/messages_it.po
+DateIt/node_modules/python-shell/README.md
+DateIt/node_modules/gitinspector/tests/test_comment.py
+DateIt/node_modules/gitinspector/gitinspector/extensions.py
+DateIt/node_modules/gitinspector/gitinspector/version.py
+DateIt/node_modules/gitinspector/gitinspector/output/timelineoutput.py
+DateIt/node_modules/python-shell/.npmignore
+DateIt/node_modules/python-shell/test/test-python-shell.js
+DateIt/node_modules/gitinspector/gitinspector/__init__.py
+DateIt/node_modules/gitinspector/gitinspector/basedir.py
+DateIt/node_modules/gitinspector/docs/gitinspector.txt
+DateIt/node_modules/gitinspector/gitinspector/output/blameoutput.py
+DateIt/node_modules/gitinspector/gitinspector/changes.py
+DateIt/node_modules/gitinspector/gitinspector/config.py
+DateIt/node_modules/python-shell/.jshintrc
+DateIt/node_modules/gitinspector/gitinspector.js
+DateIt/node_modules/gitinspector/gitinspector/blame.py
+DateIt/node_modules/python-shell/test/python/error.py
+DateIt/node_modules/gitinspector/gitinspector/help.py
+DateIt/node_modules/gitinspector/DESCRIPTION.txt
+DateIt/node_modules/gitinspector/gitinspector/localization.py
+DateIt/node_modules/gitinspector/MANIFEST.in
+
+The extensions below were found in the repository history (extensions used
+during statistical analysis are marked):
+* bat gradle gson html iml [java] json md pro properties stackdump txt xml
