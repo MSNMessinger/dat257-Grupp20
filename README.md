@@ -11,6 +11,8 @@ HOW TO RUN APK INSTRUCTIONS
 3) When download is finished you will get prompted by an option to install, click on install. If not, go to the file explorer and click on the downloaded apk file.
 4) During the installation process you will probably get a couple of warnings regarding installing an app from a unknown source /developer. Just ignore these and continue with the installation. (Your phone will "probably" not get possessed by an evil spirit, but you never know :/)
 
+## Navigation
+
 * *Code can be found in /DateIt/*
 
 * *Gitinspector statistics can be found under https://github.com/MSNMessinger/dat257-Grupp20/tree/master/stats*
@@ -24,7 +26,7 @@ HOW TO RUN APK INSTRUCTIONS
 * *Drive link: https://drive.google.com/open?id=1lSpLNiON3RgDaGF7Sg75K_MnkXZoIOLz*
 
 
-### Prerequisites
+## Prerequisites
 
 * *Either Android studios, java compiler and Android emulator*
 
