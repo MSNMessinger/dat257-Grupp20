@@ -21,27 +21,25 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
             android:isScrollContainer="true">
 
             <TextView
                 android:id="@+id/MyPage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:fontFamily="sans-serif"
+                android:background="@color/colorHeader"
+                android:padding="15dp"
                 android:text="@string/MyPage"
                 android:textAlignment="center"
-                android:textColor="@color/TextColorDark"
+                android:textColor="@color/TextColorLight"
                 android:textSize="26sp"
-                android:typeface="serif"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ListView
                 android:id="@+id/listOfNotes"
-                android:layout_width="410dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
@@ -51,6 +49,7 @@
                 android:headerDividersEnabled="true"
                 android:scrollbars="none"
                 android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleNotes">
 
@@ -61,39 +60,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/customborder"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:text="@string/MyPage_favourites"
                 android:textColor="@color/TextColorDark"
-                android:textSize="32sp"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/MyPage" />
 
             <ImageView
                 android:id="@+id/favoriteImageHeart"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginEnd="50dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/arrow_image_desc"
                 android:foregroundGravity="center"
+                android:padding="8dp"
                 android:src="@drawable/down_arrow_key"
                 app:layout_constraintBottom_toBottomOf="@+id/titleFavorites"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/titleFavorites" />
 
-            <TableRow
-                android:id="@+id/DividerLine1"
-                android:layout_width="match_parent"
-                android:layout_height="0.3dp"
-                android:layout_marginTop="5dp"
-                android:background="#444"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleFavorites"></TableRow>
-
 
             <ListView
                 android:id="@+id/listOfFavorites"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
@@ -136,34 +128,27 @@
                 android:id="@+id/titleNotes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
                 android:layout_marginTop="18dp"
+                android:background="@drawable/customborder"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
                 android:text="@string/Notes"
                 android:textColor="@color/TextColorDark"
-                android:textSize="32sp"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/listOfFavorites" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="0.3dp"
-                android:layout_marginTop="5dp"
-                android:background="#444"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleNotes" />
-
             <ImageView
                 android:id="@+id/arrowImg"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginEnd="50dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/arrow_image_desc"
                 android:foregroundGravity="center"
+                android:padding="8dp"
                 android:src="@drawable/down_arrow_key"
                 app:layout_constraintBottom_toBottomOf="@+id/titleNotes"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/titleNotes"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toTopOf="@+id/titleNotes" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

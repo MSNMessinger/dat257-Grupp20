@@ -19,7 +19,7 @@
     <string name="lunchList_location3_homePage">HC4</string>
     <string name="contactsTitle_homePage">Contacts</string>
     <string name="contactsMail_homePage">If you have any questions or concerns, please send an e-mail to <u>info@date-it.se</u></string>
-    <string name="contactsFb_homePage">Like us on <u>Facebook to</u> stay tuned!</string>
+    <string name="contactsFb_homePage">Like us on <u>Facebook</u> to stay tuned!</string>
     <string name="contactsAddress_homePage"><u>Sven Hultins gata 8, 412 58 Göteborg</u></string>
     <string name="CompanyName">CompanyName</string>
     <string name="GoToCompany">CompanyBtn</string>
@@ -72,4 +72,5 @@ If you choose to leave your résumé, remember that it is your way of marketing 
     <string name="MyPage">My page</string>
     <string name="AddFavoritesText">Add your favorites by clicking on the heart symbol in a company...</string>
     <string name="AddNoteText">Write a note on a company to make it appear here...</string>
+    <string name="arrow_image_desc">arrow image</string>
 </resources>
