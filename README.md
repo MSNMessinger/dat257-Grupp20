@@ -6,6 +6,10 @@ An android application with all the information you need on the fair and all com
 ### Apk download link: https://github.com/MSNMessinger/dat257-Grupp20/raw/master/DateIt.apk
 
 HOW TO RUN APK INSTRUCTIONS
+1) To run the app on your android phone just download the apk file from the link above. 
+2) You might have to enable installation of apps from third party in your phones app settings. In that case. Go to settings--> apps--> choose the app that you will use for downloading the apk. ex: google chrome. --> look for option in the advanced tab that says: "Install apps from external sources" and enable it.
+3) When download is finished you will get prompted by an option to install, click on install. If not, go to the file explorer and click on the downloaded apk file.
+4) During the process you will probably get a couple of warnings regarding installing an app from a unknown source /developer. Just ignore these and continue with the installation. (Your phone will "probably" not get possessed by an evil spirit, but you never know :/)
 
 * *Code can be found in /DateIt/*
 
