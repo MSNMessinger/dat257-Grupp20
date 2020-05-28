@@ -29,64 +29,43 @@
                 android:id="@+id/MyPage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:background="@color/colorHeader"
+                android:padding="15dp"
                 android:text="@string/MyPage"
                 android:textAlignment="center"
-                android:textSize="24sp"
-                android:typeface="serif"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ListView
-                android:id="@+id/listOfNotes"
-                style="@style/Widget.AppCompat.ListView.Menu"
-                android:layout_width="410dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_weight="1"
-                android:divider="#A3A3A8"
-                android:dividerHeight="1dp"
-                android:footerDividersEnabled="true"
-                android:headerDividersEnabled="true"
-                android:scrollbars="none"
-                android:textAlignment="viewStart"
+                android:textColor="@color/TextColorLight"
+                android:textSize="26sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleNotes">
-
-            </ListView>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/titleFavorites"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="45dp"
 
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/customborder"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="@string/MyPage_favourites"
+                android:textAlignment="viewStart"
                 android:textColor="@color/TextColorDark"
-                android:textSize="32sp"
+                android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/MyPage" />
 
+
             <ImageView
                 android:id="@+id/favoriteImageHeart"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="100dp"
-                android:src="@drawable/heart_logo"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:padding="8dp"
+                android:src="@drawable/arrowdown"
                 app:layout_constraintBottom_toBottomOf="@+id/titleFavorites"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/titleFavorites" />
-
-            <TableRow
-                android:id="@+id/DividerLine1"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:background="#444"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleFavorites"></TableRow>
-
+                app:layout_constraintTop_toTopOf="@+id/titleFavorites"
+                app:layout_constraintVertical_bias="1.0"/>
 
             <ListView
                 android:id="@+id/listOfFavorites"
@@ -110,11 +89,54 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="@string/AddFavoritesText"
+                android:textAlignment="center"
                 android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintEnd_toEndOf="@+id/listOfFavorites"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleFavorites" />
+
+            <TextView
+                android:id="@+id/titleNotes"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/customborder"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@string/Notes"
+                android:textColor="@color/TextColorDark"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/listOfFavorites" />
+
+            <ImageView
+                android:id="@+id/arrowImg"
+                android:layout_width="200dp"
+                android:layout_height="45dp"
+                android:padding="8dp"
+                android:src="@drawable/arrowdown"
+                app:layout_constraintBottom_toBottomOf="@+id/titleNotes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/titleNotes"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <ListView
+                android:id="@+id/listOfNotes"
+                style="@style/Widget.AppCompat.ListView.Menu"
+                android:layout_width="410dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:divider="#A3A3A8"
+                android:dividerHeight="1dp"
+                android:footerDividersEnabled="true"
+                android:headerDividersEnabled="true"
+                android:scrollbars="none"
+                android:textAlignment="viewStart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titleNotes">
+
+            </ListView>
 
             <TextView
                 android:id="@+id/addNoteText"
@@ -124,32 +146,8 @@
                 android:text="@string/AddNoteText"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/titleNotes" />
-
-            <TextView
-                android:id="@+id/titleNotes"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="30dp"
-                android:text="@string/Notes"
-                android:textColor="@color/TextColorDark"
-                android:textSize="32sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/listOfFavorites" />
-
-            <ImageView
-                android:id="@+id/arrowImg"
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="100dp"
-                android:src="@drawable/arrowdown"
-                app:layout_constraintBottom_toBottomOf="@+id/titleNotes"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/titleNotes"
-                app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

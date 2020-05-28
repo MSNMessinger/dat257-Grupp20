@@ -31,8 +31,8 @@ import java.util.List;
 public class NotificationsFragment extends Fragment {
     private CustomAdapter customAdapterNotes = null;
     private CustomAdapter customAdapterFavorites = null;
-    private ImageView heartImg;
-    private ImageView arrowImg;
+    private ImageView favImg;
+    private ImageView noteImg;
     private static boolean  showFavorites = true;
     private static boolean showNotes = true;
     private TextView addFavoritesText;
@@ -183,26 +183,26 @@ public class NotificationsFragment extends Fragment {
         final ListView notesList = (ListView)view.findViewById(R.id.listOfNotes);
 
 
-        heartImg = view.findViewById(R.id.favoriteImageHeart);
+        favImg = view.findViewById(R.id.favoriteImageHeart);
         if (showFavorites) {
-            heartImg.setImageResource(R.drawable.heart_logo);
+            favImg.setImageResource(R.drawable.arrowdown);
         } else {
-            heartImg.setImageResource(R.drawable.emptyheart);
+            favImg.setImageResource(R.drawable.arrowup);
         }
-        heartImg.callOnClick();
+        favImg.callOnClick();
 
-        heartImg.setOnClickListener(new View.OnClickListener() {
+        favImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(showFavorites) {
-                    heartImg.setImageResource(R.drawable.emptyheart);
+                    favImg.setImageResource(R.drawable.arrowup);
 
                     list.setVisibility(View.INVISIBLE);
                     makeListHide(list, true, view);
                     showFavorites = false;
 
                 } else {
-                    heartImg.setImageResource(R.drawable.heart_logo);
+                    favImg.setImageResource(R.drawable.arrowdown);
                     showFavorites = true;
                     list.setVisibility(View.VISIBLE);
                     makeListHide(list, false, view);
@@ -211,26 +211,26 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
-        arrowImg = view.findViewById(R.id.arrowImg);
+        noteImg = view.findViewById(R.id.arrowImg);
         if(showNotes) {
-            arrowImg.setImageResource(R.drawable.arrowdown);
+            noteImg.setImageResource(R.drawable.arrowdown);
         } else {
-            arrowImg.setImageResource(R.drawable.arrowup);
+            noteImg.setImageResource(R.drawable.arrowup);
         }
-        arrowImg.callOnClick();
+        noteImg.callOnClick();
 
-        arrowImg.setOnClickListener(new View.OnClickListener() {
+        noteImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(showNotes) {
-                    arrowImg.setImageResource(R.drawable.arrowup);
+                    noteImg.setImageResource(R.drawable.arrowup);
 
                     notesList.setVisibility(View.INVISIBLE);
                     makeListHide(notesList, true, view);
                     showNotes = false;
 
                 } else {
-                    arrowImg.setImageResource(R.drawable.arrowdown);
+                    noteImg.setImageResource(R.drawable.arrowdown);
                     showNotes = true;
                     notesList.setVisibility(View.VISIBLE);
                     makeListHide(notesList, false, view);

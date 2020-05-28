@@ -6,31 +6,22 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.dateit.Company;
 import com.example.dateit.CustomAdapter;
 import com.example.dateit.FilterCriterias;
-import com.example.dateit.JSONToCompanyReader;
-import com.example.dateit.MainActivity;
 import com.example.dateit.MainActivity;
 import com.example.dateit.R;
-import com.example.dateit.SubjectData;
-import com.example.dateit.ui.home.HomeFragment;
-import org.json.JSONException;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class DashboardFragment extends Fragment {

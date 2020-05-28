@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.solver.widgets.ConstraintHorizontalLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -25,9 +26,6 @@ import java.net.URL;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private ImageView fbImg;
-    private ImageView emailImg;
-    private ImageView findLocation;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -53,20 +51,13 @@ public class HomeFragment extends Fragment {
         view.findViewById(R.id.faqButton).setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View view) { /*
-                NavDirections action =
-                        HomeFragmentDirections
-                                .actionNavigationHomeToFaqFragment2();
-                Navigation.findNavController(view).navigate(action);
-
-             */
-            NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_navigation_home_to_fragment_second);
+            public void onClick(View view) {
+                NavHostFragment.findNavController(HomeFragment.this).navigate(R.id.action_navigation_home_to_fragment_second);
 
             }
         });
 
-        fbImg = (ImageView) view.findViewById(R.id.contactsFbInfo);
-        fbImg.setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.Facebook).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/DatE.IT/"));
@@ -74,11 +65,9 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        emailImg = (ImageView) view.findViewById(R.id.emailImg);
-        emailImg.setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.Mail).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setData(Uri.parse("mailto:"));
                 String[] to = {"info@date-it.se"};
@@ -89,22 +78,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        findLocation = (ImageView) view.findViewById(R.id.findLocation);
-
-        findLocation.setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.Location).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.se/maps/place/Sven+Hultins+gata+8,+412+58+G%C3%B6teborg/@57.6863409,11.9750353,17z/data=!3m1!4b1!4m5!3m4!1s0x464ff30bc7830b6b:0x8cbe97369df49c8e!8m2!3d57.6863381!4d11.977224"));
                 startActivity(browserIntent);
-
             }
         });
 
-
-
-       // NavHostFragment.findNavController(View);
-
-        //view.findViewById(R.id.faqButton).setOnClickListener(Navigation.createNavigateOnClickListener(R.id.fragment_faq, null));
     }
-
 }
