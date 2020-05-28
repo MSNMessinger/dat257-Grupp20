@@ -44,4 +44,4 @@ HOW TO RUN APK INSTRUCTIONS
 
 * **Elin Nilsson**
 
-* **Tina Samimian**
+* **Tina Samimian Tehrani**
